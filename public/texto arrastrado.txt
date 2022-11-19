@@ -1,0 +1,3 @@
+/home/equipo/Escritorio/Proyectos/Nextjs/Emprendimientos/Bases Responsives/base-landings-responsives/public/721x401.png
+/home/equipo/Escritorio/Proyectos/Nextjs/Emprendimientos/Bases Responsives/base-landings-responsives/public/722x402.png
+/home/equipo/Escritorio/Proyectos/Nextjs/Emprendimientos/Bases Responsives/base-landings-responsives/public/723x403.png

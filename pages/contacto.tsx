@@ -17,14 +17,14 @@ export default function Contacto() {
               marginHeight={0}
               marginWidth={0}
               scrolling="no"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7966.7486279744335!2d-76.23136757800356!3d3.2568482270100603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbce4790df82e4489!2sTec.%20Luis%20Miguel%20z.!5e0!3m2!1ses!2sco!4v1668818365436!5m2!1ses!2sco" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.9113768201938!2d-76.52845289385394!3d3.451316198837085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x25e806522fdb14e0!2sCentro%20de%20Cali!5e0!3m2!1ses-419!2sco!4v1668890076463!5m2!1ses-419!2sco"
             ></iframe>
             <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
               <div className="lg:w-1/2 px-6">
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                   Direccion
                 </h2>
-                <p className="mt-1">Carrera 7b 13-65 barrio colseguros</p>
+                <p className="mt-1">calle 15 con, Cra. 7, Cali, Valle del Cauca</p>
               </div>
               <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
@@ -96,7 +96,5 @@ export default function Contacto() {
         </div>
       </section>
     </Layout>
-
- 
   );
 }

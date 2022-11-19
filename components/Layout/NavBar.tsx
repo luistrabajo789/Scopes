@@ -55,24 +55,27 @@ export default function NavBar() {
         </Link>
       </div>
       {isActive === true && (
-        <ul className="fixed bg-white z-10 flex flex-col top-16 rounded-md md:hidden shadow-lg w-60  text-center gap-3 py-4">
-          <li >
-            <Link href="#header1">Headers</Link>
+        <ul className="fixed bg-white z-10 flex flex-col top-16 rounded-lg md:hidden shadow-lg w-60  text-center gap-3 py-4">
+        <li className="">
+            <Link href="/descargas">Descargas</Link>
+          </li>
+          <li className="">
+            <Link href="/productos">Productos</Link>
           </li>
           <li>
-            <Link href="#section2">Section 2</Link>
+            <Link href='/servicios'>Servicios</Link>
           </li>
           <li>
-            <Link href="#section3">Section 3</Link>
+            <Link href="/empresa">Empresa</Link>
+          </li>
+
+          <li>
+            <Link href="/contacto">Contacto</Link>
           </li>
           <li>
-            <Link href="#section4">Section 4</Link>
-          </li>
-          <li>
-            <Link href="#section5">Section 4</Link>
-          </li>
-          <li>
-            <Link href="#section6">Section 4</Link>
+            <Link className=" text-primary-100" href="/login">
+              Iniciar sesion
+            </Link>
           </li>
         </ul>
       )}

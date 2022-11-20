@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from './Footer';
 import NavBar from './NavBar';
 
-interface LayoutProps {
+export interface LayoutProps {
     children: React.ReactNode;
  }
  

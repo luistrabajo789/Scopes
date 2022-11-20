@@ -2,6 +2,8 @@ import Layout from "components/Layout/Layout";
 import React, { useState } from "react";
 
 import { signIn } from "next-auth/react"
+import { unstable_getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]";
 
 export default function Login() {
 
@@ -9,7 +11,7 @@ export default function Login() {
     email:'',
     password:'',
   })
-console.log(valueInput);
+ 
 
   const captureValue =({target:{name, value}}:any )=>{
     setvalueInput(
@@ -32,7 +34,7 @@ console.log(valueInput);
   return (
     <Layout>
       <section className="text-gray-600 body-font relative">
-        <div className="container  py-28 w-1/3 m-auto ">
+        <div className="container  py-28 md:w-1/2 lg:w-1/3 m-auto ">
           <div className="bg-white rounded-md shadow-2xl p-7 sm:px-8 sm:py-12 text-gray-600">
             <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
               Iniciar Sesion
@@ -141,4 +143,22 @@ console.log(valueInput);
       </section>
     </Layout>
   );
+}
+export async function getServerSideProps(context:any) {
+  const session = await unstable_getServerSession(context.req, context.res, authOptions)
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: {
+      session,
+    },
+  }
 }

@@ -2,10 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from 'public/Logo.png'
+import { useRouter } from 'next/router'
 
 export default function Footer() {
-  return (
-    <footer className="text-gray-600 body-font">
+
+  const router = useRouter()
+  const asPath = router.asPath
+
+return(
+  <div>
+    {asPath.includes(`/dashboard`) ? <div></div> : <footer className="text-gray-600 body-font ">
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
       <Link href='#!' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
@@ -116,6 +122,8 @@ export default function Footer() {
       </span>
     </div>
   </div>
-</footer>
-  )
+</footer>}
+</div>
+)
+  
 }

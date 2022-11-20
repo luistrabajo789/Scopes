@@ -5,10 +5,10 @@
 .btn-primary {
   @apply inline-flex items-center bg-primary-100 justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-md shadow-md  hover:bg-secondary-100 focus:outline-none;
 }
-
 nav ul li a{
   @apply hover:text-primary-100 
 }
+
 .inDown{
   animation: fadeInDown;
   animation-duration: 2s; 
@@ -26,6 +26,17 @@ nav ul li a{
   animation-duration: 2s; 
 }
 
+.openbtn:hover {
+  background-color: #444;
+}
 
+.openNav{ 
+  width: 250px;
+
+}
+
+.openNav ul li{ 
+  display: block;
+}
 
 

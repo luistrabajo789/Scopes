@@ -22,7 +22,7 @@ export default function Sidebar({ children }: LayoutProps) {
       >
         <ul id="ulSidenav" className="flex flex-col justify-around  px-7 py-20 h-full">
           <li className="hidden">
-            <Link href='/dashboard/agendar'>Agendar cita</Link>
+            <Link href='/dashboard/agendar/'>Agendar cita</Link>
           </li>
           <li className="hidden">
             <Link href='/dashboard/historial'>Historial de consultas</Link>
@@ -39,7 +39,7 @@ export default function Sidebar({ children }: LayoutProps) {
         </ul>
       </div>
 
-      <div id="btnSideBar" onClick={openNav} className="w-7 bg-slate-900 right-0 h-screen grid place-content-center text-white">||</div>
+      <div id="btnSideBar" onClick={openNav} className="w-7 bg-slate-500 right-0 h-screen grid place-content-center text-white">||</div>
 
       <div id="main" className="h-screen w-full pt-24  lg:px-7 bg-gray-200 overflow-y-auto">
       <div className="w-full   flex justify-center p-2 sm:p-5 md:px-7">

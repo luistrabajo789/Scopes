@@ -3,6 +3,7 @@ import { dataConsultas } from "utils/dataHistorialConsultas";
 
 export default function Table() {
   return (
+    <div className="overflow-x-auto w-full rounded-md shadow-md">
     <table className="w-full text-xs">
       <thead className="rounded-t-lg bg-gray-300">
         <tr className="text-right">
@@ -24,8 +25,8 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        {dataConsultas.map(consulta => 
-		<tr key={consulta.id} className="text-right border-b border-opacity-20 border-gray-300 bg-gray-100">
+        {dataConsultas.map((consulta, index) => 
+		<tr key={index} className="text-right border-b border-opacity-20 border-gray-300 bg-gray-100">
 		<td className="px-3 py-2 text-left">{consulta.id} </td>
 		<td className="px-3 py-2 text-left">{consulta.motivo} </td>	
 		<td className="px-3 py-2">{consulta.procedimiento}</td>
@@ -35,5 +36,6 @@ export default function Table() {
 			)}
       </tbody>
     </table>
+    </div>
   );
 }

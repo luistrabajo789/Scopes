@@ -41,7 +41,7 @@ export default function Header() {
             {/* Titles */}
             <div
               ref={item1.ref}
-              className="inLeft w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12"
+              className="inLeft pt-24 w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12"
             >
               <h2 className="max-w-lg mb-6 pt-16 font-sans text-4xl font-bold tracking-tight text-white sm:text-5xl sm:leading-none">
                 Soporte Tecnico Remoto
@@ -68,7 +68,7 @@ export default function Header() {
             {/* Form */}
             <div
               ref={item2.ref}
-              className="inRight w-full pt-10 max-w-xl xl:px-8 xl:w-5/12"
+              className="inRight w-full pt-10 max-w-xl xl:px-8 xl:w-5/12 {}"
             >
              {session?.user ? '': <Register /> }
             </div>

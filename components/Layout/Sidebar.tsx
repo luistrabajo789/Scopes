@@ -10,14 +10,15 @@ export default function Sidebar({ children }: LayoutProps) {
     const mySidebar = document.getElementById("mySidebar");
 
     mySidebar?.classList.toggle("openNav");
+
   }
 
   return (
     <aside className="flex">
       <div
-        onClick={openNav}
+ 
         id="mySidebar"
-        className="sidebar h-screen w-10  pt-16 shadow-xl"
+        className="sidebar h-screen w-0 pt-16 shadow-xl flex bg-white"
       >
         <ul id="ulSidenav" className="flex flex-col justify-around  px-7 py-20 h-full">
           <li className="hidden">
@@ -36,11 +37,12 @@ export default function Sidebar({ children }: LayoutProps) {
             <Link href='/api/auth/signout'>Cerrar Sesion</Link>
           </li>
         </ul>
-
       </div>
 
-      <div id="main" className="h-screen w-full pt-24  lg:px-10 bg-gray-200 overflow-y-auto">
-      <div className="w-full bg-slate-600 flex justify-center p-2 sm:p-10">
+      <div id="btnSideBar" onClick={openNav} className="w-7 bg-slate-900 right-0 h-screen grid place-content-center text-white">||</div>
+
+      <div id="main" className="h-screen w-full pt-24  lg:px-7 bg-gray-200 overflow-y-auto">
+      <div className="w-full   flex justify-center p-2 sm:p-5 md:px-7">
         {children}
         </div>
       </div>

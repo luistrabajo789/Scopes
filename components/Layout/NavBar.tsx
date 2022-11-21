@@ -12,8 +12,6 @@ export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
   const { data: session, status } = useSession();
   const [dropdown, setDropdown] = useState(false);
- 
-
   const router = useRouter();
 
   const activeDropdown = () => {
@@ -24,6 +22,7 @@ export default function NavBar() {
   };
 
   return (
+    
     <nav className=" z-50 fixed w-full top-0 flex bg-white justify-between bg-trnsparent shadow-md md:text-md">
       <div className="grid place-content-center ml-6 text-lg">
         <Link href="/">
@@ -53,11 +52,11 @@ export default function NavBar() {
               onClick={activeDropdown}
               className=" text-primary-100"
               href={session?.user ? "#!" : "/login"}
-            >
-              {session?.user ? session.user.name! : "Iniciar Sesion"}
+            >     
+              {session?.user ?   <Image className="rounded-full" src={session?.user?.image!} width={32} height={32} alt='foto'/> : "Iniciar Sesion"}
             </Link>
             {session?.user && dropdown===true && (
-              <ul className="fixed bg-white rounded-md p-5 mt- right-10 shadow-xl">
+              <ul  className="fixed bg-white rounded-md p-5 mt- right-10 shadow-xl">
                 <li className="py-2">
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
@@ -70,6 +69,7 @@ export default function NavBar() {
               </ul>
             )}
           </li>
+   
         </ul>
       </div>
       <div className="block w-16 md:hidden p-3">
@@ -101,7 +101,7 @@ export default function NavBar() {
               className=" text-primary-100"
               href={session?.user ? "#!" : "/login"}
             >
-              {session?.user ? session.user.name! : "Iniciar Sesion"}
+              {session?.user ? <div className="flex justify-center"><Image className="rounded-full" src={session?.user?.image!} width={32} height={32} alt='foto'/></div>: "Iniciar Sesion"}
             </Link>
             {session?.user && dropdown===true && (
               <ul className="fixed bg-white rounded-md p-5 shadow-xl  ">

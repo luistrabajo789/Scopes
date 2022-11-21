@@ -1,72 +1,106 @@
-import React from 'react'
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import React from "react";
 
 export default function Step1Form() {
+  
+  const {data:session, status}=useSession()
+
   return (
-
-    <form  action="" className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
-    <div className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
+    <form
+      action=""
+      className="container flex flex-col mx-auto  ng-untouched shadow-md ng-pristine ng-valid"
+    >
+      <div className="grid grid-cols-4 gap-6  p-10  rounded-md shadow-sm bg-gray-100">
         <div className="space-y-2 col-span-full lg:col-span-1">
-            <p className="font-medium">Personal Inormation</p>
-            <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
+        <Image className="rounded-full" src={session?.user?.image!} width={60} height={60} alt='foto'/>
+          <p className="font-medium">Informacion Basica</p>
+          <p className="text-xs">
+            Por favor complete los siguientes datos para continuar
+          </p>
+          <div>
+ 
+          </div>
         </div>
         <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-            <div className="col-span-full sm:col-span-3">
-                <label htmlFor="firstname" className="text-sm">First name</label>
-                <input id="firstname" type="text" placeholder="First name" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full sm:col-span-3">
-                <label htmlFor="lastname" className="text-sm">Last name</label>
-                <input id="lastname" type="text" placeholder="Last name" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full sm:col-span-3">
-                <label htmlFor="email" className="text-sm">Email</label>
-                <input id="email" type="email" placeholder="Email" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full">
-                <label htmlFor="address" className="text-sm">Address</label>
-                <input id="address" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full sm:col-span-2">
-                <label htmlFor="city" className="text-sm">City</label>
-                <input id="city" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full sm:col-span-2">
-                <label htmlFor="state" className="text-sm">State / Province</label>
-                <input id="state" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full sm:col-span-2">
-                <label htmlFor="zip" className="text-sm">ZIP / Postal</label>
-                <input id="zip" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
+          <div className="col-span-full sm:col-span-3">
+            <label htmlFor="firstname" className="text-sm">
+              Nombres
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={session?.user?.name!}
+              required
+              className="w-full rounded-md  border-gray-300 p-2 text-gray-900"
+            />
+          </div>
+          <div className="col-span-full sm:col-span-3">
+            <label htmlFor="lastname" className="text-sm">
+              Telefono
+            </label>
+            <input
+              name="phone"
+              required
+              id="phone"
+              type="text"
+              placeholder="3121231234"
+              className="w-full rounded-md  border-gray-300 p-2 text-gray-900"
+            />
+          </div>
+          <div className="col-span-full sm:col-span-3">
+            <label htmlFor="email" className="text-sm">
+              Email
+            </label>
+            <input
+              name="email"
+              required
+              id="email"
+              type="email"
+              value={session?.user?.email!}
+              placeholder="Email"
+              className="w-full rounded-md   border-gray-300 p-2 text-gray-900"
+            />
+          </div>
+          <div className="col-span-full">
+            <label htmlFor="address" className="text-sm">
+              Direccion
+            </label>
+            <input
+              name="address"
+              id="address"
+              type="text"
+              placeholder=""
+              className="w-full rounded-md    border-gray-300 p-2 text-gray-900"
+            />
+          </div>
+          <div className="col-span-full sm:col-span-2">
+            <label htmlFor="city" className="text-sm">
+              Ciudad
+            </label>
+            <input
+              required
+              id="city"
+              type="text"
+              placeholder=""
+              className="w-full rounded-md   border-gray-300 p-2 text-gray-900"
+            />
+          </div>
+          <div className="col-span-full sm:col-span-2">
+            <label htmlFor="state" className="text-sm">
+              Departamento
+            </label>
+            <input
+              required
+              id="state"
+              type="text"
+              placeholder=""
+              className="w-full rounded-md   border-gray-300 p-2 text-gray-900"
+            />
+          </div>
         </div>
-    </div>
-    <div className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
-        <div className="space-y-2 col-span-full lg:col-span-1">
-            <p className="font-medium">Profile</p>
-            <p className="text-xs">Adipisci fuga autem eum!</p>
-        </div>
-        <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-            <div className="col-span-full sm:col-span-3">
-                <label htmlFor="username" className="text-sm">Username</label>
-                <input id="username" type="text" placeholder="Username" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full sm:col-span-3">
-                <label htmlFor="website" className="text-sm">Website</label>
-                <input id="website" type="text" placeholder="https://" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900" />
-            </div>
-            <div className="col-span-full">
-                <label htmlFor="bio" className="text-sm">Bio</label>
-                <textarea id="bio" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-gray-300 text-gray-900"></textarea>
-            </div>
-            <div className="col-span-full">
-                <label htmlFor="bio" className="text-sm">Photo</label>
-                <div className="flex items-center space-x-2">
-                    <img src="https://source.unsplash.com/30x30/?random" alt="" className="w-10 h-10 rounded-full bg-gray-500 bg-gray-300" />
-                    <button type="button" className="px-4 py-2 border rounded-md border-gray-800">Change</button>
-                </div>
-            </div>
-        </div>
-    </div></form>
-
-  )
+      </div>
+    </form>
+  );
 }

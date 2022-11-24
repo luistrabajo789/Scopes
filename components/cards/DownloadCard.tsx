@@ -1,17 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ObjectCardDownload } from "pages/descargas";
 import React from "react";
-import { ObjectCard } from "utils/dataPages/dataPageDownload";
 
 
-export default function DownloadCard({ image, titleCard, descriptionCard, link, alt }:ObjectCard): JSX.Element {
+
+export default function DownloadCard({ image, titleCard, descriptionCard, link, alt }:ObjectCardDownload): JSX.Element {
+  
+ 
+  
+
   return (
     <div className="p-4 md:w-1/3">
       <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
         <Image
           className="lg:h-48 md:h-36 w-full object-cover object-center"
-          src={image}
+          src={image.src}
           alt={alt}
+          width={100}
+          height={100}
         />
         <div className="p-6">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">

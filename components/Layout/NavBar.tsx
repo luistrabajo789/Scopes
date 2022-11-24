@@ -5,7 +5,7 @@ import menu from "public/Menu.png";
 import logo from "public/Logo.png";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-
+import profile from 'public/profile.jpg'
 
 
 export default function NavBar() {
@@ -51,9 +51,9 @@ export default function NavBar() {
             <Link
               onClick={activeDropdown}
               className=" text-primary-100"
-              href={session?.user ? "#!" : "/login"}
+              href={ session?.user ? "#!" : "/login"}
             >     
-              {session?.user ?   <Image className="rounded-full" src={session?.user?.image!} width={32} height={32} alt='foto'/> : "Iniciar Sesion"}
+              {session?.user ? <Image className="rounded-full" src={ session?.user?.image! || profile } width={32} height={32} alt='foto'/> : "Iniciar Sesion"}
             </Link>
             {session?.user && dropdown===true && (
               <ul  className="fixed bg-white rounded-md p-5 mt- right-10 shadow-xl">
@@ -101,7 +101,7 @@ export default function NavBar() {
               className=" text-primary-100"
               href={session?.user ? "#!" : "/login"}
             >
-              {session?.user ? <div className="flex justify-center"><Image className="rounded-full" src={session?.user?.image!} width={32} height={32} alt='foto'/></div>: "Iniciar Sesion"}
+              {session?.user ? <div className="flex justify-center"><Image className="rounded-full" src={session?.user?.image! || profile} width={32} height={32} alt='foto'/></div>: "Iniciar Sesion"}
             </Link>
             {session?.user && dropdown===true && (
               <ul className="fixed bg-white rounded-md p-5 shadow-xl  ">

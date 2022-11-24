@@ -1,35 +1,37 @@
 import Layout from "components/Layout/Layout";
 import React, { useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useForm } from "react-hook-form";
 
-import { signIn } from "next-auth/react"
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 
+
 export default function Login() {
 
-  const [valueInput, setvalueInput] = useState({
-    email:'',
-    password:'',
-  })
- 
 
-  const captureValue =({target:{name, value}}:any )=>{
-    setvalueInput(
-      {
-        ...valueInput,
-        [name]:value
-      },
-    )
-  }
-  const submitForm =(e:any)=>{
-   e.preventDefault()
+  
+  const {
+    handleSubmit,
+    register,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+
+  
+
+  const submitHandler = async ({ email, password }:any) => {
     try {
-      
-    } catch (error) {
-      console.log(error);
-      
+      const result = await signIn("credentials", {
+        redirect: true,
+        email,  
+        password,
+      });
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   return (
     <Layout>
@@ -39,17 +41,22 @@ export default function Login() {
             <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
               Iniciar Sesion
             </h3>
-            <form onSubmit={(e)=>submitForm(e)}>
+            <form onSubmit={handleSubmit(submitHandler)}>
               <div className="mb-1 sm:mb-2">
                 <label
-      
                   htmlFor="email"
                   className="inline-block mb-1 font-medium"
                 >
                   Email
                 </label>
                 <input
-                  onChange={(e)=>captureValue(e)}
+                  {...register("email", {
+                    required: "Please enter email",
+                    pattern: {
+                      value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
+                      message: "Please enter valid email",
+                    },
+                  })}
                   autoComplete="off"
                   required
                   type="email"
@@ -66,13 +73,24 @@ export default function Login() {
                   Password
                 </label>
                 <input
-                  onChange={captureValue}
+                  {...register("password", {
+                    required: "Please enter password",
+                    minLength: {
+                      value: 6,
+                      message: "password is more than 5 chars",
+                    },
+                  })}
                   required
                   type="password"
                   className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
                   id="password"
                   name="password"
                 />
+                {errors.password && (
+                  <div className="text-red-500 ">
+                    min. 6 caracteres
+                  </div>
+                )}
               </div>
               <div className="mt-7">
                 <button type="submit" className="btn-primary">
@@ -92,7 +110,7 @@ export default function Login() {
               </div>
               <div>
                 <button
-                onClick={() => signIn("google")}
+                  onClick={() => signIn("google")}
                   type="submit"
                   className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                 >
@@ -144,21 +162,25 @@ export default function Login() {
     </Layout>
   );
 }
-export async function getServerSideProps(context:any) {
-  const session = await unstable_getServerSession(context.req, context.res, authOptions)
+export async function getServerSideProps(context: any) {
+  const session = await unstable_getServerSession(
+    context.req,
+    context.res,
+    authOptions
+  );
 
   if (session) {
     return {
       redirect: {
-        destination: '/dashboard',
+        destination: "/dashboard",
         permanent: false,
       },
-    }
+    };
   }
 
   return {
     props: {
       session,
     },
-  }
+  };
 }

@@ -4,6 +4,7 @@ import Step1Form from "components/dashboard/steps/Step1Form";
 import React from "react";
 import CheckStep from "components/dashboard/steps/CheckStep";
 
+
 export default function Datos() {
   return (
     <Layout>

@@ -22,7 +22,7 @@ export default function Sidebar({ children }: LayoutProps) {
       >
         <ul id="ulSidenav" className="flex flex-col justify-around  px-7 py-20 h-full">
           <li className="hidden">
-            <Link href='/dashboard/agendar/'>Agendar cita</Link>
+            <Link href='/dashboard/agendar/datos'>Agendar cita</Link>
           </li>
           <li className="hidden">
             <Link href='/dashboard/historial'>Historial de consultas</Link>

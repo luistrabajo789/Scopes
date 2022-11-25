@@ -25,7 +25,7 @@ export default function Sidebar({ children }: LayoutProps) {
             <Link href='/dashboard/agendar/datos'>Agendar cita</Link>
           </li>
           <li className="hidden">
-            <Link href='/dashboard/historial'>Historial de consultas</Link>
+            <Link href='/dashboard/historial/consultas'>Historial de consultas</Link>
           </li>
           <li className="hidden">
             <Link href='/dashboard/compras'>Historial compras</Link>

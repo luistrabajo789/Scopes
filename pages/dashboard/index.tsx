@@ -1,7 +1,8 @@
 import Layout from "components/Layout/Layout";
 import Sidebar from "components/Layout/Sidebar";
+
 import { unstable_getServerSession } from "next-auth";
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 
 export default function Index() {
@@ -58,4 +59,3 @@ export default function Index() {
     </Layout>
   );
 }
-

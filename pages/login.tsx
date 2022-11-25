@@ -172,7 +172,7 @@ export async function getServerSideProps(context: any) {
   if (session) {
     return {
       redirect: {
-        destination: "/dashboard",
+        destination: "/dashboard/agendar/datos",
         permanent: false,
       },
     };

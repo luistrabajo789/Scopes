@@ -2,11 +2,8 @@ import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import profile from "public/profile.jpg";
 import { useEffect, useState } from "react";
-import { unstable_getServerSession } from "next-auth";
-import { authOptions } from "pages/api/auth/[...nextauth]";
-import { getSession } from "next-auth/react";
 
-type IntUser = {
+type TyUser = {
   _id: string;
   name: string;
   email: string;
@@ -20,34 +17,50 @@ type IntUser = {
 };
 
 export default function Step1Form() {
-  const [dataUser, setdataUser] = useState<IntUser>()
+  const [dataUser, setdataUser] = useState<TyUser>();
+  const [stateForm, setstateForm] = useState(false);
+
+  //Hook para manejar el formulario
   const {
     register,
-    handleSubmit,
     watch,
+    handleSubmit,
     formState: { errors },
   } = useForm();
-console.log(dataUser);
 
-useEffect(() => {
-(async()=>{
-  const res = await fetch("http://localhost:3000/api/user");
-  const datajs = await res.json();
-  setdataUser(datajs)
-})()
+  //funcion para traer los datos de usuario
+  useEffect(() => {
+    (async () => {
+      const res = await fetch("http://localhost:3000/api/user");
+      const datajs = await res.json();
+      setdataUser(datajs);
+    })();
+  }, []);
 
-}, [])
-
-
-  const onSubmit = async () => {
+  // Funcion para actualizar de datos del usuario
+  const onSubmit = async (data: Object) => {
     try {
-    } catch (error) {}
+      const res = await fetch(
+        `http://localhost:3000/api/user/${dataUser?._id}`,
+        {
+          method: "PUT",
+          headers: {
+            Accept: "application-json",
+            "Content-Type": "application-json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      const resBackend = await res.json();
+      resBackend.message === "complete" && setstateForm(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      action=""
       className="container flex flex-col mx-auto  ng-untouched shadow-md ng-pristine ng-valid"
     >
       <div className="grid grid-cols-4 gap-6  p-10  rounded-md shadow-sm bg-gray-100">
@@ -71,129 +84,86 @@ useEffect(() => {
               Nombres
             </label>
             <input
-              {...register("name", {
-                required: true,
-                minLength: { value: 4, message: "Minimo de caractares 4" },
-              })}
-              value={dataUser?.name}
+              {...register("name")}
+              placeholder={dataUser?.name}
+              required
               id="name"
               name="name"
               type="text"
               className="w-full rounded-md  border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
             />
-            {errors.name && (
-              <span className="text-red-500 text-sm py-2">
-                Campo Obligatorio
-              </span>
-            )}
           </div>
           <div className="col-span-full sm:col-span-3">
             <label htmlFor="lastname" className="text-sm">
               Telefono
             </label>
             <input
-              {...register("phone", {
-                required: true,
-                minLength: { value: 4, message: "Minimo de caractares 4" },
-              })}
+              {...register("phone")}
               name="phone"
+              required
               id="phone"
               type="text"
               className="w-full rounded-md  border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
             />{" "}
-            {errors.phone && (
-              <span className="text-red-500 text-sm py-2">
-                Campo Obligatorio
-              </span>
-            )}
           </div>
           <div className="col-span-full sm:col-span-3">
             <label htmlFor="email" className="text-sm">
               Email
             </label>
             <input
-              {...register("email", {
-                required: true,
-                minLength: { value: 4, message: "Minimo de caractares 4" },
-              })}
-              value={dataUser?.email}
+              {...register("email")}
+              placeholder={dataUser?.email}
               name="email"
               id="email"
-              type="email"
-              placeholder="Email"
+              required
+              type="text"
               className="w-full rounded-md border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
             />{" "}
-            {errors.email && (
-              <span className="text-red-500 text-sm py-2">
-                Campo Obligatorio
-              </span>
-            )}
           </div>
           <div className="col-span-full">
             <label htmlFor="address" className="text-sm">
               Direccion
             </label>
             <input
-              {...register("address", {
-                required: true,
-                minLength: { value: 4, message: "Minimo de caractares 4" },
-              })}
+              {...register("adress")}
               name="address"
               id="address"
+              required
               type="text"
               placeholder=""
               minLength={4}
               className="w-full rounded-md  border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
             />
-            {errors.address && (
-              <span className="text-red-500 text-sm py-2">
-                Campo Obligatorio
-              </span>
-            )}
           </div>
           <div className="col-span-full sm:col-span-2">
             <label htmlFor="city" className="text-sm">
               Ciudad
             </label>
             <input
-              {...register("city", {
-                required: true,
-                minLength: { value: 4, message: "Minimo de caractares 4" },
-              })}
+              {...register("city")}
               name="city"
               id="city"
+              required
               type="text"
               placeholder=""
               minLength={4}
               className="w-full rounded-md   border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
             />
-            {errors.city && (
-              <span className="text-red-500 text-sm py-2">
-                Campo Obligatorio
-              </span>
-            )}
           </div>
           <div className="col-span-full sm:col-span-2">
             <label htmlFor="state" className="text-sm">
               Departamento
             </label>
             <input
-              {...register("state", {
-                required: true,
-                minLength: { value: 4, message: "Minimo de caractares 4" },
-              })}
+              {...register("state")}
               name="state"
               id="state"
               type="text"
+              required
               placeholder=""
               minLength={4}
               className="w-full rounded-md   border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
             />
-            {errors.state && (
-              <span className="text-red-500 text-sm py-2">
-                Campo Obligatorio
-              </span>
-            )}
           </div>
         </div>
       </div>
@@ -208,5 +178,3 @@ useEffect(() => {
     </form>
   );
 }
-
-

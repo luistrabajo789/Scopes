@@ -5,10 +5,8 @@ import db from "utils/db";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getSession({ req });
-  const { method, body } = req;
-
-
-  !session?.user && res.json('No ha iniciado session')
+  
+  !session?.user && res.status(401).json({message: 'Se requiere authentificacion'})
 
     try {
       await db.connect();

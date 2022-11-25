@@ -1,3 +1,4 @@
+import consultas from "models/Consultas";
 import users from "models/User";
 import User from "models/User";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -11,8 +12,10 @@ const handler = async (req:NextApiRequest, res:NextApiResponse)=>{
     await db.connect()
     await users.deleteMany()
     await users.insertMany(data.users)
+    await consultas.deleteMany()
+    await consultas.insertMany(data.historialConsultas)
     await db.disconnect()
-    res.send({message: 'Usuarios creados con exitos'})
+    res.send({message: 'Datos creados con exito'})
 }
 
 export default handler

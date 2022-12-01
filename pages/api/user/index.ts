@@ -6,15 +6,15 @@ import db from "utils/db";
 var bodyParser = require("body-parser");
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { method} = req;
+  const { method } = req;
   const session = await getSession({ req });
-  console.log(method, req.body);
+  console.log('log metodo: '+method, 'y este es el body '+req.body);
   
-
+  //trae los datos del usuario de la base de datos
   if (method === "GET") {
     await db.connect();
     const userData = await users.findOne({ email: session?.user?.email! });
-    console.log(userData);
+    console.log('LOG del user data: '+userData);
     !session?.user &&
       res.status(401).json({ message: "Se requiere authentificacion" });
     userData === null && res.status(401).json({ message: "not register" });
@@ -30,6 +30,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       email: req.body.email,
       address: req.body.address,
       city: req.body.city,
+      complete:req.body.complete,
       state: req.body.state,
     });
 

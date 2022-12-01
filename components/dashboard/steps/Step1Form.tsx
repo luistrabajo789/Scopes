@@ -4,8 +4,25 @@ import profile from "public/profile.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
-type TyUser = {
+/**
+ *
+ * @property {string} _id - The unique identifier for the user.
+ * @property {string} name - The name of the user.
+ * @property {string} email - The email address of the user.
+ * @property {string} phone - The phone number of the user.
+ * @property {string} password - The password for the user.
+ * @property {string} address - The user's address
+ * @property {string} city - The city the user lives in.
+ * @property {string} state - The state of the user.
+ * @property {number} __v - The version key is a property that Mongoose adds to your schema by default.
+ * The version key is used to implement optimistic locking.
+ * @property {string} createdAt - The date and time the user was created.
+ * @property {string} updatedAt - The date and time when the user was last updated.
+ * @property {string} complete - This is a string that will be either "true" or "false".
+ */
+export type TyUser = {
   _id: string;
   name: string;
   email: string;
@@ -17,21 +34,18 @@ type TyUser = {
   __v?: number;
   createdAt: string;
   updatedAt: string;
+  complete: string;
 };
 
 export default function Step1Form() {
+  const router = useRouter();
   const { data: session, status } = useSession();
   const [dataUser, setdataUser] = useState<TyUser>();
   const [stateForm, setstateForm] = useState(false);
   const [userRegister, setUserRegister] = useState({
-    register:true,
-    requiredPass:false 
+    register: true,
+    requiredPass: false,
   });
-  console.log('Usuario registrado ? : '+ userRegister.register);
- 
-  
-
-  //Hook para manejar el formulario
   const {
     register,
     watch,
@@ -39,57 +53,55 @@ export default function Step1Form() {
     formState: { errors },
   } = useForm();
 
-  //funcion para traer los datos de usuario
+  /* A useEffect hook that is being used to fetch data from the backend. */
   useEffect(() => {
     (async () => {
       await axios
         .get("http://localhost:3000/api/user")
         .then((res) => {
-          console.log(res);
           setdataUser(res.data);
+          res.data.complete === "true" &&
+            router.push("/dashboard/agendar/motivo");
         })
         .catch((error) => {
           if (error.response.data.message === "not register") {
             setUserRegister({
               ...userRegister,
-              requiredPass:true
+              register: false,
+              requiredPass: true,
             });
           }
         });
     })();
-  }, []);
+  }, [userRegister]);
 
-  // Funcion para actualizar de datos del usuario
-  const onSubmitPut = async (data: Object) => {
-    console.log('AQUI LLEGA EL ID'+dataUser?._id);
-    
-    console.log("consultando...");
+  /**
+   * A function that is used to register a user or update the data of a user.
+   * @param {Object} [data] - The data that is passed to the form.
+   */
+  const onSubmit = async (data?: Object) => {
+    if (userRegister.register === true) {
+      console.log("Entramos en en el put");
+      try {
+        const res = await fetch(
+          `http://localhost:3000/api/user/${dataUser?._id}`,
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            method: "PUT",
+            body: JSON.stringify(data),
+          }
+        );
+        const resBackend = await res.json();
+        console.log(resBackend);
 
-    try {
-      const res = await fetch(
-        `http://localhost:3000/api/user/${dataUser?._id}`,
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          method: "PUT",
-          body: JSON.stringify(data),
-        }
-      );
-      const resBackend = await res.json();
-      console.log(resBackend);
-
-      resBackend.message === "OK" && setstateForm(true);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const onSubmitPost = async (data: Object) => {
-    console.log("consultando...");
-
-    try {
+        resBackend.message === "OK" && setstateForm(true);
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (userRegister.register === false) {
       const res = await fetch("http://localhost:3000/api/user", {
         headers: {
           Accept: "application/json",
@@ -101,18 +113,27 @@ export default function Step1Form() {
       const resBackend = await res.json();
       console.log(resBackend);
 
-      resBackend.message === "OK" && setstateForm(true);
-    } catch (error) {
-      console.log(error);
+      if (resBackend.message === "OK") {
+        setstateForm(true);
+        setUserRegister({
+          ...userRegister,
+          register: true,
+          requiredPass: false,
+        });
+      }
     }
   };
+
+  /**
+   * It's a function that, when called, will push the user to the next step of the booking process
+   */
+  const completeStep = () => {
+    router.push("/dashboard/agendar/motivo");
+  };
+
   return (
     <form
-      onSubmit={
-        userRegister.register === true
-          ? handleSubmit(onSubmitPut)
-          : handleSubmit(onSubmitPost)
-      }
+      onSubmit={handleSubmit(onSubmit)}
       className="container flex flex-col mx-auto  ng-untouched shadow-md ng-pristine ng-valid"
     >
       <div className="grid grid-cols-4 gap-6  p-10  rounded-md shadow-sm bg-gray-100">
@@ -130,6 +151,7 @@ export default function Step1Form() {
           </p>
           <div></div>
         </div>
+
         <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
           {/* name */}
           <div className="col-span-full sm:col-span-3">
@@ -161,7 +183,7 @@ export default function Step1Form() {
               Telefono
             </label>
             <input
-              {...register("phone", { required: true, minLength: 4 })}
+              {...register("phone", { required: true, minLength: 9 })}
               placeholder={dataUser?.phone}
               name="phone"
               id="phone"
@@ -175,7 +197,7 @@ export default function Step1Form() {
             )}
             {errors.phone?.type === "minLength" && (
               <span className="text-red-500 text-xs">
-                Require minimo 4 caracteres
+                Require minimo 9 caracteres
               </span>
             )}
           </div>
@@ -185,16 +207,13 @@ export default function Step1Form() {
               Email
             </label>
             <input
-              {...register("email", {
-                required: "Confirme su email por favor",
-                minLength: 8,
-              })}
-              placeholder={dataUser?.email || session?.user?.email!}
+              {...register("email")}
+              value={dataUser?.email || session?.user?.email!}
               name="email"
               id="email"
-              type="text"
+              readOnly
               aria-invalid={errors.email ? "true" : "false"}
-              className="w-full rounded-md border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
+              className="w-full rounded-md  bg-gray-300 border-gray-300 p-2 text-gray-900"
             />
             {errors.email && (
               <p role="alert" className="text-red-500 text-xs">
@@ -215,17 +234,17 @@ export default function Step1Form() {
               </label>
               <input
                 {...register("password", {
-                  required: "Contraseña porfavor",
+                  required: "Escribe una nueva contraseña porfavor",
                   minLength: 6,
                 })}
-                name="v"
+                name="password"
                 id="password"
                 type="password"
                 className="w-full rounded-md border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
               />
-              {errors.password?.type === "minLength" && (
+              {errors?.password?.type === "requerid" && (
                 <span className="text-red-500 text-xs">
-                  Require minimo 4 caracteres
+                  Este campo es requerido
                 </span>
               )}
             </div>
@@ -305,6 +324,16 @@ export default function Step1Form() {
               </span>
             )}
           </div>
+          <div className="col-span-full sm:col-span-2">
+            <input
+              hidden
+              {...register("complete")}
+              value="true"
+              name="complete"
+              id="complete"
+              className="w-full rounded-md   border-2 border-gray-300 focus:outline-primary-100 p-2 text-gray-900"
+            />
+          </div>
         </div>
       </div>
       {/* buttons */}
@@ -318,7 +347,8 @@ export default function Step1Form() {
         {stateForm === true && (
           <button
             className="rounded-md px-7 py-3 bg-secondary-100 text-white"
-            type="submit"
+            type="button"
+            onClick={completeStep}
           >
             Continuar
           </button>

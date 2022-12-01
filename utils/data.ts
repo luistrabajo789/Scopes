@@ -10,6 +10,7 @@ const data = {
       address: "",
       city: "",
       state: "",
+      complete:""
     },
     {
       name: "sara",
@@ -19,6 +20,7 @@ const data = {
       address: "",
       city: "",
       state: "",
+      complete:""
     },
   ],
   historialConsultas: [

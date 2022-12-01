@@ -22,12 +22,13 @@ const handlerUpdate: NextApiHandler = async (req, res) => {
     user.address = req.body.address;
     user.city = req.body.city;
     user.state = req.body.state;
+    user.complete = req.body.complete
     await user.save();
     await db.disconnect();
     res.status(201).json({message:'OK'})
   } else {
     await db.disconnect();
-    res.status(404).json({ message: "Usuario no encontrado" });
+    res.status(404).json({ message: "Usuario no encontrado", user });
   }
 };
 

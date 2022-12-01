@@ -10,6 +10,7 @@ export default function Header() {
 
   const { data: session, status } = useSession();
 
+ /* A hook that allows to create a parallax effect. */
   const item1 = useParallax<HTMLDivElement>({
     speed: -10,
   });

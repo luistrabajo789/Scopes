@@ -6,11 +6,9 @@ import { useForm } from "react-hook-form";
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 
-
 export default function Login() {
+  const [loading, setLoading] = useState(false);
 
-
-  
   const {
     handleSubmit,
     register,
@@ -18,14 +16,11 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-
-  
-
-  const submitHandler = async ({ email, password }:any) => {
+  const submitHandler = async ({ email, password }: any) => {
     try {
       const result = await signIn("credentials", {
         redirect: true,
-        email,  
+        email,
         password,
       });
     } catch (err) {
@@ -41,7 +36,7 @@ export default function Login() {
             <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
               Iniciar Sesion
             </h3>
-            <form onSubmit={handleSubmit(submitHandler)}>
+            <form onSubmit={handleSubmit(submitHandler)} >
               <div className="mb-1 sm:mb-2">
                 <label
                   htmlFor="email"
@@ -58,7 +53,6 @@ export default function Login() {
                     },
                   })}
                   autoComplete="off"
-                  required
                   type="email"
                   className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
                   id="email"
@@ -80,21 +74,18 @@ export default function Login() {
                       message: "password is more than 5 chars",
                     },
                   })}
-                  required
                   type="password"
                   className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
                   id="password"
                   name="password"
                 />
                 {errors.password && (
-                  <div className="text-red-500 ">
-                    min. 6 caracteres
-                  </div>
+                  <div className="text-red-500 ">min. 6 caracteres</div>
                 )}
               </div>
               <div className="mt-7">
                 <button type="submit" className="btn-primary">
-                  Iniciar Sesion
+                  {loading === true ? "Loading..." : "Iniciar Sesion"}
                 </button>
               </div>
               <div className="relative my-4">
@@ -110,7 +101,10 @@ export default function Login() {
               </div>
               <div>
                 <button
-                  onClick={() => signIn("google")}
+                  onClick={() => {
+                    setLoading(true);
+                    signIn("google");
+                  }}
                   type="submit"
                   className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                 >

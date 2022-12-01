@@ -30,7 +30,7 @@ export default function NavBar() {
         </Link>
       </div>
       <div className="hidden md:block">
-        <ul className="inline-flex items-center  gap-5 p-5 text-gray-500">
+        <ul className="inline-flex items-center  gap-5 p-5 text-gray-600">
           <li className="">
             <Link href="/descargas">Descargas</Link>
           </li>
@@ -78,7 +78,7 @@ export default function NavBar() {
         </Link>
       </div>
       {isActive === true && (
-        <ul className="fixed bg-white z-10 flex flex-col top-16 right-0 rounded-lg md:hidden shadow-lg w-60  text-center gap-3 py-4">
+        <ul className="fixed bg-white text-gray-900 z-10 flex flex-col top-16 right-0 rounded-lg md:hidden shadow-lg w-60  text-center gap-3 py-4">
           <li className="">
             <Link href="/descargas">Descargas</Link>
           </li>

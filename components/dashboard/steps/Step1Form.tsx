@@ -73,7 +73,7 @@ export default function Step1Form() {
           }
         });
     })();
-  }, [userRegister]);
+  }, []);
 
   /**
    * A function that is used to register a user or update the data of a user.

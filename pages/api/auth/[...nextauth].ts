@@ -1,42 +1,49 @@
-import NextAuth from "next-auth"
+import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import CredentialsProvider from 'next-auth/providers/credentials';
-import bcryptjs from 'bcryptjs';
+import CredentialsProvider from "next-auth/providers/credentials";
+import bcryptjs from "bcryptjs";
 import db from "utils/db";
 import users from "models/User";
 
-const secret = process.env.NEXTAUTH_SECRET
-const url = process.env.NEXTAUTH_UR
+const secret = process.env.NEXTAUTH_SECRET;
+const url = process.env.NEXTAUTH_UR;
 
-export const authOptions = {
-  // Configure one or more authentication providers
-
+export const authOptions: NextAuthOptions = {
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret:process.env.GOOGLE_CLIENT_SECRET!
-    }),
     CredentialsProvider({
+      name: "Credentials",
+
+      credentials: {
+        email: { label: "email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
         await db.connect();
-        const user = await users.findOne({
-          email: credentials?.email!,
-        });  
- 
+        const user = await users.findOne({ email: credentials?.email! });
         await db.disconnect();
-
-        if (user && bcryptjs.compareSync(credentials?.password!, user.password)) {
-          return {
-            _id:user._id,
-            name: user.name,
-            email:user.email
-          };
+        if (
+          user &&
+          bcryptjs.compareSync(credentials?.password!, user.password)
+        ) {
+          return user;
+        } else {
+          return null;
         }
-        throw new Error('Invalid email or password');
       },
-
     }),
-    // ...add more providers here
+
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
   ],
+  callbacks: {
+    session({ session, token, user }) {
+      return session; // The return type will match the one returned in `useSession()`
+    },
+  },
+
 }
-export default NextAuth(authOptions)
+
+export default NextAuth(authOptions);
+

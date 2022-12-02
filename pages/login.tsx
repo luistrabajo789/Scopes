@@ -1,10 +1,11 @@
 import Layout from "components/Layout/Layout";
 import React, { useState } from "react";
-import { signIn, useSession } from "next-auth/react";
+import { getSession, signIn, useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
+import { GetServerSideProps } from "next";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -36,7 +37,7 @@ export default function Login() {
             <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
               Iniciar Sesion
             </h3>
-            <form onSubmit={handleSubmit(submitHandler)} >
+            <form onSubmit={handleSubmit(submitHandler)}>
               <div className="mb-1 sm:mb-2">
                 <label
                   htmlFor="email"
@@ -156,14 +157,13 @@ export default function Login() {
     </Layout>
   );
 }
-export async function getServerSideProps(context: any) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await unstable_getServerSession(
     context.req,
     context.res,
     authOptions
   );
-
-  if (session) {
+  if (session?.user) {
     return {
       redirect: {
         destination: "/dashboard/agendar/datos",
@@ -177,4 +177,4 @@ export async function getServerSideProps(context: any) {
       session,
     },
   };
-}
+};

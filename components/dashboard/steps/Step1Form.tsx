@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Loader1 from "components/loaders/Loader1";
+import { JsxElement } from "typescript";
 
 /**
  *
@@ -131,7 +133,10 @@ export default function Step1Form() {
     router.push("/dashboard/agendar/motivo");
   };
 
-  return (
+  if (!dataUser || dataUser?.complete === "false" ) {
+    return (<Loader1 />)
+  }
+  else return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="container flex flex-col mx-auto  ng-untouched shadow-md ng-pristine ng-valid"

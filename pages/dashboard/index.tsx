@@ -1,32 +1,34 @@
+import DashBoardCard from "components/cards/DashBoardCard";
 import Layout from "components/Layout/Layout";
 import Sidebar from "components/Layout/Sidebar";
 
-import { unstable_getServerSession } from "next-auth";
 import { getSession, useSession } from "next-auth/react";
-import { authOptions } from "pages/api/auth/[...nextauth]";
 
 export default function Index() {
   const dataWelcome = [
     {
       title: "Agendar Cita",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
+      link: "http://localhost:3000/dashboard/agendar/datos",
     },
     {
       title: "Historial de Consultas",
       descripcion:
         "Crees que ya es tiempo hora de hacer un mantenimiento y no recuerdas?",
+      link: "#!",
     },
     {
       title: "Historial de Compras",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
+      link: "#!",
     },
     {
       title: "Modificar Perfil",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
+      link: "#!",
     },
   ];
   const { data: session, status } = useSession();
-
 
   return (
     <Layout>
@@ -40,17 +42,14 @@ export default function Index() {
               Conoce las caracteristicas y el estado de tu equipo.
             </p>
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="grid grid-cols-12">
             {dataWelcome.map((card, index) => (
-              <div key={index} className="xl:w-1/3 md:w-1/2 shadow-md ">
-                <div className="border border-gray-200 bg-white p-6 rounded-lg">
-                  <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                    {card.title}
-                  </h2>
-                  <p className="leading-relaxed text-base">
-                    {card.descripcion}
-                  </p>
-                </div>
+              <div className="col-span-6 m-2" key={index}>
+                <DashBoardCard
+                  link={card.link}
+                  title={card.title}
+                  description={card.descripcion}
+                />
               </div>
             ))}
           </div>

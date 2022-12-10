@@ -9,23 +9,23 @@ export default function Index() {
     {
       title: "Agendar Cita",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
-      link: "http://localhost:3000/dashboard/agendar/datos",
+      link: "https://fix-pc-soporte-remoto.vercel.app/dashboard/agendar/datos",
     },
     {
       title: "Historial de Consultas",
       descripcion:
         "Crees que ya es tiempo hora de hacer un mantenimiento y no recuerdas?",
-      link: "#!",
+      link: "https://fix-pc-soporte-remoto.vercel.app/",
     },
     {
       title: "Historial de Compras",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
-      link: "#!",
+      link: "https://fix-pc-soporte-remoto.vercel.app/",
     },
     {
       title: "Modificar Perfil",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
-      link: "#!",
+      link: "https://fix-pc-soporte-remoto.vercel.app/",
     },
   ];
   const { data: session, status } = useSession();

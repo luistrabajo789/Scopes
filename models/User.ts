@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema(
     city: { type: String, required: false },
     state: { type: String, required: false },
     complete: { type: String, required: false },
+    image:{type:String, default:null }
   },
   {
     timestamps: true,

@@ -6,7 +6,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Loader1 from "components/loaders/Loader1";
-import { JsxElement } from "typescript";
+
 
 /**
  *
@@ -33,6 +33,7 @@ export type TyUser = {
   address: string;
   city: string;
   state: string;
+  image:String;
   __v?: number;
   createdAt: string;
   updatedAt: string;
@@ -54,6 +55,7 @@ export default function Step1Form() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
 
   /* A useEffect hook that is being used to fetch data from the backend. */
   useEffect(() => {
@@ -362,3 +364,4 @@ export default function Step1Form() {
     </form>
   );
 }
+

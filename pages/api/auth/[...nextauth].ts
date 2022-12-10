@@ -19,13 +19,18 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         await db.connect();
-        const user = await users.findOne({ email: credentials?.email! });
+        const dataUser = await users.findOne({ email: credentials?.email! });
         await db.disconnect();
         if (
-          user &&
-          bcryptjs.compareSync(credentials?.password!, user.password)
-        ) {
-          return user;
+          dataUser &&
+          bcryptjs.compareSync(credentials?.password!, dataUser.password)
+        ) {    
+          return {
+          id: dataUser._id,
+          name: dataUser.name,
+          email: dataUser.email,
+          image: null,
+        }
         } else {
           return null;
         }
@@ -42,8 +47,6 @@ export const authOptions: NextAuthOptions = {
       return session; // The return type will match the one returned in `useSession()`
     },
   },
-
-}
+};
 
 export default NextAuth(authOptions);
-

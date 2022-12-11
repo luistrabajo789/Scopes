@@ -10,7 +10,7 @@ const data = {
       address: "",
       city: "",
       state: "",
-      complete:""
+      complete: "",
     },
     {
       name: "sara",
@@ -20,7 +20,7 @@ const data = {
       address: "",
       city: "",
       state: "",
-      complete:""
+      complete: "",
     },
   ],
   historialConsultas: [
@@ -192,6 +192,18 @@ const data = {
       category: "Hardware",
       price: 123456,
       link: "",
+    },
+  ],
+  dataSolicitud: [
+    {
+      name: "luis",
+      email: "luis@gmail.com",
+      phone: "3123123123",
+      tipoConsulta: "emergencia",
+      so: "Linux",
+      equipo: "Computador de mesa",
+      motivo: "El equiva va lento o se congela",
+      aditional: "dlskajdlksajdlksa",
     },
   ],
 };

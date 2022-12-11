@@ -15,6 +15,7 @@ export default function Step2() {
   const [formComplete, setFormComplete] = useState(false);
   const [dataForm, setDataForm] = useState({
     nombre: "",
+    phone: "",
     type: "",
     problem: "",
     consulta: "",
@@ -33,6 +34,7 @@ export default function Step2() {
           setDataForm({
             ...dataForm,
             nombre: res.data.name,
+            phone: res.data.phone,
             os: navigator.platform,
           });
         })
@@ -44,7 +46,17 @@ export default function Step2() {
 
   const createTicket = async (e: any) => {
     e.preventDefault();
-    alert(dataForm);
+    const res = await fetch("http://localhost:3000/api/solicitud", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(dataForm),
+    });
+    const resBackend = await res.json();
+    console.log(resBackend);
+    resBackend.message === "OK" && setFormComplete(true)
   };
 
   return (

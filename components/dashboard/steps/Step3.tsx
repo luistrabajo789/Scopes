@@ -33,19 +33,19 @@ export default function Step3() {
         </div>
       </div>
       <div className="col-span-6 p-3">
-        {valueSelect.metodo === "bancolombia" ? (
+        {valueSelect.metodo === "nequi" ? (
           <>
             <div className="">
-              <div className="grid place-content-center mb-3">
-                <Image className="w-28 h-36" src={nequi} alt="Nequi" />
+              <div className="grid grid-cols-12 mb-3">
+                <Image  className="" src={nequi} alt="nequi" />
               </div>
               <p>
-                Una vez cancelado el valor total de la cita por el problema de: 
+                Para que solicitud sea procesada por favor cancele el monto exacto de la consulta 
               </p>
             </div>
           </>
         ) : (
-          <Image className="" src={bancolombia} alt="Nequi" />
+          <Image className="" src={bancolombia} alt="bancolombia" />
         )}
       </div>
     </div>

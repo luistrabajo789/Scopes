@@ -3,7 +3,8 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcryptjs from "bcryptjs";
 import db from "utils/db";
-import users from "models/User";
+import Usuarios from "models/Usuarios";
+ 
 
 const secret = process.env.NEXTAUTH_SECRET;
 const url = process.env.NEXTAUTH_UR;
@@ -19,7 +20,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         await db.connect();
-        const dataUser = await users.findOne({ email: credentials?.email! });
+        const dataUser = await Usuarios.findOne({ email: credentials?.email! });
         await db.disconnect();
         if (
           dataUser &&
@@ -29,18 +30,18 @@ export const authOptions: NextAuthOptions = {
           id: dataUser._id,
           name: dataUser.name,
           email: dataUser.email,
-          image: null,
+          image: null || "",
         }
         } else {
           return null;
         }
       },
     }),
-
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
+    
   ],
   callbacks: {
     session({ session, token, user }) {

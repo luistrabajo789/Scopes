@@ -2,15 +2,15 @@ import { type } from "os";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface Consulta {
+interface TableConsulta {
   _id: string;
+  equipo: string;
+  tipoConsulta: string;
   motivo: string;
-  procedimiento: string;
-  precio: string;
-  fecha: string;
+  createdAt: string | number;
 }
 
-export default function Table() {
+export default function TableConsulta() {
   const [dataHistorialConsultas, setdataHistorialConsultas] = useState([]);
 
   useEffect(() => {
@@ -18,8 +18,8 @@ export default function Table() {
       await axios
         .get("http://localhost:3000/api/historial/consultas")
         .then((res) => {
-          console.log(res);          
-          setdataHistorialConsultas(res.data);
+          console.log(res);
+          setdataHistorialConsultas(res.data.solicitudes);
         });
     })();
   }, []);
@@ -33,30 +33,33 @@ export default function Table() {
               #
             </th>
             <th title="Motivo" className="p-3 text-left">
-              Motivo
+              Equipo
             </th>
             <th title="Procedimiento" className="p-3">
-              Procedimiento
+              Tipo Consulta
             </th>
             <th title="Precio" className="p-3">
-              Precio
+              Motivo Consulta
             </th>
             <th title="Losses" className="p-3">
-              fecha
+              Fecha Solicitud
             </th>
           </tr>
         </thead>
         <tbody>
-          {dataHistorialConsultas.map((consulta: Consulta) => (
+          {dataHistorialConsultas.map((consulta: TableConsulta) => (
             <tr
               key={consulta._id}
               className="text-right border-b border-opacity-20 border-gray-300 bg-gray-100"
             >
               <td className="px-3 py-2 text-left">{consulta._id} </td>
-              <td className="px-3 py-2 text-left">{consulta.motivo} </td>
-              <td className="px-3 py-2">{consulta.procedimiento}</td>
-              <td className="px-3 py-2">{consulta.precio}</td>
-              <td className="px-3 py-2">{consulta.fecha}</td>
+              <td className="px-3 py-2 text-left">{consulta.equipo} </td>
+              <td className="px-3 py-2">{consulta.tipoConsulta}</td>
+              <td className="px-3 py-2">{consulta.motivo}</td>
+              <td className="px-3 py-2">{(()=>{
+                const date = new Date(consulta.createdAt)
+                return date.toLocaleDateString('en-US')
+              })()}</td>
             </tr>
           ))}
         </tbody>

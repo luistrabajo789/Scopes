@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 //list problems
 const select1 = [
@@ -12,7 +14,9 @@ const select1 = [
 ];
 
 export default function Step2() {
+  const { push } = useRouter();
   const [formComplete, setFormComplete] = useState(false);
+  const [idUser, setidUser] = useState(null);
   const [dataForm, setDataForm] = useState({
     nombre: "",
     phone: "",
@@ -23,7 +27,13 @@ export default function Step2() {
     aditional: "",
   });
 
-  console.log(dataForm);
+  const alertOK = () =>
+    toast("Solicitud enviada", {
+      hideProgressBar: true,
+      autoClose: 3000,
+      type: "success",
+      position:'bottom-right'
+    });
 
   //get data User and Os
   useEffect(() => {
@@ -37,16 +47,22 @@ export default function Step2() {
             phone: res.data.phone,
             os: navigator.platform,
           });
+          setidUser(res.data._id);
         })
         .catch((error) => {
           console.log(error);
         });
     })();
-  }, []);
 
-  const createTicket = async (e: any) => {
+    if (formComplete === true) {
+      alertOK();
+      push("/dashboard/agendar/metodo");
+    }
+  }, [formComplete]);
+
+  const createSolicitud = async (e: any) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/solicitud", {
+    const res = await fetch(`http://localhost:3000/api/solicitud/${idUser}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -56,13 +72,13 @@ export default function Step2() {
     });
     const resBackend = await res.json();
     console.log(resBackend);
-    resBackend.message === "OK" && setFormComplete(true)
+    resBackend.message === "OK" && setFormComplete(true);
   };
 
   return (
     <div>
       <form
-        onSubmit={(e) => createTicket(e)}
+        onSubmit={(e) => createSolicitud(e)}
         className="grid grid-cols-12 h-52 "
       >
         {/* section selects */}
@@ -170,7 +186,7 @@ export default function Step2() {
                 <p className=" italic">01:00 horas</p>
               </div>
             }
-            <div className="col-span-12  flex flex-col gap-3 mb-3">
+            <div className="col-span-12  flex flex-col gap-3 mb-1">
               <span className="font-medium italic">Informacion adiconal:</span>
               <textarea
                 className="border-2 border-gray-400 rounded-md p-2"
@@ -185,7 +201,7 @@ export default function Step2() {
             </div>
           </div>
         </div>
-        <div className="bg-white col-span-12 p-3 flex justify-end">
+        <div className="bg-white col-span-12 p-5 flex justify-end ">
           <button
             className="rounded-md px-7 py-3 bg-primary-100 text-white"
             type="submit"
@@ -194,18 +210,6 @@ export default function Step2() {
           </button>
         </div>
       </form>
-
-      <div className="flex justify-end ">
-        {/* It's a conditional rendering. If the form is complete, then the button will be rendered. */}
-        {formComplete && (
-          <button
-            className="rounded-md px-7 py-3 bg-secondary-100 text-white"
-            type="button"
-          >
-            Continuar
-          </button>
-        )}
-      </div>
     </div>
   );
 }

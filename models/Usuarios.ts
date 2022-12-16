@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+import mongoose, { Schema } from "mongoose";
 const UserSchema = new mongoose.Schema(
   {
     name: { type: String, reqired: true },
@@ -10,13 +9,13 @@ const UserSchema = new mongoose.Schema(
     city: { type: String, required: false },
     state: { type: String, required: false },
     complete: { type: String, required: false },
-    image:{type:String, default:null }
   },
   {
     timestamps: true,
   }
 );
 
-const users = mongoose.models.users || mongoose.model("users", UserSchema);
+const Usuarios =
+  mongoose.models.Usuarios || mongoose.model("Usuarios", UserSchema);
 
-export default users;
+export default Usuarios;

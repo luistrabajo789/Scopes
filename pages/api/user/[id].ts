@@ -1,4 +1,5 @@
-import users from "models/User";
+ 
+import Usuarios from "models/Usuarios";
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import db from "utils/db";
@@ -13,7 +14,7 @@ const handlerUpdate: NextApiHandler = async (req, res) => {
 
   !session && res.status(401).json({ message: "Se requiere authentificacion" });
   await db.connect();
-  const user = await users.findById({ _id: id });
+  const user = await Usuarios.findById({ _id: id });
 
   if (user) {
     user.name = req.body.name;

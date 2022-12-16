@@ -3,29 +3,42 @@ import Layout from "components/Layout/Layout";
 import Sidebar from "components/Layout/Sidebar";
 
 import { getSession, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Index() {
+ 
+
+  const [domain, setDomain] = useState("")
+  console.log(domain);
+  
+
+  useEffect(() => {
+    setDomain(window.location.origin)
+  }, [])
+  
+
   const dataWelcome = [
     {
       title: "Agendar Cita",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
-      link: "https://fix-pc-soporte-remoto.vercel.app/dashboard/agendar/datos",
+      link:  `${domain}/dashboard/agendar/datos` ,
     },
     {
       title: "Historial de Consultas",
       descripcion:
         "Crees que ya es tiempo hora de hacer un mantenimiento y no recuerdas?",
-      link: "https://fix-pc-soporte-remoto.vercel.app/",
+      link:  `${domain}/dashboard/historial/consultas` ,
     },
     {
       title: "Historial de Compras",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
-      link: "https://fix-pc-soporte-remoto.vercel.app/",
+      link:  `${domain}/dashboard/compras` ,
     },
     {
       title: "Modificar Perfil",
       descripcion: "Tienes algun problema con tu software? ¡Agendate!",
-      link: "https://fix-pc-soporte-remoto.vercel.app/",
+      link:  `${domain}/dashboard/perfil` ,
     },
   ];
   const { data: session, status } = useSession();

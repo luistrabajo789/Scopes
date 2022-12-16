@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import profile from "public/profile.jpg";
@@ -68,13 +69,8 @@ export default function Step1Form() {
             router.push("/dashboard/agendar/motivo");
         })
         .catch((error) => {
-          if (error.response.data.message === "not register") {
-            setUserRegister({
-              ...userRegister,
-              register: false,
-              requiredPass: true,
-            });
-          }
+          console.log(error);
+          
         });
     })();
   }, []);
@@ -234,7 +230,7 @@ export default function Step1Form() {
             )}
           </div>
           {/* password */}
-          {userRegister.requiredPass === true && (
+          {/* {userRegister.requiredPass === true && (
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="password" className="text-sm">
                 Nueva Contraseña
@@ -255,7 +251,7 @@ export default function Step1Form() {
                 </span>
               )}
             </div>
-          )}
+          )} */}
           {/* address */}
           <div className="col-span-full">
             <label htmlFor="address" className="text-sm">

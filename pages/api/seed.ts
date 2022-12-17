@@ -14,9 +14,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await Solicitudes.deleteMany();
     await Solicitudes.insertMany(data.dataSolicitud);
     await db.disconnect();
-    res.send({ message: "Datos creados con exito" });
+    res.json({ message: "Datos creados con exito" });
   } catch (err) {
-    console.log(err);
+    res.json({message: err})
   }
 };
 

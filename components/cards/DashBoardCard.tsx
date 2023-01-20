@@ -13,11 +13,11 @@ export default function DashBoardCard({ link, title, description }: Cards) {
       <div>
         <Link href={link}>
 
-          <div className="border h-36 border-gray-200 bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
+          <div className="border h-36 text-gray-700  border-gray-200 bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-md font-medium title-font mb-2">
               {title}
             </h2>
-            <p className="leading-relaxed text-base">{description}</p>
+            <p className="leading-relaxed text-sm">{description}</p>
           </div>
 
       </Link>

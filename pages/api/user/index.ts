@@ -33,7 +33,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await db.connect();
   } else if (method === "POST") {
     await db.connect();
-
     const newUser = new Usuarios({
       name: req.body.name,
       phone: req.body.phone,

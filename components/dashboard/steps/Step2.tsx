@@ -2,7 +2,8 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { toastOK } from "utils/toast";
+
 
 //list problems
 const select1 = [
@@ -27,13 +28,13 @@ export default function Step2() {
     aditional: "",
   });
 
-  const alertOK = () =>
-    toast("Solicitud enviada", {
-      hideProgressBar: true,
-      autoClose: 3000,
-      type: "success",
-      position:'bottom-right'
-    });
+  // const alertOK = () =>
+  //   toast("Solicitud enviada", {
+  //     hideProgressBar: true,
+  //     autoClose: 3000,
+  //     type: "success",
+  //     position:'bottom-right'
+  //   });
 
   //get data User and Os
   useEffect(() => {
@@ -55,7 +56,7 @@ export default function Step2() {
     })();
 
     if (formComplete === true) {
-      alertOK();
+      toastOK();
       push("/dashboard/agendar/metodo");
     }
   }, [formComplete]);
@@ -79,13 +80,15 @@ export default function Step2() {
     <div>
       <form
         onSubmit={(e) => createSolicitud(e)}
-        className="grid grid-cols-12 h-52 "
+        className="grid grid-cols-12 h-52  text-sm text-gray-700 "
       >
         {/* section selects */}
+
         <div className="col-span-4 p-3 h-96 bg-white border-r-2 ">
+        <h3 className="my-5 text-md font-semibold">Seleccione el tipo de computador, el tipo de agendamiento y el error</h3>
           <select
             required
-            className="w-full text-md h-8 mb-3"
+            className="w-full text-md h-8"
             value={dataForm.type}
             onChange={(e) =>
               setDataForm({
@@ -118,7 +121,7 @@ export default function Step2() {
           <select
             required
             value={dataForm.problem}
-            className="w-full h-8 my-3"
+            className="w-full h-8 "
             onChange={(e) =>
               setDataForm({
                 ...dataForm,
@@ -136,31 +139,31 @@ export default function Step2() {
         </div>
 
         {/* Preview         */}
-        <div className="col-span-8 px-10 pt-5 flex flex-col gap-2  bg-white">
-          <div className="grid grid-cols-12 border-b-2 mb-3 border-gray-300  ">
+        <div className="col-span-8 px-10 pt-5 flex flex-col gap-2 bg-white">
+          <div className="grid grid-cols-12 border-b mb-3 border-gray-300  ">
             <div className="col-span-5   flex gap-2">
-              <span className="font-medium italic ">Nombre: </span>
-              <p className=" italic">{dataForm.nombre}</p>
+              <span className="font-semibold ">Nombre: </span>
+              <p className=" ">{dataForm.nombre}</p>
             </div>
           </div>
-          <div className="grid grid-cols-12 border-b-2 mb-3 border-gray-300 ">
+          <div className="grid grid-cols-12 border-b mb-3 border-gray-300 ">
             <div className="col-span-5  flex gap-2">
-              <span className="font-medium italic ">Equipo: </span>
-              <p className="italic ">{dataForm.type}</p>
+              <span className="font-semibold ">Equipo: </span>
+              <p className=" ">{dataForm.type}</p>
             </div>
             <div className="col-span-7  flex gap-2">
-              <span className="font-medium italic">Sistema Operativo: </span>
-              <p className=" italic">{dataForm.os}</p>
+              <span className="font-semibold">Sistema Operativo: </span>
+              <p className=" ">{dataForm.os}</p>
             </div>
           </div>
           <div className="grid grid-cols-12 ">
             <div className="col-span-12  flex gap-3 mb-1">
-              <span className="font-medium italic">Tipo de consulta: </span>
+              <span className="font-semibold">Tipo de consulta: </span>
               <p
                 className={
                   dataForm.consulta === "Consulta programada"
-                    ? "text-primary-100 italic"
-                    : "text-red-600 italic"
+                    ? "text-primary-100 "
+                    : "text-red-600 "
                 }
               >
                 {dataForm.consulta}
@@ -175,22 +178,22 @@ export default function Step2() {
               </div>
             )}
             <div className="col-span-12  flex gap-3 mb-3 ">
-              <span className="font-medium italic">Motivo Consulta: </span>
-              <p className="text-red-600 italic">{dataForm.problem}</p>
+              <span className="font-semibold">Motivo consulta: </span>
+              <p className=" ">{dataForm.problem}</p>
             </div>
             {
               <div className="col-span-12  flex gap-3 mb-3">
-                <span className="font-medium italic">
+                <span className="font-semibold">
                   Tiempo estimado de reparacion:{" "}
                 </span>
-                <p className=" italic">01:00 horas</p>
+                <p className=" ">01:00 horas</p>
               </div>
             }
-            <div className="col-span-12  flex flex-col gap-3 mb-1">
-              <span className="font-medium italic">Informacion adiconal:</span>
+            <div className="col-span-12  flex flex-col gap-1 mb-1">
+              <span className="font-semibold">Informacion adiconal:</span>
               <textarea
-                className="border-2 border-gray-400 rounded-md p-2"
-                rows={3}
+                className="border border-gray-400 focus:border-blue-500 rounded-md p-2"
+                rows={5}
                 onChange={(e) =>
                   setDataForm({
                     ...dataForm,

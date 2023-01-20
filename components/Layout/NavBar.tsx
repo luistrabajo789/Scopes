@@ -23,14 +23,14 @@ export default function NavBar() {
 
   return (
     
-    <nav className=" z-50 fixed w-full top-0 flex bg-white justify-between bg-trnsparent shadow-md md:text-md">
+    <nav className=" z-50 fixed w-full top-0 flex bg-white justify-between bg-trnsparent shadow-sm md:text-md">
       <div className="grid place-content-center ml-6 text-lg">
         <Link href="/">
           <Image className="w-32" src={logo} alt="FixPc Soporte remoto" />
         </Link>
       </div>
       <div className="hidden md:block">
-        <ul className="inline-flex items-center  gap-5 p-5 text-gray-600">
+        <ul className="inline-flex items-center  gap-5 p-5 text-gray-700">
           <li className="">
             <Link href="/descargas">Descargas</Link>
           </li>
@@ -78,7 +78,7 @@ export default function NavBar() {
         </Link>
       </div>
       {isActive === true && (
-        <ul className="fixed bg-white text-gray-900 z-10 flex flex-col top-16 right-0 rounded-lg md:hidden shadow-lg w-60  text-center gap-3 py-4">
+        <ul className="fixed bg-white text-gray-700 z-10 flex flex-col top-16 right-0 rounded-lg md:hidden shadow-lg w-60  text-center gap-3 py-4">
           <li className="">
             <Link href="/descargas">Descargas</Link>
           </li>

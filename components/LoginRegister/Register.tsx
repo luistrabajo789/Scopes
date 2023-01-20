@@ -1,7 +1,8 @@
-import Link from "next/link";
-import { type } from "os";
+
+import { useRouter } from "next/router";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { toastError, toastOK } from "utils/toast";
 
 type Inputs = {
   name: string;
@@ -16,12 +17,29 @@ export default function Register() {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+  const {push} = useRouter()
 
-
-  const onSubmit = async () => {};
+  const onSubmit = async (data:any) => {
+    try {
+      const res = await fetch("http://localhost:3000/api/user", {
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(data)
+    });
+    const response = await res.json();
+    console.log(response);
+    push('/login')
+    toastOK();
+    } catch (error) {
+      console.log(error)
+      toastError()      
+    }
+  };
 
   return (
-    <div className="bg-white rounded-md shadow-2xl p-7 sm:px-8 sm:py-12 text-gray-600">
+    <div className="bg-white rounded-md shadow-2xl p-7 sm:px-8 sm:py-12 text-gray-700">
       <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
         Registrarse
       </h3>
@@ -39,12 +57,14 @@ export default function Register() {
             placeholder="Ana Maria Segura"
             required
             type="text"
-            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
+            className="flex-grow w-full h-12 px-4  transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
             id="name"
             name="name"
           />
-          
-          {errors.name && <span className='text-red-500 text-sm py-2' >Campo Obligatorio</span>}
+
+          {errors.name && (
+            <span className="text-red-500 text-xs">Campo Obligatorio</span>
+          )}
         </div>
         <div className="mb-1 sm:mb-2">
           <label htmlFor="lastName" className="inline-block mb-1 font-medium">
@@ -58,11 +78,13 @@ export default function Register() {
             autoComplete="off"
             required
             type="email"
-            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
+            className="flex-grow w-full h-12 px-4 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
             id="email"
             name="email"
           />
-          {errors.email && <span className='text-red-500 text-sm py-2' >Campo Obligatorio</span>}
+          {errors.email && (
+            <span className="text-red-500 text-xs">Campo Obligatorio</span>
+          )}
         </div>
         <div className="mb-1 sm:mb-2">
           <label htmlFor="email" className="inline-block mb-1 font-medium">
@@ -75,10 +97,13 @@ export default function Register() {
             })}
             required
             type="password"
-            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
+            className="flex-grow w-full h-12 px-4   transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
             id="password"
             name="password"
-          />{errors.password && <span className='text-red-500 text-sm py-2' >Campo Obligatorio</span>}
+          />
+          {errors.password && (
+            <span className="text-red-500 text-xs">Campo Obligatorio</span>
+          )}
         </div>
         <div className="mt-7">
           <button type="submit" className="btn-primary">
@@ -89,3 +114,4 @@ export default function Register() {
     </div>
   );
 }
+

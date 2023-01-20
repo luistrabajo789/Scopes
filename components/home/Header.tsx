@@ -12,10 +12,10 @@ export default function Header() {
 
  /* A hook that allows to create a parallax effect. */
   const item1 = useParallax<HTMLDivElement>({
-    speed: -10,
+    speed: -5,
   });
   const item2 = useParallax<HTMLDivElement>({
-    speed: -10,
+    speed: -5,
   });
 
   return (
@@ -25,7 +25,7 @@ export default function Header() {
         className="absolute inset-0 z-1 object-cover w-full h-screen "
         alt=""
       />
-      <div className="relative bg-opacity-75 bg-deep-purple-accent-700 h-screen ">
+      <div className="relative bg-black/20 h-screen ">
         
         <svg
           className="absolute inset-x-0 bottom-0 text-white"
@@ -42,18 +42,18 @@ export default function Header() {
             {/* Titles */}
             <div
               ref={item1.ref}
-              className="inLeft pt-24 w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12"
+              className="inLeft pt-24 w-full text-white  max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12"
             >
-              <h2 className="max-w-lg mb-6 pt-16 font-sans text-4xl font-bold tracking-tight text-white sm:text-5xl sm:leading-none">
+              <h2 className="max-w-lg mb-6 pt-16 font-sans text-4xl font-bold tracking-tight  marker: sm:text-5xl sm:leading-none">
                 Soporte Tecnico Remoto
               </h2>
-              <p className="max-w-xl mb-4 text-xl text-white md:text-xl">
+              <p className="max-w-xl mb-4 text-xl  md:text-xl">
                 Servicio de reparacion de software en equipos de computo.
               </p>
               <Link
                 href="/"
                 aria-label=""
-                className="inline-flex pb-10 sm:pb-5 items-center text-xl font-semibold tracking-wider transition-colors duration-200 text-white hover:text-teal-700"
+                className="inline-flex pb-10 sm:pb-5 items-center text-xl font-semibold tracking-wider transition-colors duration-200  hover:text-secondary-100"
               >
                 Conocer mas
                 <svg

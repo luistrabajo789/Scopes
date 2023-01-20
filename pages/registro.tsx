@@ -4,8 +4,12 @@ import bg3 from "public/bg3.jpg";
 import Link from "next/link";
 import Layout from "components/Layout/Layout";
 import Register from "components/LoginRegister/Register";
+import { GetServerSideProps } from "next";
+import { authOptions } from "./api/auth/[...nextauth]";
+import { unstable_getServerSession } from "next-auth";
 
 export default function registro() {
+
   return (
     <Layout>
       <section id="registro" className="">
@@ -125,3 +129,23 @@ export default function registro() {
     </Layout>
   );
 }
+ export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await unstable_getServerSession(
+    context.req, 
+    context.res,
+    authOptions
+  );
+  if (session?.user) {
+    return{
+      redirect:{
+        destination: "/dashboard/agendar/datos",
+        permanent: false
+      }
+    }
+  }
+  return {
+    props: {
+      session,
+    },
+  };
+ }

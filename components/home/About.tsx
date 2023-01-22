@@ -5,8 +5,8 @@ export default function About() {
     <section className="text-gray-600 body-font">
     <div className="px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-20">
-        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Cada dia mas cerca de nuestros clientes</h1>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Seguimos llegando cada vez a mas personas, dando nuestro mejor servicio y brindando siempre la solucion a tus problemas</p>
+        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Cada día más cerca de nuestros clientes</h1>
+        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Seguimos llegando cada vez a más personas, dando nuestro mejor servicio y brindando siempre la solución a tus problemas</p>
       </div>
       <div className="flex flex-wrap -m-4 text-center">
         <div className="p-4 md:w-1/4 sm:w-1/2 w-full">

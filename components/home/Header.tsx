@@ -45,17 +45,17 @@ export default function Header() {
               className="inLeft pt-24 w-full text-white  max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12"
             >
               <h2 className="max-w-lg mb-6 pt-16 font-sans text-4xl font-bold tracking-tight  marker: sm:text-5xl sm:leading-none">
-                Soporte Tecnico Remoto
+              Soluciones Tecnológicas
               </h2>
               <p className="max-w-xl mb-4 text-xl  md:text-xl">
-                Servicio de reparacion de software en equipos de computo.
+              Llevamos tu negocio al siguiente nivel con nuestras soluciones tecnológicas innovadoras. Desde la creación de sitios web hasta la reparación de equipos de computo, brindamos servicios personalizados para mejorar la eficiencia y el rendimiento de tu negocio.
               </p>
               <Link
-                href="/"
+                href="#servicios"
                 aria-label=""
-                className="inline-flex pb-10 sm:pb-5 items-center text-xl font-semibold tracking-wider transition-colors duration-200  hover:text-secondary-100"
+                className="inline-flex pb-10 sm:pb-5 items-center text-xl font-semibold tracking-wider transition-colors duration-200 text-secondary-100 hover:text-primary-100"
               >
-                Conocer mas
+               Conocer más
                 <svg
                   className="inline-block w-3 ml-2"
                   fill="currentColor"

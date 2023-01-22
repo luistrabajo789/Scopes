@@ -10,7 +10,7 @@ export default function Contact() {
             Contactanos
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Responderemos en un plazo dentro las siguientes 24 habiles.
+            Responderemos en un plazo dentro las siguientes 24 hábiles.
           </p>
         </div>
         <div className="lg:w-1/2 md:w-2/3 mx-auto">

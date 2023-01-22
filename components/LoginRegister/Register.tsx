@@ -39,7 +39,7 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-white rounded-md shadow-2xl p-7 sm:px-8 sm:py-12 text-gray-700">
+    <div className="bg-white rounded-md shadow-xl p-7 sm:px-8 sm:py-12 text-gray-700">
       <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
         Registrarse
       </h3>
@@ -58,7 +58,7 @@ export default function Register() {
             required
             type="text"
             className="flex-grow w-full h-12 px-4  transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
-            id="name"
+            id="nameRegister"
             name="name"
           />
 
@@ -79,7 +79,7 @@ export default function Register() {
             required
             type="email"
             className="flex-grow w-full h-12 px-4 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
-            id="email"
+            id="emailRegister"
             name="email"
           />
           {errors.email && (

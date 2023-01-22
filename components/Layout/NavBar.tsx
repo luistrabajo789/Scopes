@@ -53,7 +53,7 @@ export default function NavBar() {
               className=" text-primary-100"
               href={ session?.user ? "#!" : "/login"}
             >     
-              {session?.user ? <Image className="rounded-full" src={ session?.user?.image! || profile } width={32} height={32} alt='foto'/> : "Iniciar Sesion"}
+              {session?.user ? <Image className="rounded-full" src={ session?.user?.image! || profile } width={32} height={32} alt='foto'/> : "Iniciar Sesión"}
             </Link>
             {session?.user && dropdown===true && (
               <ul  className="fixed bg-white rounded-md p-5 mt- right-10 shadow-xl">
@@ -61,7 +61,7 @@ export default function NavBar() {
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                  <Link href="/api/auth/signout">Cerrar Sesion</Link>
+                  <Link href="/api/auth/signout">Cerrar Sesión</Link>
                 </li>
                 <li>
                   <Link href="/dashboard"></Link>
@@ -101,7 +101,7 @@ export default function NavBar() {
               className=" text-primary-100"
               href={session?.user ? "#!" : "/login"}
             >
-              {session?.user ? <div className="flex justify-center"><Image className="rounded-full" src={session?.user?.image! || profile} width={32} height={32} alt='foto'/></div>: "Iniciar Sesion"}
+              {session?.user ? <div className="flex justify-center"><Image className="rounded-full" src={session?.user?.image! || profile} width={32} height={32} alt='foto'/></div>: "Iniciar Sesión"}
             </Link>
             {session?.user && dropdown===true && (
               <ul className="fixed bg-white rounded-md p-5 shadow-xl  ">
@@ -109,7 +109,7 @@ export default function NavBar() {
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                  <Link href="/api/auth/signout">Cerrar Sesion</Link>
+                  <Link href="/api/auth/signout">Cerrar Sesión</Link>
                 </li>
                 <li>
                   <Link href="/dashboard"></Link>

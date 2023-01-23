@@ -2,18 +2,18 @@ import React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
-import bg2 from "public/bg2.jpg";
+import bg3 from "public/bgHeader.jpeg";
 
 export default function Remote() {
   return (
-    <section className="text-gray-600 body-font text-sm">
-      <h1 className="sm:text-3xl text-2xl font-medium title-font  text-gray-900 text-center">
+    <section className="text-gray-700 body-font text-sm bg-white ">
+      <h1 className="sm:text-3xl text-2xl text-stone-800 font-medium Link  text-center">
         ¿Cómo funciona?
       </h1>
 
       <div className="container px-5 py-24 mx-auto flex flex-wrap">
         <div className="flex flex-wrap w-full">
-          <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+          <div className="lg:w-3/5 md:w-1/2 md:pr-10 md:py-6">
             <div className="flex relative pb-12">
               <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
@@ -33,17 +33,15 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium title-font  text-gray-900 mb-1 tracking-wider">
+                <h2 className="font-medium Link  mb-1 tracking-wider">
                   PASO 1: REGISTRO
                 </h2>
                 <p className="leading-relaxed">
                   Con el registro, mejoramos la eficiencia en la gestión de
                   problemas en su negocio. Podrá agendar servicios, llevar un
                   historial de consultas y realizar adquisiciones de manera más
-                  fácil y rápida. Además, tendrá acceso a herramientas y
-                  recursos exclusivos para mejorar la eficiencia y el
-                  rendimiento de su negocio.{" "}
-                  <Link className="text-primary-100" href="#header">
+                  fácil y rápida.{" "}
+                  <Link className="text-slate-800" href="#header">
                     {" "}
                     Registro
                   </Link>
@@ -54,7 +52,7 @@ export default function Remote() {
               <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
               </div>
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 inline-flex items-center justify-center text-white relative z-10">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-stone-800 inline-flex items-center justify-center text-white relative z-10">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -68,14 +66,13 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium title-font  text-gray-900 mb-1 uppercase tracking-wider">
+                <h2 className="font-medium Link  mb-1 uppercase tracking-wider">
                   PASO 2: Identificación de Problemas y Solicitudes
                 </h2>
                 <p className="leading-relaxed">
                   Una vez registrado, se te llevará a un formulario donde se
                   presentan los problemas y solicitudes más comunes,
-                  con la opción de seleccionar aquel que sea relevante y pueda
-                  solucionar tu problema, duda o pregunta.
+                  con la opción de seleccionar aquel que sea relevante para usted.
                 </p>
               </div>
             </div>
@@ -97,7 +94,7 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium title-font   text-gray-900  tracking-wider mb-2">
+                <h2 className="font-medium Link    tracking-wider mb-2">
                   PASO 3: AGENDAMIENTO
                 </h2>
                 <p className="leading-relaxed mb-2">
@@ -119,7 +116,7 @@ export default function Remote() {
               <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
               </div>
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 inline-flex items-center justify-center text-white relative z-10">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-stone-800 inline-flex items-center justify-center text-white relative z-10">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -134,15 +131,13 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium title-font   text-gray-900 mb-1 tracking-wider">
+                <h2 className="font-medium Link   mb-1 tracking-wider">
                   PASO 4: CONTACTO
                 </h2>
                 <p className="leading-relaxed">
-                  Una vez validada su solicitud, uno de nuestros técnicos o
-                  asesores se pondrá en contacto con usted para confirmar la
-                  fecha y hora de la cita. Se procederá a indentificar el
-                  problema para brindarle la mejor solucion, y se dará por
-                  finalizado el proceso.
+                  Una vez validada su solicitud, el dia de la cita uno de nuestros técnicos o
+                  asesores se pondrá en contacto y para indentificar el
+                  problema para brindarle la mejor solucion posible.
                 </p>
               </div>
             </div>
@@ -162,21 +157,21 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium title-font   text-gray-900 mb-1 tracking-wider">
+                <h2 className="font-medium Link   mb-1 tracking-wider">
                   PASO 5: SEGUIMIENTO Y REGISTRO
                 </h2>
                 <p className="leading-relaxed">
-                Llevaremos un registro detallado de la resolución del problema y seguiremos trabajando contigo para asegurarnos de que tu negocio está funcionando al máximo rendimiento y cumpliendo tus necesidades y requerimientos. Esta bitácora de seguimiento estará disponible en tu cuenta para que puedas acceder a ella en cualquier momento.
+                Llevaremos un registro detallado de la resolución del problema y seguiremos trabajando contigo para asegurarnos de que tu negocio está funcionando al máximo y cumpliendo tus necesidades y requerimientos. Esta bitácora estará disponible en tu cuenta para que puedas acceder a ella en cualquier momento.
                 </p>
-                <Link className="btn-primary my-4" href="#header">
+                <Link  className="btn-primary my-4" href="#header">
                   Registrarse ahora
                 </Link>
               </div>
             </div>
           </div>
           <Image
-            className="lg:w-3/5 md:w-1/2 object-cover   md:mt-0 mt-12"
-            src={bg2}
+            className="lg:w-2/5 md:w-1/2 object-cover rounded-md   md:mt-0 mt-12"
+            src={bg3}
             alt="step"
           />
         </div>

@@ -39,8 +39,8 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-white rounded-md shadow-xl p-7 sm:px-8 sm:py-12 text-gray-700">
-      <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
+    <div className="bg-white rounded-md shadow-xl p-5 lg:p-7 text-stone-800">
+      <h3 className="mb-4 text-lg  sm:text-center sm:mb-6 sm:text-2xl">
         Registrarse
       </h3>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -57,7 +57,7 @@ export default function Register() {
             placeholder="Ana Maria Segura"
             required
             type="text"
-            className="flex-grow w-full h-12 px-4  transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
+            className="flex-grow w-full h-12 px-4  transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-stone-800 focus:outline-none focus:shadow-outline"
             id="nameRegister"
             name="name"
           />
@@ -78,7 +78,7 @@ export default function Register() {
             autoComplete="off"
             required
             type="email"
-            className="flex-grow w-full h-12 px-4 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
+            className="flex-grow w-full h-12 px-4 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-stone-800 focus:outline-none focus:shadow-outline"
             id="emailRegister"
             name="email"
           />
@@ -97,7 +97,7 @@ export default function Register() {
             })}
             required
             type="password"
-            className="flex-grow w-full h-12 px-4   transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-secondary-100 focus:outline-none focus:shadow-outline"
+            className="flex-grow w-full h-12 px-4   transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-stone-800 focus:outline-none focus:shadow-outline"
             id="password"
             name="password"
           />
@@ -105,7 +105,7 @@ export default function Register() {
             <span className="text-red-500 text-xs">Campo Obligatorio</span>
           )}
         </div>
-        <div className="mt-7">
+        <div className="mt-7 grid ">
           <button type="submit" className="btn-primary">
             Registrarse
           </button>

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <section className="text-gray-600 body-font relative">
+    <section className="text-gray-600 body-font relative bg-white">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-12">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
@@ -62,8 +62,8 @@ export default function Contact() {
                 ></textarea>
               </div>
             </div>
-            <div className="p-2 w-full">
-              <button className="flex mx-auto text-white bg-primary-100  border-0 py-2 px-8 focus:outline-none hover:bg-secondary-100  rounded-md text-lg">
+            <div className="p-2 w-full grid place-content-center">
+              <button className="flex mx-auto btn-primary ">
                 Enviar
               </button>
             </div>

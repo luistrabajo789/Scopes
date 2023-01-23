@@ -10,7 +10,7 @@ export default function Layout({children}:LayoutProps) {
   return (
     <>
     <NavBar/>
-    {children}
+    <div className='flex flex-wrap flex-col'>{children}</div>
     <Footer/>
     </>
   )

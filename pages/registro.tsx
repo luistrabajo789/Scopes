@@ -43,7 +43,7 @@ export default function registro() {
                   <Link
                     href="#!"
                     aria-label=""
-                    className="inline-flex py-10 sm:pb-5 items-center text-lg tracking-wider transition-colors duration-200 text-secondary-100 hover:text-primary-100"
+                    className="inline-flex py-10 sm:pb-5 items-center text-lg tracking-wider transition-colors duration-200 text-secondary-100 hover:text-slate-800"
                   >
                     Inicia sesion
                     <svg

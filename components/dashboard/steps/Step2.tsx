@@ -162,7 +162,7 @@ export default function Step2() {
               <p
                 className={
                   dataForm.consulta === "Consulta programada"
-                    ? "text-primary-100 "
+                    ? "text-slate-800 "
                     : "text-red-600 "
                 }
               >

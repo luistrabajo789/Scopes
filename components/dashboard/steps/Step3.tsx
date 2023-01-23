@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import nequi from "public/logos/nequi.png";
 import bancolombia from "public/logos/bancolombia.png";
 import axios from "axios";
+import Link from "next/link";
 
 export default function Step3() {
   const [valueSelect, setValueSelect] = useState({ metodo: "" });
@@ -86,12 +87,12 @@ export default function Step3() {
         )}
       </div>
       <div className="bg-white col-span-12 p-5 flex justify-end ">
-          <button
+          <Link href='/dashboard/historial/consultas'
             className="rounded-md px-7 py-3 bg-primary-100 text-white"
-            type="submit"
+           
           >
           Ver historial de solicitudes
-          </button>
+          </Link>
         </div>
     </div>
   );

@@ -9,7 +9,7 @@ export const toastOK = () =>
   });
 
   export const toastError = () =>
-  toast("Solicitud enviada", {
+  toast("Algo salio Mal", {
     hideProgressBar: true,
     autoClose: 3000,
     type: "error",

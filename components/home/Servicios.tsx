@@ -68,21 +68,21 @@ const services = [
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="py-24 bg-black/10 text-gray-700 text-sm">
+    <section id="servicios" className="py-24 bg-black/10 text-white text-sm">
       <div className="container px-5 mx-auto">
         <div className="text-center">
-          <h1 className="text-4xl font-medium title-font mb-2 text-white  ">
+          <h1 className="text-4xl font-medium title-font mb-2   ">
             Nuestros Servicios
           </h1>
-          <p className="lg:w-1/2 mx-auto text-lg  mb-10  text-white ">
+          <p className="lg:w-1/2 mx-auto text-lg  mb-10  ">
             Conoce las características y el estado de tu equipo.
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
           {services.map((service, index) => (
             <div key={index} className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="flex flex-col   justify-center border bg-white border-gray-200 p-6 rounded-lg lg:h-80 shadow-lg">
-                <h2 className="text-md text-gray-900 font-bold title-font mb-5">
+              <div className="flex flex-col   justify-center bg-black/50 p-6 rounded-lg lg:h-80 shadow-md ">
+                <h2 className="text-lg    font-bold title-font mb-5">
                   {service.title}
                 </h2>
                 <p className="leading-relaxed ">{service.description}</p>

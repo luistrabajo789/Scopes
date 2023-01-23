@@ -13,6 +13,7 @@ const nextConfig = {
       'lh6.googleusercontent.com',
       'localhost',
       'img.freepik.com',
+      'anydesk.com'
     ],
   },
  

@@ -5,7 +5,7 @@ import { ObjectCardProducts } from 'utils/dataPages/dataProducts'
 
 export default function ProductCard({image,titleCardProduct,descriptionCard,category,price,link}:ObjectCardProducts) {
   return (
-    <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+    <div className="col-span-3 w-full">
           <Link href='#' className="block relative h-48 rounded overflow-hidden">
             <Image width={100} height={100} alt={titleCardProduct} className="object-cover object-center  block" src={image}/>
           </Link>

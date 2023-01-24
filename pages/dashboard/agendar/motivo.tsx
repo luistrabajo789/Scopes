@@ -2,7 +2,7 @@ import React from "react";
 import CheckStep from "components/dashboard/steps/CheckStep";
 import Layout from "components/Layout/Layout";
 import Sidebar from "components/Layout/Sidebar";
-import Step2 from "components/dashboard/steps/Step2";
+import Step2 from "components/dashboard/steps/step2/Step2";
 
 export default function Datos() {
   return (

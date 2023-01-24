@@ -24,6 +24,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       motivo: req.body.problem,
       aditional: req.body.aditional,
       usuario: req.query._id,
+      tipoAgendamiento: req.query.tipoAgendamiento,
+      cantidad: req.body.cantidad,
     });
 
     const solicitudOk = await newSolicitud.save();

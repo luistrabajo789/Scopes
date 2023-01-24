@@ -10,6 +10,8 @@ const SolicitudSchema = new mongoose.Schema(
     equipo: { type: String, required: false },
     motivo: { type: String, required: false },
     aditional: { type: String, required: false },
+    tipoAgendamiento:{ type: String, required: false },
+    cantidad:{ type: String, required: false },
     usuario: {
       type: Schema.Types.ObjectId,
       ref: "Usuarios",

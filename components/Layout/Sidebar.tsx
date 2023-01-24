@@ -45,7 +45,7 @@ export default function Sidebar({ children }: LayoutProps) {
       <div
         id="btnSideBar"
         onClick={openNav}
-        className="w-7 border-r-2 text-white right-0 h-screen grid place-content-center"
+        className="w-7  text-white right-0 h-screen grid place-content-center"
       >
         ||
       </div>

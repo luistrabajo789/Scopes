@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ObjectCardDownload } from "pages/descargas";
+
 import React from "react";
 
 
 
-export default function DownloadCard({ image, titleCard, descriptionCard, link, alt }:ObjectCardDownload): JSX.Element {
+export default function DownloadCard({ image, titleCard, descriptionCard, link, alt }:any): JSX.Element {
   
  
   

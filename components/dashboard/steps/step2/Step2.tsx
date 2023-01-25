@@ -22,6 +22,8 @@ export default function Step2() {
     tipoAgendamiento: "",
     cantidad: "",
     costoConsulta: "0",
+    fechaAgendamiento:"",
+    validado: false
   });
 
 

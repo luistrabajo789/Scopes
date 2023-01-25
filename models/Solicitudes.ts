@@ -11,8 +11,11 @@ const SolicitudSchema = new mongoose.Schema(
     motivo: { type: String, required: false },
     aditional: { type: String, required: false },
     tipoAgendamiento:{ type: String, required: false },
+    fechaAgendamiento: { type: String, required: false },
     cantidad:{ type: String, required: false },
     costoConsulta: { type: String, required: false },
+    validado:{ type: Boolean, required: false },
+
     usuario: {
       type: Schema.Types.ObjectId,
       ref: "Usuarios",

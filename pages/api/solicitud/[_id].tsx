@@ -25,6 +25,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       tipoAgendamiento: req.query.tipoAgendamiento,
       cantidad: req.body.cantidad,
       costoConsulta: req.body.costoConsulta,
+      fechaAgendamiento: req.body.fechaAgendamiento,
+      validado: req.body.validado,
     });
 
     const solicitudOk = await newSolicitud.save();

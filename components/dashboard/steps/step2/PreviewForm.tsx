@@ -1,4 +1,3 @@
- 
 import React, { useEffect, useState } from "react";
 
 const minimoConsuta = [
@@ -17,9 +16,7 @@ const medioConsulta = [
   "El equipo tiene muchos anuncios de publicidad",
   "Las USB que ingreso pierden la información o aparecen accesos directos",
 ];
-const altaConsulta = [
-  "Neceito ayuda para respaldar mis datos",
-];
+const altaConsulta = ["Neceito ayuda para respaldar mis datos"];
 
 const horaCapacitacion = "$25.000";
 // "El equipo se apaga solo después de un rato o inmediatamente después de encenderlo",
@@ -27,8 +24,7 @@ const horaCapacitacion = "$25.000";
 // "El equipo entra a un menú extraño (BIOS)",
 
 export default function PreviewForm({ dataForm, setDataForm }: any) {
-  const [tiempoEstimado, setTiempoEstimado] = useState('')
-
+  const [tiempoEstimado, setTiempoEstimado] = useState("");
 
   useEffect(() => {
     if (minimoConsuta.includes(dataForm.problem)) {
@@ -37,21 +33,20 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
         ...dataForm,
         costoConsulta: "15000",
       });
-      setTiempoEstimado('- 01:00 hora')
-
- 
+      setTiempoEstimado("- 01:00 hora");
     } else if (medioConsulta.includes(dataForm.problem)) {
       setDataForm({
         ...dataForm,
         costoConsulta: "25000",
       });
-      setTiempoEstimado('1 a 2 Horas')
+      setTiempoEstimado("1 a 2 Horas");
     } else {
       setDataForm({
         ...dataForm,
         costoConsulta: "0",
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataForm.problem]);
 
   return (
@@ -135,16 +130,23 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
         </div>
       )}
 
-      <div className="grid grid-cols-12 ">
-        <div className="col-span-6 border-b flex gap-3 mb-3">
-          <span className="font-semibold">Costo estimado:</span>
-          <p className=" text-green-800">${dataForm.costoConsulta} {dataForm.tipoAgendamiento==='Consulta de emergencia' && <span className="text-red-500">+ Adicional por Emergencia</span>}</p>
+      {dataForm.motivoConsulta !== "Otro" && dataForm.motivoConsulta !== "Seleccionar motivo de Consulta" && (
+        <div className="grid grid-cols-12 ">
+          <div className="col-span-6 border-b flex gap-3 mb-3">
+            <span className="font-semibold">Costo estimado:</span>
+            <p className=" text-green-800">
+              ${dataForm.costoConsulta}{" "}
+              {dataForm.tipoAgendamiento === "Consulta de emergencia" && (
+                <span className="text-red-500">+ Adicional por Emergencia</span>
+              )}
+            </p>
+          </div>
+          <div className="col-span-6 border-b flex gap-3 mb-3">
+            <span className="font-semibold">Tiempo estimado Resolucion: </span>
+            <p className=" ">{tiempoEstimado}</p>
+          </div>
         </div>
-        <div className="col-span-6 border-b flex gap-3 mb-3">
-          <span className="font-semibold">Tiempo estimado Resolucion: </span>
-          <p className=" ">{tiempoEstimado}</p>
-        </div>
-      </div>
+      )}
 
       {/*Row Informacion adicional*/}
       <div className="col-span-12  flex flex-col gap-1 mb-1">

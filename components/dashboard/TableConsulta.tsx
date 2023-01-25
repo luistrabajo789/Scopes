@@ -2,13 +2,13 @@ import { type } from "os";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface TableConsulta {
-  _id: string;
-  equipo: string;
-  tipoConsulta: string;
-  motivo: string;
-  createdAt: string | number;
-}
+// interface TableConsulta {
+//   _id: string;
+//   equipo: string;
+//   tipoConsulta: string;
+//   motivo: string;
+//   createdAt: string | number;
+// }
 
 export default function TableConsulta() {
   const [dataHistorialConsultas, setdataHistorialConsultas] = useState([]);
@@ -35,31 +35,34 @@ export default function TableConsulta() {
             <th title="Motivo" className="p-3 text-left">
               Equipo
             </th>
-            <th title="Procedimiento" className="p-3">
-              Tipo Consulta
-            </th>
-            <th title="Precio" className="p-3">
+            <th title="Motivo Consulta" className="p-3">
               Motivo Consulta
             </th>
-            <th title="Losses" className="p-3">
-              Fecha Solicitud
+            <th title="Costo Consulta" className="p-3">
+              Costo Consulta
+            </th>
+
+            <th title="fecha Cita" className="p-3">
+              Costo Consulta
+            </th>
+            <th title="Proceso Factura" className="p-3">
+              Proceso Factura
             </th>
           </tr>
         </thead>
         <tbody>
-          {dataHistorialConsultas.map((consulta: TableConsulta) => (
+          {dataHistorialConsultas.map((consulta:any) => (
             <tr
               key={consulta._id}
               className="text-right border-b border-opacity-20 border-gray-300 bg-gray-100"
             >
               <td className="px-3 py-2 text-left">{consulta._id} </td>
               <td className="px-3 py-2 text-left">{consulta.equipo} </td>
-              <td className="px-3 py-2">{consulta.tipoConsulta}</td>
               <td className="px-3 py-2">{consulta.motivo}</td>
-              <td className="px-3 py-2">{(()=>{
-                const date = new Date(consulta.createdAt)
-                return date.toLocaleDateString('en-US')
-              })()}</td>
+              <td className="px-3 py-2">${consulta.costoConsulta}</td>
+              <td className="px-3 py-2">{consulta.fechaAgendamiento}</td>
+              <td className="px-3 py-2">{consulta.validado===false ?'Comprobando Validacion': 'Validado!'}</td>
+              <td></td>
             </tr>
           ))}
         </tbody>

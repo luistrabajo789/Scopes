@@ -12,9 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   await db.connect();
   if (method === "POST") {
-
-    
-
+ 
     const newSolicitud = new Solicitudes({
       name: req.body.name,
       phone: req.body.phone,
@@ -26,6 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       usuario: req.query._id,
       tipoAgendamiento: req.query.tipoAgendamiento,
       cantidad: req.body.cantidad,
+      costoConsulta: req.body.costoConsulta,
     });
 
     const solicitudOk = await newSolicitud.save();

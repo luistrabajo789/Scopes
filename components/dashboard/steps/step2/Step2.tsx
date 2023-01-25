@@ -6,6 +6,7 @@ import { toastOK } from "utils/toast";
 import PreviewForm from "./PreviewForm";
 import SelectsForm from "./SelectsForm";
 
+
 export default function Step2() {
   const { push } = useRouter();
   const [formComplete, setFormComplete] = useState(false);
@@ -19,8 +20,11 @@ export default function Step2() {
     os: "",
     aditional: "",
     tipoAgendamiento: "",
-    cantidad:"",
+    cantidad: "",
+    costoConsulta: "0",
   });
+
+
 
   //get data User and Os
   useEffect(() => {
@@ -71,23 +75,18 @@ export default function Step2() {
         {/* section selects */}
         <div className="col-span-12 md:col-span-4 p-3 h-full bg-white border-r-2 ">
           <h3 className="my-5 text-md">
-            {" "}
-            Seleccione el motivo de consulta segun su necesidad{" "}
+            Seleccione el motivo de consulta segun su necesidad
           </h3>
           {/* Component SelectsForm*/}
           <SelectsForm dataForm={dataForm} setDataForm={setDataForm} />
         </div>
         {/* Component PreviewForm*/}
         <div className="col-span-12 md:col-span-8">
-        <PreviewForm dataForm={dataForm} setDataForm={setDataForm} />
+          <PreviewForm dataForm={dataForm} setDataForm={setDataForm} />
         </div>
-     
 
         <div className="bg-white col-span-12 p-5 flex justify-end ">
-          <button
-            className=" px-7 py-3 btn-primary"
-            type="submit"
-          >
+          <button className=" px-7 py-3 btn-primary" type="submit">
             Enviar
           </button>
         </div>

@@ -2,17 +2,19 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import nequi from "public/logos/nequi.png";
 import bancolombia from "public/logos/bancolombia.png";
-import axios from "axios";
+
 import Link from "next/link";
 
 export default function Step3() {
   const [valueSelect, setValueSelect] = useState({ metodo: "" });
   console.log(valueSelect);
-  // useEffect(() => {
-  //   (async()=>{
-  //     await axios.get()
-  //   })()
-  // }, [])
+
+  useEffect(() => {
+    (()=>{
+
+    })()
+  }, [])
+  
 
   return (
     <div className="grid grid-cols-12 bg-white text-gray-700 text-sm">

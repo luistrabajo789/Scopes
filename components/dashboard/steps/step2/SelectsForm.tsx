@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 //list problems
 const motivosDeConsultas = [
@@ -13,25 +13,31 @@ const motivosDeConsultas = [
 ];
 
 const problemasComunes = [
-  "Problemas con el encendido o apagado del equipo",
-  "El equipo enciende, pero no da imagen (Monitor - pantalla)",
-  "El equipo no enciende ni siquiera los leds o ventiladores (CPU - torre - base)",
-  "El equipo se apaga solo después de un rato o inmediatamente después de encenderlo",
+  // "Problemas con el encendido o apagado del equipo",
+  // "El equipo no enciende ni siquiera los leds o ventiladores (CPU - torre - base)",
+  // "El equipo muestra una pantalla azul y se apaga",
+  // "Alguno de tus dispositivos conectados dejaron de funcionar (teclado, mouse, touchpad, cámara e.t.c.)",
+  // "El equipo se queda en el logo",
+  // "Olvide la contraseña de mi Windows (Solución solo para Windows 7,8 y 10)",
+  // "El equipo se apaga solo después de un rato o inmediatamente después de encenderlo",
   "Problemas con la conexión a Internet o la red",
-  "Alguno de tus dispositivos conectados dejaron de funcionar (teclado, mouse, touchpad, cámara e.t.c.)",
   "El equipo tiene muchos anuncios de publicidad",
   "No aparecen los programas que usualmente uso",
-  "Windows no está activado",
-  "Office no está activado (Word, Excel, PowerPoint e.t.c.)",
-  "El equipo se queda en el logo",
-  "El equipo entra a un menú extraño (BIOS)",
-  "El equipo muestra una pantalla azul y se apaga",
+  "Windows esta desactivado",
+  "Office esta desactivado (Word, Excel, PowerPoint e.t.c.)",
+  // "El equipo entra a un menú extraño (BIOS)",
   "Las USB que ingreso pierden la información o aparecen accesos directos",
-  "Olvide la contraseña de mi Windows (Solución solo para Windows 7,8 y 10)",
+  "Quiero instalar un programa, aplicacion o juego",
+  "Actualizar un programa, controlador o Windows ",
+  "Quiero poner seguridad a mi Equipo",
+  "Quiero bloquear ciertas paginas del navegador o ciertas aplicaciones",
+  "El equipo va lento",
+  "El equipo enciende, pero no da imagen (Monitor - pantalla)",
   "Otro",
-];
+  ];
 
 export default function SelectsForm({ dataForm, setDataForm }: any) {
+
   return (
     <>
       <select

@@ -12,6 +12,7 @@ const SolicitudSchema = new mongoose.Schema(
     aditional: { type: String, required: false },
     tipoAgendamiento:{ type: String, required: false },
     cantidad:{ type: String, required: false },
+    costoConsulta: { type: String, required: false },
     usuario: {
       type: Schema.Types.ObjectId,
       ref: "Usuarios",

@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { toastOK } from "utils/toast";
+import { toastError, toastOK } from "utils/toast";
 import PreviewForm from "./PreviewForm";
 import SelectsForm from "./SelectsForm";
 
@@ -66,6 +66,23 @@ export default function Step2() {
     const resBackend = await res.json();
     console.log(resBackend);
     resBackend.message === "OK" && setFormComplete(true);
+
+    try {
+      const res = await fetch("https://formspree.io/f/moqbebvn", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataForm),
+      });
+      const { ok } = await res.json();
+      console.log(ok);
+      toastOK();
+    } catch (error) {
+      console.log(error);
+      toastError();
+    }
   };
 
   return (

@@ -26,8 +26,7 @@ export default function NavBar() {
     <nav className=" z-50 fixed w-full top-0 flex text-stone-800 bg-white justify-between bg-trnsparent shadow-sm md:text-md">
       <div className="grid place-content-center ml-6 text-lg">
         <Link href="/">
-          <h1  className=" uppercase font-bold text-2xl">Scopes</h1>
-     
+          <h1  className=" uppercase font-bold text-2xl transition duration-700 hover:text-green-800 ">Scopes</h1>
         </Link>
       </div>
       <div className="hidden md:block">

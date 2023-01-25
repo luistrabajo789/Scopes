@@ -8,7 +8,7 @@ export default function empresa() {
   return (
     <Layout>
       <section className="text-white body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-36 mx-auto">
           <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center ">
             <Link href="/">
               <h1 className=" uppercase font-bold text-4xl my-10">Scopes</h1>

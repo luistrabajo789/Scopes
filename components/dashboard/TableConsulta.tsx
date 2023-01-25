@@ -1,6 +1,7 @@
 import { type } from "os";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import moment from "moment";
 
 // interface TableConsulta {
 //   _id: string;
@@ -12,14 +13,20 @@ import axios from "axios";
 
 export default function TableConsulta() {
   const [dataHistorialConsultas, setdataHistorialConsultas] = useState([]);
+  const [horaFormateada, setHoraFormateada] = useState("");
+
+
+
 
   useEffect(() => {
     (async () => {
+      moment.locale("es");
       await axios
         .get("http://localhost:3000/api/historial/consultas")
         .then((res) => {
           console.log(res);
           setdataHistorialConsultas(res.data.solicitudes);
+          setHoraFormateada(moment(res.data.solicitudes.createdAt).format("MMMM D, YYYY h:mm A"));
         });
     })();
   }, []);
@@ -27,41 +34,45 @@ export default function TableConsulta() {
   return (
     <div className="overflow-x-auto w-full rounded-md shadow-md">
       <table className="w-full text-xs">
-        <thead className="rounded-t-lg bg-gray-300">
-          <tr className="text-right">
-            <th title="ID" className="p-3 text-left">
+        <thead className="rounded-t-lg bg-stone-700 ">
+          <tr className="text-center text-white">
+            <th title="ID" className="p-3 border ">
               #
             </th>
-            <th title="Motivo" className="p-3 text-left">
-              Equipo
+            <th title="Motivo" className="p-3 border">
+              
             </th>
-            <th title="Motivo Consulta" className="p-3">
+            <th title="Motivo Consulta" className="p-3 border">
               Motivo Consulta
             </th>
-            <th title="Costo Consulta" className="p-3">
+            <th title="Costo Consulta" className="p-3 border">
               Costo Consulta
             </th>
 
-            <th title="fecha Cita" className="p-3">
-              Costo Consulta
+            <th title="fecha Cita" className="p-3 border">
+              fecha Cita
             </th>
-            <th title="Proceso Factura" className="p-3">
+            <th title="Proceso Factura" className="p-3 border">
               Proceso Factura
             </th>
           </tr>
         </thead>
         <tbody>
-          {dataHistorialConsultas.map((consulta:any) => (
+          {dataHistorialConsultas.map((consulta: any, index) => (
             <tr
               key={consulta._id}
-              className="text-right border-b border-opacity-20 border-gray-300 bg-gray-100"
+              className="border-b border-opacity-20 border-gray-300 bg-gray-100 text-center"
             >
-              <td className="px-3 py-2 text-left">{consulta._id} </td>
-              <td className="px-3 py-2 text-left">{consulta.equipo} </td>
-              <td className="px-3 py-2">{consulta.motivo}</td>
+              <td className="px-3 py-2 ">{index+1} </td>
+              <td className="px-3 py-2 ">{consulta.equipo} </td>
+              <td className="px-3 py-2 ">{consulta.motivo}</td>
               <td className="px-3 py-2">${consulta.costoConsulta}</td>
-              <td className="px-3 py-2">{consulta.fechaAgendamiento}</td>
-              <td className="px-3 py-2">{consulta.validado===false ?'Comprobando Validacion': 'Validado!'}</td>
+              <td className="px-3 py-2">{horaFormateada}</td>
+              <td className="px-3 py-2">
+                {consulta.validado === false
+                  ? <span className="text-red-500 font-semibold">Comprobando Validacion...</span>
+                  : <span className="text-green-800 font-semibold">Validado!</span>}
+              </td>
               <td></td>
             </tr>
           ))}

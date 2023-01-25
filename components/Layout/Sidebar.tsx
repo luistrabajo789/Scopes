@@ -20,23 +20,23 @@ export default function Sidebar({ children }: LayoutProps) {
       >
         <ul
           id="ulSidenav"
-          className="flex flex-col gap-10 w-full px-7 py-20 h-full"
+          className="flex flex-col justify-between w-full py-20 h-full text-center "
         >
-          <li className="hidden hover:border-green-700 w-full">
+          <li className="hidden w-full hover:bg-stone-800 h-12">
             <Link href="/dashboard/agendar/datos">Agendar cita</Link>
           </li>
-          <li className="hidden hover:border-green-700">
+          <li className="hidden hover:bg-stone-800 h-12">
             <Link href="/dashboard/historial/consultas">
               Historial de consultas
             </Link>
           </li>
-          <li className="hidden hover:border-green-700">
+          <li className="hidden hover:bg-stone-800 h-12">
             <Link href="/dashboard/compras">Historial compras</Link>
           </li>
-          <li className="hidden hover:border-green-700">
+          <li className="hidden  hover:bg-stone-800 h-12">
             <Link href="/dashboard/perfil">Perfil</Link>
           </li>
-          <li className="hidden  hover:border-red-500">
+          <li className="hidden  hover:bg-stone-800 h-12">
             <Link href="/api/auth/signout">Cerrar Sesion</Link>
           </li>
         </ul>
@@ -45,7 +45,7 @@ export default function Sidebar({ children }: LayoutProps) {
       <div
         id="btnSideBar"
         onClick={openNav}
-        className="w-7  text-white right-0 h-screen grid place-content-center"
+        className="w-7  text-white right-0 h-screen grid place-content-center border-l border-stone-500"
       >
         ||
       </div>
@@ -55,7 +55,6 @@ export default function Sidebar({ children }: LayoutProps) {
         className="h-screen w-full pt-20  lg:px-7 bg-gray-100 overflow-y-auto"
       >
         <div className="w-full  flex justify-center p-2 sm:p-5 md:px-7">
-
           {children}
         </div>
       </div>

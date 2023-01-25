@@ -81,7 +81,7 @@ export default function Servicios() {
         <div className="flex flex-wrap -m-4">
           {services.map((service, index) => (
             <div key={index} className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="flex flex-col   justify-center bg-black/50 p-6 rounded-lg lg:h-80 shadow-md ">
+              <div className="flex flex-col   justify-center bg-black/50 p-6 lg:h-80 shadow-md ">
                 <h2 className="text-lg    font-bold title-font mb-5">
                   {service.title}
                 </h2>

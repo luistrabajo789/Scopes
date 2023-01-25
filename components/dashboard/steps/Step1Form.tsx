@@ -61,8 +61,12 @@ export default function Step1Form() {
   /* A useEffect hook that is being used to fetch data from the backend. */
   useEffect(() => {
     (async () => {
+ 
+      const windowsRoute = window.location.href;
+      const url = new URL(windowsRoute);
+      const domain = url.origin;
       await axios
-        .get("http://localhost:3000/api/user")
+        .get(`${domain}/api/user`)
         .then((res) => {
           setdataUser(res.data);
           res.data.complete === "true" &&
@@ -83,8 +87,11 @@ export default function Step1Form() {
     if (userRegister.register === true) {
       console.log("Entramos en en el put");
       try {
+        const windowsRoute = window.location.href;
+        const url = new URL(windowsRoute);
+        const domain = url.origin;
         const res = await fetch(
-          `http://localhost:3000/api/user/${dataUser?._id}`,
+          `${domain}/api/user/${dataUser?._id}`,
           {
             headers: {
               Accept: "application/json",
@@ -102,7 +109,11 @@ export default function Step1Form() {
         console.log(error);
       }
     } else if (userRegister.register === false) {
-      const res = await fetch("http://localhost:3000/api/user", {
+      const windowsRoute = window.location.href;
+      const url = new URL(windowsRoute);
+      const domain = url.origin;
+  
+      const res = await fetch(`${domain}/api/user`, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

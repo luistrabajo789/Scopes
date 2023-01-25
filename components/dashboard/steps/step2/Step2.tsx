@@ -6,7 +6,6 @@ import { toastError, toastOK } from "utils/toast";
 import PreviewForm from "./PreviewForm";
 import SelectsForm from "./SelectsForm";
 
-
 export default function Step2() {
   const { push } = useRouter();
   const [formComplete, setFormComplete] = useState(false);
@@ -22,17 +21,18 @@ export default function Step2() {
     tipoAgendamiento: "",
     cantidad: "",
     costoConsulta: "0",
-    fechaAgendamiento:"",
-    validado: false
+    fechaAgendamiento: "",
+    validado: false,
   });
-
-
 
   //get data User and Os
   useEffect(() => {
     (async () => {
+      const windowsRoute = window.location.href;
+      const url = new URL(windowsRoute);
+      const domain = url.origin;
       await axios
-        .get("http://localhost:3000/api/user")
+        .get(`${domain}/api/user`)
         .then((res) => {
           setDataForm({
             ...dataForm,
@@ -40,7 +40,7 @@ export default function Step2() {
             phone: res.data.phone,
             os: navigator.platform,
           });
-          setidUser(res.data._id);
+          res.data._id && setidUser(res.data._id);
         })
         .catch((error) => {
           console.log(error);
@@ -55,20 +55,26 @@ export default function Step2() {
 
   const createSolicitud = async (e: any) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/api/solicitud/${idUser}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(dataForm),
-    });
-    const resBackend = await res.json();
-    console.log(resBackend);
-    resBackend.message === "OK" && setFormComplete(true);
 
     try {
-      const res = await fetch("https://formspree.io/f/moqbebvn", {
+      const windowsRoute = window.location.href;
+      const url = new URL(windowsRoute);
+      const domain = url.origin;
+      console.log(domain);
+      
+      const res1 = await fetch(`${domain}/api/solicitud/${idUser}`, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(dataForm),
+      });
+      const resBackend = await res1.json();
+      console.log(resBackend);
+      resBackend.message === "OK" && setFormComplete(true);
+
+      const res2 = await fetch("https://formspree.io/f/moqbebvn", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -76,7 +82,7 @@ export default function Step2() {
         },
         body: JSON.stringify(dataForm),
       });
-      const { ok } = await res.json();
+      const { ok } = await res2.json();
       console.log(ok);
       toastOK();
     } catch (error) {

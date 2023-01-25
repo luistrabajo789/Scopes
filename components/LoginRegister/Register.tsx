@@ -21,7 +21,10 @@ export default function Register() {
 
   const onSubmit = async (data:any) => {
     try {
-      const res = await fetch("http://localhost:3000/api/user", {
+      const windowsRoute = window.location.href;
+      const url = new URL(windowsRoute);
+      const domain = url.origin;
+      const res = await fetch(`${domain}/api/user`, {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'

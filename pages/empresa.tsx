@@ -24,7 +24,7 @@ export default function empresa() {
             </p>
             <span className="inline-block h-1 w-10 rounded bg-white mt-8 mb-6"></span>
             <h2 className="font-medium title-font tracking-wider text-sm">
-              LocalHost
+              Scopes
             </h2>
             <p className="">Soluciones Informaticas</p>
           </div>

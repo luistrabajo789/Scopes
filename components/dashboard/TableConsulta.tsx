@@ -21,8 +21,12 @@ export default function TableConsulta() {
   useEffect(() => {
     (async () => {
       moment.locale("es");
+      const windowsRoute = window.location.href;
+      const url = new URL(windowsRoute);
+      const domain = url.origin;
+  
       await axios
-        .get("http://localhost:3000/api/historial/consultas")
+        .get(`${domain}/api/historial/consultas`)
         .then((res) => {
           console.log(res);
           setdataHistorialConsultas(res.data.solicitudes);

@@ -49,7 +49,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
       ...dataForm,
       fechaAgendamiento: startDate,
     })
-    console.log(startDate);
+
     
   }, [startDate])
   

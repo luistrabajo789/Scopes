@@ -8,7 +8,7 @@ const handlerUpdate: NextApiHandler = async (req, res) => {
   const session = await getSession({ req });
   const { method } = req;
   const { id } = req.query;
-  console.log(id);
+
 
   !session && res.status(401).json({ message: "Se requiere authentificacion" });
   await db.connect();

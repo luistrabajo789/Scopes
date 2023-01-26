@@ -9,7 +9,7 @@ import db from "utils/db";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
   const session = await getSession({ req });
-  console.log("log metodo: " + method, "y este es el body " + req.body);
+
 
   //trae los datos del usuario de la base de datos
   if (method === "GET") {
@@ -25,7 +25,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       registerUser.save();
     }
 
-    console.log("LOG del user data: " + userData);
+
     !session?.user &&
       res.status(401).json({ message: "Se requiere authentificacion" });
 
@@ -45,7 +45,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     const user = await newUser.save();
-    console.log(user);
 
     await db.disconnect();
     res.status(201).send({ message: "OK", user });

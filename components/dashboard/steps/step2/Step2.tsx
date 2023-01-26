@@ -43,7 +43,7 @@ export default function Step2() {
           res.data._id && setidUser(res.data._id);
         })
         .catch((error) => {
-          console.log(error);
+          toastError()
         });
     })();
 
@@ -60,7 +60,7 @@ export default function Step2() {
       const windowsRoute = window.location.href;
       const url = new URL(windowsRoute);
       const domain = url.origin;
-      console.log(domain);
+  
       
       const res1 = await fetch(`${domain}/api/solicitud/${idUser}`, {
         headers: {
@@ -71,7 +71,7 @@ export default function Step2() {
         body: JSON.stringify(dataForm),
       });
       const resBackend = await res1.json();
-      console.log(resBackend);
+
       resBackend.message === "OK" && setFormComplete(true);
 
       const res2 = await fetch("https://formspree.io/f/moqbebvn", {
@@ -83,10 +83,10 @@ export default function Step2() {
         body: JSON.stringify(dataForm),
       });
       const { ok } = await res2.json();
-      console.log(ok);
+
       toastOK();
     } catch (error) {
-      console.log(error);
+
       toastError();
     }
   };

@@ -32,11 +32,11 @@ export default function Register() {
       body: JSON.stringify(data)
     });
     const response = await res.json();
-    console.log(response);
+
     push('/login')
     toastOK();
     } catch (error) {
-      console.log(error)
+
       toastError()      
     }
   };

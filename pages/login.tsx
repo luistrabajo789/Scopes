@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { GetServerSideProps } from "next";
+import { toastError } from "utils/toast";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -25,7 +26,7 @@ export default function Login() {
         password,
       });
     } catch (err) {
-      console.log(err);
+      toastError()
     }
   };
 

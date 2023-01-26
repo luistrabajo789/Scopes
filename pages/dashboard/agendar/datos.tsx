@@ -33,8 +33,6 @@ export async function getServerSideProps(context: any) {
       },
     }
   }
-
-  console.log(session);
   
   return {
     props: {

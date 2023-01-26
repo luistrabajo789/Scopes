@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Step3() {
   const [valueSelect, setValueSelect] = useState({ metodo: "" });
-  console.log(valueSelect);
+
 
   useEffect(() => {
     (() => {})();

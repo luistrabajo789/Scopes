@@ -31,7 +31,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const solicitudOk = await newSolicitud.save();
 
-    console.log(solicitudOk);
     await db.disconnect();
     res.status(201).send({ message: "OK", solicitudok: solicitudOk });
   }

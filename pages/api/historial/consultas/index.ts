@@ -15,9 +15,9 @@ const getConsultas = async (req: NextApiRequest, res: NextApiResponse) => {
   const userData = await Usuarios.findOne({ email: session?.user?.email });
   const idmongo = userData._id;
   const id = idmongo.toString();
-  console.log(id);
+
   const solicitudes = await Solicitudes.find({usuario: id})
-  console.log(solicitudes);
+
   
 await db.disconnect();
 

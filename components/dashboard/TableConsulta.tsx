@@ -28,7 +28,7 @@ export default function TableConsulta() {
       await axios
         .get(`${domain}/api/historial/consultas`)
         .then((res) => {
-          console.log(res);
+ 
           setdataHistorialConsultas(res.data.solicitudes);
           setHoraFormateada(moment(res.data.solicitudes.createdAt).format("MMMM D, YYYY h:mm A"));
         });

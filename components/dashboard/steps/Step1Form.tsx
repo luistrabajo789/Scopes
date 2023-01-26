@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Loader1 from "components/loaders/Loader1";
+import { toastError } from "utils/toast";
 
 
 /**
@@ -73,8 +74,7 @@ export default function Step1Form() {
             router.push("/dashboard/agendar/motivo");
         })
         .catch((error) => {
-          console.log(error);
-          
+          toastError()      
         });
     })();
   }, []);
@@ -85,7 +85,7 @@ export default function Step1Form() {
    */
   const onSubmit = async (data?: Object) => {
     if (userRegister.register === true) {
-      console.log("Entramos en en el put");
+ 
       try {
         const windowsRoute = window.location.href;
         const url = new URL(windowsRoute);
@@ -102,11 +102,11 @@ export default function Step1Form() {
           }
         );
         const resBackend = await res.json();
-        console.log(resBackend);
+ 
 
         resBackend.message === "OK" && setstateForm(true);
       } catch (error) {
-        console.log(error);
+        toastError()
       }
     } else if (userRegister.register === false) {
       const windowsRoute = window.location.href;
@@ -122,7 +122,7 @@ export default function Step1Form() {
         body: JSON.stringify(data),
       });
       const resBackend = await res.json();
-      console.log(resBackend);
+
 
       if (resBackend.message === "OK") {
         setstateForm(true);

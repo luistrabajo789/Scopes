@@ -10,7 +10,7 @@ export default function Index() {
  
 
   const [domain, setDomain] = useState("")
-  console.log(domain);
+
   
 
   useEffect(() => {

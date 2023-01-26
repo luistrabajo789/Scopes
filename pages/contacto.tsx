@@ -18,10 +18,10 @@ export default function Contacto() {
         body: JSON.stringify(values),
       });
       const { ok } = await res.json();
-      console.log(ok);
+
       toastOK();
     } catch (error) {
-      console.log(error);
+
       toastError();
     }
   };

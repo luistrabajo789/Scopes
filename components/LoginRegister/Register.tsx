@@ -4,6 +4,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toastError, toastOK } from "utils/toast";
 
+
 type Inputs = {
   name: string;
   email: string;
@@ -11,6 +12,9 @@ type Inputs = {
 };
 
 export default function Register() {
+
+  const emailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   const {
     register,
     handleSubmit,
@@ -75,8 +79,9 @@ export default function Register() {
           </label>
           <input
             {...register("email", {
+
               required: true,
-              minLength: { value: 4, message: "Minimo de caractares 4" },
+              pattern: emailRegEx,
             })}
             autoComplete="off"
             required
@@ -86,7 +91,7 @@ export default function Register() {
             name="email"
           />
           {errors.email && (
-            <span className="text-red-500 text-xs">Campo Obligatorio</span>
+            <span className="text-red-500 text-xs">Ingresa un correo valido</span>
           )}
         </div>
         <div className="mb-1 sm:mb-2">

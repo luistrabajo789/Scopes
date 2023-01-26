@@ -7,7 +7,7 @@ import bg3 from "public/bgHeader.jpeg";
 export default function Remote() {
   return (
     <section className="text-gray-700 body-font text-sm bg-white ">
-      <h1 className="sm:text-3xl text-2xl text-stone-800 font-medium Link  text-center">
+      <h1 className="sm:text-3xl text-2xl text-stone-800 font-semibold Link  text-center">
         ¿Cómo funciona?
       </h1>
 
@@ -33,7 +33,7 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium Link  mb-1 tracking-wider">
+                <h2 className="font-semibold Link  mb-1 tracking-wider">
                   PASO 1: REGISTRO
                 </h2>
                 <p className="leading-relaxed">
@@ -66,7 +66,7 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium Link  mb-1 uppercase tracking-wider">
+                <h2 className="font-semibold Link  mb-1 uppercase tracking-wider">
                   PASO 2: Identificación de Problemas y Solicitudes
                 </h2>
                 <p className="leading-relaxed">
@@ -94,7 +94,7 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium Link    tracking-wider mb-2">
+                <h2 className="font-semibold Link    tracking-wider mb-2">
                   PASO 3: AGENDAMIENTO
                 </h2>
                 <p className="leading-relaxed mb-2">
@@ -131,7 +131,7 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium Link   mb-1 tracking-wider">
+                <h2 className="font-semibold Link   mb-1 tracking-wider">
                   PASO 4: CONTACTO
                 </h2>
                 <p className="leading-relaxed">
@@ -157,7 +157,7 @@ export default function Remote() {
                 </svg>
               </div>
               <div className="flex-grow pl-4">
-                <h2 className="font-medium Link   mb-1 tracking-wider">
+                <h2 className="font-semibold Link   mb-1 tracking-wider">
                   PASO 5: SEGUIMIENTO Y REGISTRO
                 </h2>
                 <p className="leading-relaxed">

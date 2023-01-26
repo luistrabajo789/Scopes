@@ -5,7 +5,6 @@ import setMinutes from "date-fns/setMinutes";
 
 //list problems
 const motivosDeConsultas = [
-  "Seleccionar motivo de Consulta",
   "Soporte remoto para un solo equipo",
   "Soporte remoto para varios equipos",
   "Mantenimientos y reparacion de equipos para empresas o instituciones",
@@ -48,11 +47,8 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
     setDataForm({
       ...dataForm,
       fechaAgendamiento: startDate,
-    })
-
-    
-  }, [startDate])
-  
+    });
+  }, [startDate]);
 
   return (
     <>
@@ -67,6 +63,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
           })
         }
       >
+        <option value="">Seleccionar motivo de Consulta</option>
         {motivosDeConsultas.map((consulta, index) => (
           <option key={index} value={consulta}>
             {consulta}
@@ -128,9 +125,9 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
           })
         }
       >
-        <option value="">Tipo de Consulta</option>
-        <option value="Consulta de emergencia">Consulta de emergencia</option>
+        <option value="">Tipo de Agendamiento</option>
         <option value="Consulta programada">Consulta programada</option>
+        <option value="Consulta de emergencia">Consulta de emergencia</option>
       </select>
       {dataForm.tipoAgendamiento === "Consulta programada" && (
         <>

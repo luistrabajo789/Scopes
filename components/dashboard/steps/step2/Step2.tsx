@@ -43,7 +43,7 @@ export default function Step2() {
           res.data._id && setidUser(res.data._id);
         })
         .catch((error) => {
-          toastError()
+          toastError();
         });
     })();
 
@@ -60,8 +60,7 @@ export default function Step2() {
       const windowsRoute = window.location.href;
       const url = new URL(windowsRoute);
       const domain = url.origin;
-  
-      
+
       const res1 = await fetch(`${domain}/api/solicitud/${idUser}`, {
         headers: {
           Accept: "application/json",
@@ -86,7 +85,6 @@ export default function Step2() {
 
       toastOK();
     } catch (error) {
-
       toastError();
     }
   };
@@ -111,9 +109,14 @@ export default function Step2() {
         </div>
 
         <div className="bg-white col-span-12 p-5 flex justify-end ">
-          <button className=" px-7 py-3 btn-primary" type="submit">
-            Enviar
-          </button>
+          {dataForm.tipoAgendamiento.length > 1 &&
+          dataForm.motivoConsulta.length > 1 ? (
+            <button className=" px-7 py-3 btn-primary" type="submit">
+              Enviar
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </form>
     </div>

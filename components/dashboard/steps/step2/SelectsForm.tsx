@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
+import es from 'date-fns/locale/es';
 
 //list problems
 const motivosDeConsultas = [
@@ -133,6 +134,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
         <>
           <span>Selecciona una fecha de las diponibles:</span>
           <DatePicker
+            locale={es}
             className="mb-3 border p-2  text-blue-900"
             selected={startDate}
             onChange={(date) => date && setStartDate(date)}

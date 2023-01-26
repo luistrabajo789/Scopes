@@ -8,37 +8,41 @@ import { LayoutProps } from "./Layout";
 export default function Sidebar({ children }: LayoutProps) {
   function openNav() {
     const mySidebar = document.getElementById("mySidebar");
-
-    mySidebar?.classList.toggle("openNav");
+    mySidebar?.classList.toggle("hidden");
+    mySidebar?.classList.toggle("block");
   }
 
   return (
     <aside className="flex ">
       <nav
         id="mySidebar"
-        className="sidebar h-screen text-white w-0 pt-14 flex"
+        className="sidebar  h-screen text-white w-72 pt-12 block transition-all duration-700 ease-in-out"
       >
         <ul
           id="ulSidenav"
-          className="flex flex-col justify-between w-full py-20 h-full text-center "
+          className="grid grid-cols-12 place-content-center py-20  text-center "
         >
-          <li className="hidden w-full hover:bg-stone-800 h-12">
-            <Link href="/dashboard/agendar/datos">Agendar cita</Link>
-          </li>
-          <li className="hidden hover:bg-stone-800 h-12">
-            <Link href="/dashboard/historial/consultas">
+          <Link className="col-span-12" href="/dashboard/agendar/datos">
+            <li className=" hover:bg-stone-800 h-20 grid place-content-center">Agendar cita </li>
+          </Link>
+
+          <Link className="col-span-12" href="/dashboard/historial/consultas">
+            <li className="   hover:bg-stone-800 h-20 grid place-content-center">
               Historial de consultas
-            </Link>
-          </li>
-          <li className="hidden hover:bg-stone-800 h-12">
-            <Link href="/dashboard/compras">Historial compras</Link>
-          </li>
-          <li className="hidden  hover:bg-stone-800 h-12">
-            <Link href="/dashboard/perfil">Perfil</Link>
-          </li>
-          <li className="hidden  hover:bg-stone-800 h-12">
-            <Link href="/api/auth/signout">Cerrar Sesion</Link>
-          </li>
+            </li>
+          </Link>
+
+          <Link className="col-span-12" href="/dashboard/compras">
+            <li className="  hover:bg-stone-800 h-20 grid place-content-center">Historial compras </li>
+          </Link>
+
+          <Link className="col-span-12" href="/dashboard/perfil">
+            <li className="   hover:bg-stone-800 h-20 grid place-content-center">Perfil </li>
+          </Link>
+
+          <Link className="col-span-12" href="/api/auth/signout">
+            <li className="   hover:bg-stone-800 h-20 grid place-content-center">Cerrar Sesion </li>
+          </Link>
         </ul>
       </nav>
 

@@ -51,17 +51,6 @@ nav a{
   background-color: #444;
 }
 
-.openNav{ 
-  width: 250px;
-
-}
-
-.openNav ul li{ 
-  display: block;
-  
-}
-
-
 .complete{
   @apply border-2 border-stone-800
 }

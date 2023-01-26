@@ -79,9 +79,9 @@ export default function Register() {
           </label>
           <input
             {...register("email", {
-
               required: true,
               pattern: emailRegEx,
+              minLength: 15
             })}
             autoComplete="off"
             required

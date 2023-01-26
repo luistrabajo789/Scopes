@@ -39,7 +39,7 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
         ...dataForm,
         costoConsulta: "25000",
       });
-      setTiempoEstimado("1 a 2 Horas");
+      setTiempoEstimado("Aprox. 01:00 hora");
     } else {
       setDataForm({
         ...dataForm,
@@ -55,11 +55,11 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
       <div className="grid grid-cols-12 border-b mb-3 border-gray-300  ">
         <div className="col-span-12 md:col-span-7   flex gap-2">
           <span className="font-semibold ">Nombre: </span>
-          <p className=" ">{dataForm.nombre}</p>
+          <p className="text-green-800">{dataForm.nombre}</p>
         </div>
         <div className="col-span-12 md:col-span-5   flex gap-2">
           <span className="font-semibold ">Numero de contacto: </span>
-          <p className=" ">{dataForm.phone}</p>
+          <p className="text-green-800 ">{dataForm.phone}</p>
         </div>
       </div>
 
@@ -142,7 +142,7 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
             </p>
           </div>
           <div className="col-span-6 border-b flex gap-3 mb-3">
-            <span className="font-semibold">Tiempo estimado Resolucion: </span>
+            <span className="font-semibold">Estimado: </span>
             <p className=" ">{tiempoEstimado}</p>
           </div>
         </div>

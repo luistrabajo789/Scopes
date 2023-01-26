@@ -150,7 +150,7 @@ export default function Step1Form() {
       onSubmit={handleSubmit(onSubmit)}
       className="container flex flex-col mx-auto  ng-untouched shadow-md ng-pristine ng-valid"
     >
-      <div className="grid grid-cols-4 gap-6  p-10  rounded-md shadow-sm bg-gray-100">
+      <div className="grid grid-cols-4 gap-6  p-10  rounded-md shadow-sm bg-white">
         <div className="space-y-2 col-span-full lg:col-span-1">
           <Image
             className="rounded-full"

@@ -97,7 +97,7 @@ export default function Step2() {
       >
         {/* section selects */}
         <div className="col-span-12 md:col-span-4 p-3 h-full bg-white border-r-2 ">
-          <h3 className="my-5 text-lg font-semibold text-green-800">
+          <h3 className="my-5 text-md font-semibold text-green-800">
             Complete lo datos segun su necesidad
           </h3>
           {/* Component SelectsForm*/}

@@ -10,7 +10,7 @@ export default function Datos() {
   return (
     <Layout>
       <Sidebar>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full  shadow-lg">
           <CheckStep stepNumber={2} />
           <Step2/>
         </div>

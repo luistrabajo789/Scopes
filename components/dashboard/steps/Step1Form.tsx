@@ -9,23 +9,6 @@ import { useRouter } from "next/router";
 import Loader1 from "components/loaders/Loader1";
 import { toastError } from "utils/toast";
 
-
-/**
- *
- * @property {string} _id - The unique identifier for the user.
- * @property {string} name - The name of the user.
- * @property {string} email - The email address of the user.
- * @property {string} phone - The phone number of the user.
- * @property {string} password - The password for the user.
- * @property {string} address - The user's address
- * @property {string} city - The city the user lives in.
- * @property {string} state - The state of the user.
- * @property {number} __v - The version key is a property that Mongoose adds to your schema by default.
- * The version key is used to implement optimistic locking.
- * @property {string} createdAt - The date and time the user was created.
- * @property {string} updatedAt - The date and time when the user was last updated.
- * @property {string} complete - This is a string that will be either "true" or "false".
- */
 export type TyUser = {
   _id: string;
   name: string;

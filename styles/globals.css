@@ -14,12 +14,7 @@ body {
 .x-responsive{
   @apply  px-7 lg:px-10 xl:px-14
 }
-/* .y-responsive{
 
-}
-.text-responsive{
-
-} */
 .btn-primary {
   @apply inline-flex items-center bg-stone-800 justify-center max-w-md h-12 px-6 font-medium tracking-wide text-white transition duration-700 rounded-md shadow-md  hover:bg-green-900 focus:outline-none;
 }
@@ -50,6 +45,8 @@ nav a{
 .openbtn:hover {
   background-color: #444;
 }
+
+
 
 .complete{
   @apply border-2 border-stone-800

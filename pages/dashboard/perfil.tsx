@@ -1,4 +1,5 @@
 import Perfil from 'components/dashboard/Perfil'
+import Step1Form from 'components/dashboard/steps/Step1Form'
 import Layout from 'components/Layout/Layout'
 import Sidebar from 'components/Layout/Sidebar'
 import { GetServerSideProps } from 'next'

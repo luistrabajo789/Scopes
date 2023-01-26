@@ -2,6 +2,7 @@ import { type } from "os";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
+import Link from "next/link";
 
 // interface TableConsulta {
 //   _id: string;
@@ -49,13 +50,13 @@ export default function TableConsulta() {
             <th title="Motivo Consulta" className="p-3 border">
               Motivo Consulta
             </th>
+            <th title="fecha Cita" className="p-3 border">
+              fecha Cita
+            </th>
             <th title="Costo Consulta" className="p-3 border">
               Costo Consulta
             </th>
 
-            <th title="fecha Cita" className="p-3 border">
-              fecha Cita
-            </th>
             <th title="Proceso Factura" className="p-3 border">
               Proceso Factura
             </th>
@@ -70,11 +71,11 @@ export default function TableConsulta() {
               <td className="px-3 py-2 ">{index+1} </td>
               <td className="px-3 py-2 ">{consulta.equipo} </td>
               <td className="px-3 py-2 ">{consulta.motivo}</td>
-              <td className="px-3 py-2">${consulta.costoConsulta}</td>
               <td className="px-3 py-2">{horaFormateada}</td>
+              <td className="px-3 py-2 text-green-800">$ {consulta.costoConsulta}</td>
               <td className="px-3 py-2">
                 {consulta.validado === false
-                  ? <span className="text-red-500 font-semibold">Comprobando Validacion...</span>
+                  ? <Link href='/dashboard/agendar/metodo' className="text-red-500 font-semibold">Comprobando Validacion...</Link>
                   : <span className="text-green-800 font-semibold">Validado!</span>}
               </td>
               <td></td>

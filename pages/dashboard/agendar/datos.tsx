@@ -10,7 +10,7 @@ export default function Datos({session}:any) {
   return (
     <Layout>
       <Sidebar>
-        <div className="flex flex-col">
+        <div className="flex flex-col shadow-lg w-full">
           <CheckStep stepNumber={1} />
           <Step1Form/>
         </div>

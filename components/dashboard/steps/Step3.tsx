@@ -36,9 +36,7 @@ export default function Step3() {
             <option value="bancolombia">Bancolombia</option>
           </select>
         </div>
-        <p className="font-semibold py-3 text-md">
-          Costo de la total de la operación: $70.000
-        </p>
+ 
         <p className="text-gray-700 text-xs mb-5">
           Una vez agendada la cita podrá realizar el pago dentro de las 24 horas
           posteriores, si no se realiza dentro de este tiempo tu solicitud será
@@ -48,7 +46,7 @@ export default function Step3() {
       <div className="col-span-7 py-5 flex flex-wrap items-center  justify-center">
         {valueSelect.metodo === "bancolombia" ? (
           <>
-            <div className="relative mb-4">
+            <div className="relative mb-4 p-3">
               <Image
                 width={300}
                 height={300}
@@ -68,7 +66,7 @@ export default function Step3() {
                 </li>
                 <li>
                   3. Tomar screenshot del ticket o la confirmación y enviarlo
-                  por WhatsApp al mismo número 314 800 8281
+                  por WhatsApp al mismo número 318 206 1030
                 </li>
                 <li>
                   4. Una vez validada la consulta uno de nuestros colaboradores
@@ -79,7 +77,7 @@ export default function Step3() {
           </>
         ) : (
           <>
-            <div className="relative mb-4 ">
+            <div className="relative mb-4 p-3">
               <Image
                 width={100}
                 height={100}
@@ -95,7 +93,7 @@ export default function Step3() {
                 <li>1. Deberá tener una cuenta Nequi</li>
                 <li>
                   2. Enviar el total de la operación al siguiente número de
-                  celular: <strong>314 800 8281</strong>
+                  celular: <strong>318 206 1030</strong>
                 </li>
                 <li>
                   3. Tomar screenshot del ticket o la confirmación y enviarlo

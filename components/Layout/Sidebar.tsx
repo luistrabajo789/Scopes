@@ -1,10 +1,13 @@
+import { signOut } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import React from "react";
 
 import { LayoutProps } from "./Layout";
 
 export default function Sidebar({ children }: LayoutProps) {
+  const router = useRouter()
   function openNav() {
     const mySidebar = document.getElementById("mySidebar");
     mySidebar?.classList.toggle("hidden");
@@ -42,7 +45,10 @@ export default function Sidebar({ children }: LayoutProps) {
             </li>
           </Link>
 
-          <Link className="col-span-12" href="/api/auth/signout">
+          <Link className="col-span-12" href='!#' onClick={(e)=>{
+                    signOut()
+                    router.push('/login')
+                  }}>
             <li className="   hover:bg-stone-800 h-20 grid place-content-center">
               Cerrar Sesion{" "}
             </li>

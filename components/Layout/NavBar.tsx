@@ -6,6 +6,7 @@ import logo from "public/Logo.png";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import profile from 'public/profile.jpg'
+import { signOut } from "next-auth/react";
 
 
 export default function NavBar() {
@@ -61,7 +62,10 @@ export default function NavBar() {
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                  <Link href="/api/auth/signout">Cerrar Sesión</Link>
+                  <Link href='!#' onClick={(e)=>{
+                    signOut()
+                    router.push('/login')
+                  }}>Cerrar Sesión</Link>
                 </li>
                 <li>
                   <Link href="/dashboard"></Link>
@@ -109,7 +113,10 @@ export default function NavBar() {
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                  <Link href="/api/auth/signout">Cerrar Sesión</Link>
+                  <Link href='!#' onClick={(e)=>{
+                    signOut()
+                    router.push('/login')
+                  }}>Cerrar Sesión</Link>
                 </li>
                 <li>
                   <Link href="/dashboard"></Link>

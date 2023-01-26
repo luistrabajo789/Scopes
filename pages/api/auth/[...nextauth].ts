@@ -48,6 +48,7 @@ export const authOptions: NextAuthOptions = {
       return session; // The return type will match the one returned in `useSession()`
     },
   },
+
 };
 
 export default NextAuth(authOptions);

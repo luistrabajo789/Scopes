@@ -60,9 +60,9 @@ export default function Sidebar({ children }: LayoutProps) {
             </li>
           </Link>
 
-          <Link
+          <button
             className="col-span-12"
-            href="#!"
+ 
             onClick={(e) => {
               signOut();
               router.push("/login");
@@ -74,7 +74,7 @@ export default function Sidebar({ children }: LayoutProps) {
                 Cerrar Sesion
               </div>
             </li>
-          </Link>
+          </button>
         </ul>
       </nav>
 

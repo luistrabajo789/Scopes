@@ -19,6 +19,7 @@ export default function Login() {
   } = useForm();
 
   const submitHandler = async ({ email, password }: any) => {
+    setLoading(true)
     try {
       const result = await signIn("credentials", {
         redirect: true,

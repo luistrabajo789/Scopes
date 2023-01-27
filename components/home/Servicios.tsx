@@ -12,7 +12,7 @@ const services = [
     icon: web,
     title: "Creación de sitios web profesionales",
     description:
-      "Ofrecemos servicios de diseño y desarrollo de sitios web personalizados para adaptarse a las necesidades específicas de su negocio. Nuestros sitios web son atractivos, fáciles de usar y están optimizados para el SEO..",
+      "Diseño y desarrollo de sitios web personalizados para adaptarse a las necesidades específicas de su negocio. Nuestros sitios web son atractivos, fáciles de usar y están optimizados para el SEO.",
   },
   {
     icon: pcrepair,
@@ -24,19 +24,19 @@ const services = [
     icon: tech,
     title: "Consultoría tecnológica",
     description:
-      "Ofrecemos asesoría, capcitacion o consultoría tecnológica para ayudarle a entender las tendencias y las mejores prácticas en tecnología y a tomar decisiones informadas sobre sus inversiones en tecnología.",
+      "Le ayudamos a entender las tendencias y las mejores prácticas en tecnología y a tomar decisiones informadas sobre sus inversiones en tecnología.",
   },
   {
     icon: capacitacion,
     title: "Capacitación tecnológica",
     description:
-      "frecemos asesoría y capacitación para mejorar el conocimiento y habilidades en tecnología de nuestros clientes. Diseñamos capacitaciones personalizadas para adaptarse a las necesidades específicas de cada negocio y aseguramos el correcto funcionamiento de su equipo y su negocio.",
+      "Ofrecemos asesoría y capacitación para mejorar el conocimiento y habilidades en tecnología de nuestros clientes. Diseñamos capacitaciones personalizadas para adaptarse a las necesidades específicas de cada negocio.",
   },
   {
     icon: shop,
     title: "Compras tecnológicas",
     description:
-      "Ofrecemos servicios completos de adquisición, instalación y actualización de equipos tecnológicos para mejorar el rendimiento de su negocio, así como una amplia variedad de componentes y accesorios de alta calidad para mejorar o reemplazar partes dañadas. Nuestros servicios aseguran el correcto funcionamiento de su equipo y su negocio.",
+      "Servicio de adquisición, instalación y actualización de equipos tecnológicos para mejorar el rendimiento de su negocio, así como una amplia variedad de componentes y accesorios de alta calidad.",
   },
 
   {
@@ -59,12 +59,12 @@ export default function Servicios() {
             Conoce las características y el estado de tu equipo.
           </p>
         </div>
-        <div className="grid grid-cols-12 gap-2 ">
+        <div className="grid grid-cols-12 gap-3 ">
           {services.map((service, index) => (
-            <div key={index} className="col-span-4">
+            <div key={index} className="col-span-12 lg:col-span-4">
               <div className=" bg-black/50 h-80 flex flex-col justify-center text-center px-5 shadow-md ">
                <div className="grid place-content-center"> <Image className="object-cover"  src={service.icon} alt={service.title} /></div>
-                <h2 className="text-lg    font-bold title-font my-5">
+                <h2 className="text-lg    font-bold title-font my-4">
                   {service.title}
                 </h2>
                 <p className="leading-relaxed ">{service.description}</p>

@@ -336,14 +336,14 @@ export default function Step1Form() {
       {/* buttons */}
       <div className="flex gap-3 bg-white justify-end px-10 py-5">
         <button
-          className="rounded-md px-7 py-3 bg-primary-100 text-white"
+          className="px-7 py-3 bg-blue-800  text-white rounded-md hover:bg-blue-900"
           type="submit"
         >
           Guardar
         </button>
         {stateForm === true && (
           <button
-            className="rounded-md px-7 py-3 bg-secondary-100 text-white"
+            className="px-7 py-3 bg-secondary-100 btn-primary"
             type="button"
             onClick={completeStep}
           >

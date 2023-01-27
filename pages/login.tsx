@@ -32,9 +32,9 @@ export default function Login() {
 
   return (
     <Layout>
-      <section className="text-gray-600 body-font relative">
-        <div className="container  py-28 md:w-1/2 lg:w-1/3 m-auto ">
-          <div className="bg-white rounded-md shadow-2xl p-7 sm:px-8 sm:py-12 text-gray-600">
+      <section className="text-white body-font relative">
+        <div className="container px-5  py-36 md:w-1/2 lg:w-1/3 m-auto ">
+          <div className="bg-black/50 rounded-md shadow-2xl p-5 sm:px-8 sm:py-12">
             <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
               Iniciar Sesion
             </h3>

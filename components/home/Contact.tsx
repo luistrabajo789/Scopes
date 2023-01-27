@@ -27,8 +27,8 @@ export default function Contact() {
     }
   };
   return (
-    <section className="text-gray-600 body-font relative bg-white">
-      <div className="container px-5 py-24 mx-auto">
+    <section className="text-gray-600 relative bg-white">
+      <div className="container px-5 pt-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-12">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
             Contactanos
@@ -37,9 +37,9 @@ export default function Contact() {
             Responderemos en un plazo dentro las siguientes 24 hábiles.
           </p>
         </div>
-        <div className="lg:w-1/2 md:w-2/3 mx-auto">
-          <form onSubmit={handleSubmit} className="flex flex-wrap -m-2">
-            <div className="p-2 w-1/2">
+ 
+          <form onSubmit={handleSubmit} className="grid place-content-center gap-3">
+            <div className="col-span-12 lg:col-span-6">
               <div className="relative">
                 <label
                   htmlFor="name"
@@ -55,7 +55,7 @@ export default function Contact() {
                 />
               </div>
             </div>
-            <div className="p-2 w-1/2">
+            <div className="col-span-12 lg:col-span-6">
               <div className="relative">
                 <label
                   htmlFor="email"
@@ -71,7 +71,7 @@ export default function Contact() {
                 />
               </div>
             </div>
-            <div className="p-2 w-full">
+            <div className="col-span-12">
               <div className="relative">
                 <label
                   htmlFor="message"
@@ -82,7 +82,7 @@ export default function Contact() {
                 <textarea
                   id="message"
                   name="message"
-                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  className="w-full mb-5 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                 ></textarea>
               </div>
               <div className="p-2 w-full grid place-content-center">
@@ -148,7 +148,7 @@ export default function Contact() {
               </Link>
             </span>
           </div>
-        </div>
+   
       </div>
     </section>
   );

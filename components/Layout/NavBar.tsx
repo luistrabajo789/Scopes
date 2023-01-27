@@ -62,7 +62,7 @@ export default function NavBar() {
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                  <Link href='!#' onClick={(e)=>{
+                  <Link href='#!' onClick={(e)=>{
                     signOut()
                     router.push('/login')
                   }}>Cerrar Sesión</Link>
@@ -113,7 +113,7 @@ export default function NavBar() {
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                  <Link href='!#' onClick={(e)=>{
+                  <Link href='#!' onClick={(e)=>{
                     signOut()
                     router.push('/login')
                   }}>Cerrar Sesión</Link>

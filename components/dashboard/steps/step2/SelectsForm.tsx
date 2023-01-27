@@ -132,10 +132,10 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
       </select>
       {dataForm.tipoAgendamiento === "Consulta programada" && (
         <>
-          <span>Selecciona una fecha de las diponibles:</span>
+          <span className="font-semibold  text-green-800">Selecciona una fecha de las diponibles:</span>
           <DatePicker
             locale={es}
-            className="mb-3 border p-2  text-blue-900"
+            className="mb-3 border p-2 "
             selected={startDate}
             onChange={(date) => date && setStartDate(date)}
             showTimeSelect

@@ -62,7 +62,7 @@ export default function Sidebar({ children }: LayoutProps) {
 
           <Link
             className="col-span-12"
-            href="!#"
+            href="#!"
             onClick={(e) => {
               signOut();
               router.push("/login");

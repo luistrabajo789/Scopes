@@ -82,8 +82,6 @@ export default function Step2() {
         body: JSON.stringify(dataForm),
       });
       const { ok } = await res2.json();
-
-      toastOK();
     } catch (error) {
       toastError();
     }

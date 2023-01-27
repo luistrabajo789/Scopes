@@ -37,7 +37,7 @@ export default function Step3() {
           </select>
         </div>
  
-        <p className="text-gray-700 text-xs mb-5">
+        <p className="text-gray-700 mb-5">
           Una vez agendada la cita podrá realizar el pago dentro de las 24 horas
           posteriores, si no se realiza dentro de este tiempo tu solicitud será
           descartada.
@@ -46,7 +46,7 @@ export default function Step3() {
       <div className="col-span-7 py-5 flex flex-wrap items-center  justify-center">
         {valueSelect.metodo === "bancolombia" ? (
           <>
-            <div className="relative mb-4 p-3">
+            <div className="relative p-3">
               <Image
                 width={300}
                 height={300}
@@ -77,10 +77,10 @@ export default function Step3() {
           </>
         ) : (
           <>
-            <div className="relative mb-4 p-3">
+            <div className="relative  p-3">
               <Image
-                width={100}
-                height={100}
+                width={80}
+                height={80}
                 className="mx-auto"
                 src={nequi}
                 alt="nequi"

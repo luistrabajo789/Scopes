@@ -16,10 +16,10 @@ export default function Step3() {
   return (
     <div className="grid grid-cols-12 bg-white text-gray-700 text-sm">
       <div className="col-span-5 p-3 border-r">
-        <h1 className="mb-3 text-lg font-semibold mt-5">Validar solicitud</h1>
+        <h1 className=" text-lg text-center font-semibold my-5">Validar solicitud</h1>
         <p className="">
-          Para validar su agendamiento realicé la cancelación total de la
-          operación usando algunos de los siguientes medios:{" "}
+          Para validar su solicitud o agendamiento realicé la cancelación total de la
+          operación usando alguno de los siguientes medios:{" "}
         </p>
 
         <div className="grid py-5 outline-none active:outline-none hover:outline-none">
@@ -38,8 +38,8 @@ export default function Step3() {
         </div>
  
         <p className="text-gray-700 mb-5">
-          Una vez agendada la cita podrá realizar el pago dentro de las 24 horas
-          posteriores, si no se realiza dentro de este tiempo tu solicitud será
+          Una hecha la solicitud podrá realizar el pago dentro de las <strong>24 horas </strong>
+           posteriores, si no se realiza dentro de este tiempo tu solicitud será
           descartada.
         </p>
       </div>

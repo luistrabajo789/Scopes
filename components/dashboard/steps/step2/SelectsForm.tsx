@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import es from 'date-fns/locale/es';
+import moment from "moment";
+
 
 //list problems
 const motivosDeConsultas = [
@@ -47,9 +49,10 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
   useEffect(() => {
     setDataForm({
       ...dataForm,
-      fechaAgendamiento: startDate,
+      fechaAgendamiento: moment(startDate).format("MMMM D, YYYY h:mm A")
     });
   }, [startDate]);
+ 
 
   return (
     <>
@@ -92,8 +95,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
         ""
       )}
 
-      {dataForm.motivoConsulta === "Soporte remoto para un solo equipo" ||
-      dataForm.motivoConsulta === "Soporte remoto para varios equipos" ? (
+      {dataForm.motivoConsulta === "Soporte remoto para un solo equipo" ? (
         <select
           required
           value={dataForm.problem}
@@ -135,7 +137,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
           <span className="font-semibold  text-green-800">Selecciona una fecha de las diponibles:</span>
           <DatePicker
             locale={es}
-            className="mb-3 border p-2 "
+            className="mb-3 border p-2 w-full"
             selected={startDate}
             onChange={(date) => date && setStartDate(date)}
             showTimeSelect

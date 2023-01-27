@@ -7,6 +7,7 @@ import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { GetServerSideProps } from "next";
 import { toastError } from "utils/toast";
+import Link from "next/link";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ export default function Login() {
   } = useForm();
 
   const submitHandler = async ({ email, password }: any) => {
-    setLoading(true)
+    setLoading(true);
     try {
       const result = await signIn("credentials", {
         redirect: true,
@@ -27,7 +28,7 @@ export default function Login() {
         password,
       });
     } catch (err) {
-      toastError()
+      toastError();
     }
   };
 
@@ -101,6 +102,9 @@ export default function Login() {
                     Or continue with{" "}
                   </span>
                 </div> */}
+              </div>
+              <div className="mt-7 grid">
+                <Link href='/registro' className="text-white text-center">¿Aun no tienes cuenta? Registrate aqui</Link>
               </div>
               <div>
                 {/* <button

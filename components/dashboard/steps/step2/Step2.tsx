@@ -20,11 +20,13 @@ export default function Step2() {
     aditional: "",
     tipoAgendamiento: "",
     cantidad: "",
-    costoConsulta: "0",
+    costoConsulta: "",
     fechaAgendamiento: "",
     validado: false,
   });
 
+  console.log(typeof dataForm.fechaAgendamiento);
+  
   //get data User and Os
   useEffect(() => {
     (async () => {
@@ -55,7 +57,6 @@ export default function Step2() {
 
   const createSolicitud = async (e: any) => {
     e.preventDefault();
-
     try {
       const windowsRoute = window.location.href;
       const url = new URL(windowsRoute);
@@ -110,7 +111,7 @@ export default function Step2() {
           {dataForm.tipoAgendamiento.length > 1 &&
           dataForm.motivoConsulta.length > 1 ? (
             <button className=" px-7 py-3 btn-primary" type="submit">
-              Enviar
+              Solicitar
             </button>
           ) : (
             ""

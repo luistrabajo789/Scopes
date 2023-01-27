@@ -25,7 +25,6 @@ export default function Perfil() {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-
       });
       const resBackend = await res.json();
       setdataUser(resBackend);
@@ -59,17 +58,20 @@ export default function Perfil() {
       className="container flex flex-col mx-auto  ng-untouched shadow-md ng-pristine ng-valid"
     >
       <div className="grid grid-cols-4 gap-6  p-10  rounded-md shadow-sm bg-white">
-        <div className="space-y-2 col-span-full lg:col-span-1">
-          <Image
-            className="rounded-full"
+      <div className=" border-r  col-span-full flex flex-col justify-items-center  lg:col-span-1">
+        <h3 className="font-bold text-lg my-5">Informacion Basica</h3>
+        <div className="col-span-full grid place-content-center">
+        <Image
+            className="rounded-full object-cover items-center mb-5"
             src={profile}
-            width={60}
-            height={60}
+    height={96}
             alt="foto"
           />
-          <p className="font-medium">Informacion Basica</p>
+        </div>
+
+
           <p className="text-md">
-            Por favor complete los siguientes datos para continuar
+            Para continuar, por favor complete los siguientes datos para continuar
           </p>
           <div></div>
         </div>
@@ -260,10 +262,7 @@ export default function Perfil() {
       </div>
       {/* buttons */}
       <div className="flex gap-3 bg-white justify-end px-10 py-5">
-        <button
-          className="rounded-md px-7 py-3 bg-primary-100 text-white"
-          type="submit"
-        >
+        <button className="  px-7 py-3 btn-primary " type="submit">
           Guardar
         </button>
         {/* {stateForm === true && (

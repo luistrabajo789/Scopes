@@ -15,10 +15,11 @@ const medioConsulta = [
   "Quiero bloquear ciertas paginas del navegador o ciertas aplicaciones",
   "El equipo tiene muchos anuncios de publicidad",
   "Las USB que ingreso pierden la información o aparecen accesos directos",
+  "Otro",
 ];
 const altaConsulta = ["Neceito ayuda para respaldar mis datos"];
 
-const horaCapacitacion = "$25.000";
+
 // "El equipo se apaga solo después de un rato o inmediatamente después de encenderlo",
 
 // "El equipo entra a un menú extraño (BIOS)",
@@ -54,7 +55,7 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
       {/*Row Name and phone*/}
       <div className="grid grid-cols-12 border-b mb-3 border-gray-300  ">
         <div className="col-span-12 md:col-span-7   flex gap-2">
-          <span className="font-semibold ">Nombre: </span>
+          <span className="font-semibold ">Cliente: </span>
           <p className="text-green-800">{dataForm.nombre}</p>
         </div>
         <div className="col-span-12 md:col-span-5   flex gap-2">
@@ -87,7 +88,8 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
       </div>
 
       {/*Row Cantidad*/}
-      {dataForm.motivoConsulta === "Soporte remoto para varios equipos" ? (
+      {dataForm.motivoConsulta === "Soporte remoto para varios equipos" ||
+      dataForm.motivoConsulta === "Mantenimientos y reparacion de equipos para empresas o instituciones" ? (
         <div className="col-span-12 border-b flex gap-3 mb-3 ">
           <span className="font-semibold">Cantidad Equipos: </span>
           <p className=" ">{dataForm.cantidad}</p>
@@ -108,40 +110,50 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
       )}
 
       {/*TRow tiempo de Agedamiento*/}
-      <div className="col-span-12 border-b flex gap-3 mb-3">
-        <span className="font-semibold">Tipo de Agedamiento: </span>
-        <p
-          className={
-            dataForm.tipoAgendamiento === "Consulta programada"
-              ? "text-slate-800 "
-              : "text-red-600 "
-          }
-        >
-          {dataForm.tipoAgendamiento}
-
-        </p>
+      <div className="grid grid-cols-12 border-b gap-3 mb-3">
+        <div className="col-span-12  lg:col-span-8 flex gap-1">
+          {" "}
+          <p className="font-semibold">Tipo de Agedamiento: </p>
+          <p
+            className={
+              dataForm.tipoAgendamiento === "Consulta programada"
+                ? "text-slate-800 "
+                : "text-red-600 "
+            }
+          >
+            {dataForm.tipoAgendamiento}
+          </p>
+        </div>
+        {dataForm.fechaAgendamiento === "" ||
+      dataForm.tipoAgendamiento === "Consulta de emergencia" ||
+      dataForm.tipoAgendamiento === "" ? (
+        ""
+      ) : (
+        <div className="col-span-12  lg:col-span-4 border-b flex gap-3 mb-3">
+          <p className="text-blue-800">{dataForm.fechaAgendamiento}</p>
+        </div>
+      )}
       </div>
 
-      {dataForm.motivoConsulta !== "Otro" &&
-        dataForm.motivoConsulta !== "Seleccionar motivo de Consulta" && (
-          <div className="grid grid-cols-12 ">
-            <div className="col-span-7 border-b flex gap-3 mb-3">
-              <span className="font-semibold">Costo estimado:</span>
-              <p className=" text-green-800">
-                ${dataForm.costoConsulta}{" "}
-                {dataForm.tipoAgendamiento === "Consulta de emergencia" && (
-                  <span className="text-red-500">
-                    + $20.000 x Hora
-                  </span>
+      {dataForm.motivoConsulta === "Soporte remoto para un solo equipo" ||
+      dataForm.motivoConsulta === "Soporte remoto para varios equipos" ? (
+        <div className="grid grid-cols-12 ">
+          <div className="col-span-7 border-b flex gap-3 mb-3">
+            <span className="font-semibold">Costo estimado:</span>
+            <p className=" text-green-800">
+              ${dataForm.costoConsulta}  
+              {dataForm.tipoAgendamiento === "Consulta de emergencia" &&
+                dataForm.problem !== "Otro" && (
+                  <span className="text-red-500">+ $25.000 x Hora</span>
                 )}
-              </p>
-            </div>
-            <div className="col-span-5 border-b flex gap-3 mb-3">
-              <span className="font-semibold">Estimado: </span>
-              <p className=" ">{tiempoEstimado}</p>
-            </div>
+            </p>
           </div>
-        )}
+          <div className="col-span-5 border-b flex gap-3 mb-3">
+            <span className="font-semibold">Estimado: </span>
+            <p className=" ">{tiempoEstimado}</p>
+          </div>
+        </div>
+      ):''}
 
       {/*Row Informacion adicional*/}
       <div className="col-span-12  flex flex-col gap-1 mb-1">

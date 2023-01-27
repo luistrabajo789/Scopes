@@ -118,35 +118,30 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
           }
         >
           {dataForm.tipoAgendamiento}
+
         </p>
       </div>
 
-      {dataForm.tipoAgendamiento === "Consulta de emergencia" && (
-        <div className="col-span-12  flex gap-3 mb-3">
-          <p className="text-red-600 text-xs">
-            *Tenga encuenta que las consultas de emergencia tienen un cargo
-            adicional por ahora de $20.000
-          </p>
-        </div>
-      )}
-
-      {dataForm.motivoConsulta !== "Otro" && dataForm.motivoConsulta !== "Seleccionar motivo de Consulta" && (
-        <div className="grid grid-cols-12 ">
-          <div className="col-span-6 border-b flex gap-3 mb-3">
-            <span className="font-semibold">Costo estimado:</span>
-            <p className=" text-green-800">
-              ${dataForm.costoConsulta}{" "}
-              {dataForm.tipoAgendamiento === "Consulta de emergencia" && (
-                <span className="text-red-500">+ Adicional por Emergencia</span>
-              )}
-            </p>
+      {dataForm.motivoConsulta !== "Otro" &&
+        dataForm.motivoConsulta !== "Seleccionar motivo de Consulta" && (
+          <div className="grid grid-cols-12 ">
+            <div className="col-span-7 border-b flex gap-3 mb-3">
+              <span className="font-semibold">Costo estimado:</span>
+              <p className=" text-green-800">
+                ${dataForm.costoConsulta}{" "}
+                {dataForm.tipoAgendamiento === "Consulta de emergencia" && (
+                  <span className="text-red-500">
+                    + $20.000 x Hora
+                  </span>
+                )}
+              </p>
+            </div>
+            <div className="col-span-5 border-b flex gap-3 mb-3">
+              <span className="font-semibold">Estimado: </span>
+              <p className=" ">{tiempoEstimado}</p>
+            </div>
           </div>
-          <div className="col-span-6 border-b flex gap-3 mb-3">
-            <span className="font-semibold">Estimado: </span>
-            <p className=" ">{tiempoEstimado}</p>
-          </div>
-        </div>
-      )}
+        )}
 
       {/*Row Informacion adicional*/}
       <div className="col-span-12  flex flex-col gap-1 mb-1">

@@ -27,7 +27,7 @@ export default function About() {
               <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
             </svg>
             <h2 className="title-font font-medium text-3xl text-gray-900">2.3K</h2>
-            <p className="leading-relaxed">Usuarios Registrados</p>
+            <p className="leading-relaxed">Usuarios</p>
           </div>
         </div>
         <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
@@ -46,7 +46,7 @@ export default function About() {
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
             <h2 className="title-font font-medium text-3xl text-gray-900">23</h2>
-            <p className="leading-relaxed">Empresas Confiaron en nosotros</p>
+            <p className="leading-relaxed">Empresas</p>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const toastOK = () =>
     hideProgressBar: true,
     autoClose: 3000,
     type: "success",
-    position: "bottom-right",
+    position: "bottom-center",
   });
 
   export const toastError = () =>

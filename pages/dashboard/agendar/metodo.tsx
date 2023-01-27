@@ -11,7 +11,7 @@ export default function metodo() {
     <Layout>
       <Sidebar>
         <div className="flex flex-col w-full">
-          <CheckStep stepNumber={3} />
+          <CheckStep stepNumber={2} />
           <Step3/>
         </div>
       </Sidebar>

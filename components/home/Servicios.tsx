@@ -61,7 +61,7 @@ export default function Servicios() {
         </div>
         <div className="grid grid-cols-12 gap-3 ">
           {services.map((service, index) => (
-            <div key={index} className="col-span-12 lg:col-span-4">
+            <div key={index} className="col-span-12 md:col-span-6 lg:col-span-4">
               <div className=" bg-black/50 h-80 flex flex-col justify-center text-center px-5 shadow-md ">
                <div className="grid place-content-center"> <Image className="object-cover"  src={service.icon} alt={service.title} /></div>
                 <h2 className="text-lg    font-bold title-font my-4">

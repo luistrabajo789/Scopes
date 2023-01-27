@@ -57,7 +57,7 @@ export default function Login() {
                   })}
                   autoComplete="off"
                   type="email"
-                  className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-stone-800 focus:outline-none focus:shadow-outline"
+                  className="flex-grow text-gray-700 text-md w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-stone-800 focus:outline-none focus:shadow-outline"
                   id="email"
                   name="email"
                 />
@@ -78,7 +78,7 @@ export default function Login() {
                     },
                   })}
                   type="password"
-                  className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-stone-800 focus:outline-none focus:shadow-outline"
+                  className="flex-grow text-gray-700 text-md w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-stone-800 focus:outline-none focus:shadow-outline"
                   id="password"
                   name="password"
                 />

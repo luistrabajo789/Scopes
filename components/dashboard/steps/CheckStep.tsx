@@ -7,12 +7,11 @@ export default function CheckStep({ stepNumber = 0}) {
     <div className="flex flex-col  border-b">
       <div className="p-4 space-y-2 bg-white text-gray-800">
         <h3 className="text-base font-semibold">
-          Paso {stepNumber} Complete los datos y continue
+          Paso {stepNumber+1} Complete los datos y continue
         </h3>
         <div className="flex max-w-xs space-x-3">
           {[
             "Completar datos",
-            "Razon Consulta",
             "Agendamiento",
             "Completar Solicitud",
           ].map((step, index) => (

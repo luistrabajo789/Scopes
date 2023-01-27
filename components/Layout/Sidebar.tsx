@@ -88,9 +88,9 @@ export default function Sidebar({ children }: LayoutProps) {
 
       <div
         id="main"
-        className="h-screen w-full pt-20  lg:px-7 bg-gray-200 overflow-y-auto"
+        className="h-screen w-full pt-20  lg:px-7 bg-white/90 overflow-y-auto"
       >
-        <div className="w-full  flex justify-center p-2  sm:p-5 md:p-7">
+        <div className="w-full  flex justify-center p-2  sm:p-5 md:p-6">
           {children}
         </div>
       </div>

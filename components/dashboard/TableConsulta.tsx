@@ -75,7 +75,7 @@ export default function TableConsulta() {
               <td className="px-3 py-2 text-green-800">$ {consulta.costoConsulta}</td>
               <td className="px-3 py-2">
                 {consulta.validado === false
-                  ? <Link href='/dashboard/agendar/metodo' className="text-red-500 font-semibold">Comprobando Validacion...</Link>
+                  ? <Link href='/dashboard/agendar/metodo' className="text-red-500 font-semibold">Sin Validar</Link>
                   : <span className="text-green-800 font-semibold">Validado!</span>}
               </td>
               <td></td>

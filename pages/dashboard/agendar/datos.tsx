@@ -11,7 +11,7 @@ export default function Datos({session}:any) {
     <Layout>
       <Sidebar>
         <div className="flex flex-col shadow-lg w-full">
-          <CheckStep stepNumber={1} />
+          <CheckStep stepNumber={0} />
           <Step1Form/>
         </div>
       </Sidebar>

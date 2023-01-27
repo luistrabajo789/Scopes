@@ -1,9 +1,8 @@
 
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toastError, toastOK } from "utils/toast";
-
 
 type Inputs = {
   name: string;
@@ -12,7 +11,7 @@ type Inputs = {
 };
 
 export default function Register() {
-
+const [loading, setLoading] = useState(false)
   const emailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const {
@@ -24,6 +23,7 @@ export default function Register() {
   const {push} = useRouter()
 
   const onSubmit = async (data:any) => {
+    setLoading(true)
     try {
       const windowsRoute = window.location.href;
       const url = new URL(windowsRoute);
@@ -115,7 +115,7 @@ export default function Register() {
         </div>
         <div className="mt-7 grid ">
           <button type="submit" className="btn-primary">
-            Registrarse
+           {loading === true ? 'Loading...':'Registrarse'}
           </button>
         </div>
       </form>

@@ -1,13 +1,16 @@
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
 import React from "react";
-
 import { LayoutProps } from "./Layout";
+import calendar from "../../public/icons/calendar.png";
+import history from "../../public/icons/history.png";
+import logout from "../../public/icons/logout.png";
+import perfil from "../../public/icons/perfil.png";
 
 export default function Sidebar({ children }: LayoutProps) {
-  const router = useRouter()
+  const router = useRouter();
   function openNav() {
     const mySidebar = document.getElementById("mySidebar");
     mySidebar?.classList.toggle("hidden");
@@ -16,41 +19,60 @@ export default function Sidebar({ children }: LayoutProps) {
 
   return (
     <aside className="flex ">
-      <nav id="mySidebar" className="h-screen text-white w-72 pt-12 block">
+      <nav id="mySidebar" className="h-screen text-white w-72 pt-12  block">
         <ul
           id="ulSidenav"
           className="grid grid-cols-12 place-content-center py-20  text-center "
         >
           <Link className="col-span-12" href="/dashboard/agendar/datos">
             <li className=" hover:bg-stone-800 h-20 grid place-content-center">
-              Agendar cita{" "}
+              <div className="flex gap-2">
+                <Image src={calendar} alt="icon" />
+                Agendar cita
+              </div>
             </li>
           </Link>
 
           <Link className="col-span-12" href="/dashboard/historial/consultas">
             <li className="   hover:bg-stone-800 h-20 grid place-content-center">
-              Historial de consultas
+              <div className="flex gap-2">
+                <Image src={history} alt="icon" />
+                Historial de consultas
+              </div>
             </li>
           </Link>
 
           <Link className="col-span-12" href="/dashboard/compras">
             <li className="  hover:bg-stone-800 h-20 grid place-content-center">
-              Historial compras{" "}
+              <div className="flex gap-2">
+                <Image src={history} alt="icon" />
+                Historial compras
+              </div>
             </li>
           </Link>
 
           <Link className="col-span-12" href="/dashboard/perfil">
             <li className="   hover:bg-stone-800 h-20 grid place-content-center">
-              Perfil{" "}
+              <div className="flex gap-2">
+                <Image src={perfil} alt="icon" />
+                Perfil
+              </div>
             </li>
           </Link>
 
-          <Link className="col-span-12" href='!#' onClick={(e)=>{
-                    signOut()
-                    router.push('/login')
-                  }}>
+          <Link
+            className="col-span-12"
+            href="!#"
+            onClick={(e) => {
+              signOut();
+              router.push("/login");
+            }}
+          >
             <li className="   hover:bg-stone-800 h-20 grid place-content-center">
-              Cerrar Sesion{" "}
+              <div className="flex gap-2">
+                <Image src={logout} alt="icon" />
+                Cerrar Sesion
+              </div>
             </li>
           </Link>
         </ul>

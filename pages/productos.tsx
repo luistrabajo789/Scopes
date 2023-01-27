@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "components/Layout/Layout";
  
-import { dataPageProducts } from "utils/dataPages/dataProducts";
+// import { dataPageProducts } from "utils/dataPages/dataProducts";
 
 export default function productos() {
   return (
@@ -10,7 +10,8 @@ export default function productos() {
       <section className="text-gray-600 my-32">
         <div className="container px-5  mx-auto">
         <div className="grid grid-cols-12 gap-3">
-            {dataPageProducts.map((e) => (
+          productos
+            {/* {dataPageProducts.map((e) => (
               <div
                 className="col-span-3  h-60 text-center gap-5 "
                 key={e._id}
@@ -21,7 +22,7 @@ export default function productos() {
                   <p>{e.descriptionCard}</p>
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </section>

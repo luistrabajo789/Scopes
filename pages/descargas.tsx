@@ -75,7 +75,7 @@ export default function Descargas() {
           <div className="grid grid-cols-12 gap-3">
             {dataPageDownload.map((e) => (
               <div
-                className="col-span-3 bg-white h-60 text-center gap-5 "
+                className="col-span-12 sm:col-span-6 lg:col-span-3 bg-white h-60 text-center gap-5 "
                 key={e.id}
                 style={{ background: `url(${e.logo})` }}
               >

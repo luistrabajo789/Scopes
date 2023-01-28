@@ -89,7 +89,7 @@ export default function Login() {
               </div>
               <div className="mt-7 grid">
                 <button type="submit" className="btn-primary">
-                  {loading === true ? "Loading..." : "Iniciar Sesion"}
+                  {loading === true ? "Iniciando sesion..." : "Iniciar Sesion"}
                 </button>
               </div>
               <div className="relative my-4">
@@ -103,8 +103,8 @@ export default function Login() {
                   </span>
                 </div> */}
               </div>
-              <div className="mt-7 grid">
-                <Link href='/registro' className="text-white text-center">¿Aun no tienes cuenta? Registrate aqui</Link>
+              <div className="mt-7 flex justify-center gap-3">¿Aun no tienes cuenta?
+                <Link href='/registro' className="text-green-500 text-center">Registrate aqui</Link>
               </div>
               <div>
                 {/* <button

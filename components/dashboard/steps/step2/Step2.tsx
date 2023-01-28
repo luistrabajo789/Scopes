@@ -25,7 +25,6 @@ export default function Step2() {
     validado: false,
   });
 
-  console.log(typeof dataForm.fechaAgendamiento);
   
   //get data User and Os
   useEffect(() => {

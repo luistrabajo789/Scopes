@@ -9,7 +9,7 @@ export default function Header() {
   const { data: session, status } = useSession();
 
   return (
-    <section id="header" className="text-white">
+    <section id="header" className="text-white bg-black/10">
       <div className="relative h-screen ">
         <svg
           className="absolute inset-x-0 bottom-0 text-white"
@@ -24,7 +24,7 @@ export default function Header() {
         <div className="x-responsive relative grid grid-cols-12 m-auto pt-36 bg-black/15 sm:bg-transparent    ">
           {/* Titles */}
           <div className="lg:col-span-8 col-span-12 inLeft text-center lg:text-left  w-full lg:mt-14">
-            <h1 className="text-white uppercase font-bold mb-4 text-md">
+            <h1 className="text-white uppercase font-bold mb-4 text-xl">
               Scopes
             </h1>
             <h2 className="mb-6 font-sans text-white text-2xl md:text-4xl font-bold tracking-tight">
@@ -40,7 +40,7 @@ export default function Header() {
             <Link
               href="#servicios"
               aria-label=""
-              className="inline-flex text-lg text-white py-5  items-center font-semibold tracking-wider transition-colors duration-200 "
+              className="inline-flex text-xl text-white py-5  items-center font-semibold tracking-wider transition-colors duration-200 "
             >
               Conocer más
               <svg

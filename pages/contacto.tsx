@@ -28,13 +28,14 @@ export default function Contacto() {
 
   return (
     <Layout>
-      <section className="text-gray-700 body-font relative">
-        <div className="container px-5 py-32 mx-auto flex sm:flex-nowrap flex-wrap">
-          <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+      <section className=" px-5 py-32 grid grid-cols-12 gap-5">
+       
+          <div className="col-span-12 lg:col-span-8 h-full">
+            <div className="grid">
             <iframe
               width="100%"
               height="100%"
-              className="absolute inset-0"
+              className="h-96"
               frameBorder="0"
               title="map"
               marginHeight={0}
@@ -65,31 +66,32 @@ export default function Contacto() {
               </div>
             </div>
           </div>
+          </div>
           <form
             onSubmit={handleSubmit}
-            className="lg:w-1/3 md:w-1/2 p-5 rounded-md bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
+            className="col-span-12 lg:col-span-4 text-gray-700 bg-white p-5 rounded-md"
           >
-            <h2 className="text-gray-900 text-lg text-center mb-1 font-medium title-font">
+            <h2 className=" text-lg text-center mb-1 font-medium title-font">
               ¿Tienes alguna pregunta?
             </h2>
-            <p className="text-sm text-center mb-5 text-gray-700">
+            <p className="text-sm text-center mb-5 ">
               Escribenos y te responderemos dentro de las 24 horas habiles
             </p>
             <div className="relative mb-4">
-              <label htmlFor="name" className="leading-7 text-sm text-gray-700">
+              <label htmlFor="name" className="leading-7 text-sm ">
                 Nombre
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none  py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
               <label
                 htmlFor="email"
-                className="leading-7 text-sm text-gray-700"
+                className="leading-7 text-sm "
               >
                 Email
               </label>
@@ -97,20 +99,20 @@ export default function Contacto() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none  py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
               <label
                 htmlFor="message"
-                className="leading-7 text-sm text-gray-700"
+                className="leading-7 text-sm "
               >
                 Mensaje
               </label>
               <textarea
                 id="message"
                 name="message"
-                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none  py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
             <button className="btn-primary">Enviar</button>
@@ -119,7 +121,7 @@ export default function Contacto() {
               artisan.
             </p>
           </form>
-        </div>
+     
       </section>
     </Layout>
   );

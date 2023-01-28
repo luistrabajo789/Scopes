@@ -6,6 +6,7 @@ import pcrepair from "../../public/icons/pcrepair.png";
 import shop from "../../public/icons/shop.png";
 import tech from "../../public/icons/tech.png";
 import web from "../../public/icons/web.png";
+import Link from "next/link";
 
 const services = [
   {
@@ -49,10 +50,10 @@ const services = [
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="py-24 bg-black/10 text-white text-sm">
+    <section id="servicios" className="py-32 bg-black/10 text-white text-sm">
       <div className="container px-5 mx-auto">
         <div className="text-center">
-          <h1 className="text-4xl font-medium title-font mb-2   ">
+          <h1 className="text-3xl  font-bold mb-2   ">
             Nuestros Servicios
           </h1>
           <p className="lg:w-1/2 mx-auto text-lg  mb-10  ">
@@ -61,7 +62,8 @@ export default function Servicios() {
         </div>
         <div className="grid grid-cols-12 gap-3 ">
           {services.map((service, index) => (
-            <div key={index} className="col-span-12 md:col-span-6 lg:col-span-4">
+      
+            <Link href='/registro' key={index} className="col-span-12 md:col-span-6 lg:col-span-4">
               <div className=" bg-black/50 h-80 flex flex-col justify-center text-center px-5 shadow-md ">
                <div className="grid place-content-center"> <Image className="object-cover"  src={service.icon} alt={service.title} /></div>
                 <h2 className="text-lg    font-bold title-font my-4">
@@ -69,7 +71,8 @@ export default function Servicios() {
                 </h2>
                 <p className="leading-relaxed ">{service.description}</p>
               </div>
-            </div>
+            </Link>
+       
           ))}
         </div>
       </div>

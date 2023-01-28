@@ -24,56 +24,47 @@ export default function Sidebar({ children }: LayoutProps) {
           id="ulSidenav"
           className="grid grid-cols-12 place-content-center py-20  text-center "
         >
-          <Link className="col-span-12" href="/dashboard/agendar/datos">
-            <li className=" hover:bg-stone-800 h-20 grid place-content-center">
-              <div className="flex gap-2">
-                <Image src={calendar} alt="icon" />
-                Agendar cita
-              </div>
-            </li>
+          <Link
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
+            href="/dashboard/agendar/datos"
+          >
+            <Image className="col-span-2" src={calendar} alt="icon" />
+            <li className="col-span-10">Agendar cita</li>
           </Link>
 
-          <Link className="col-span-12" href="/dashboard/historial/consultas">
-            <li className="   hover:bg-stone-800 h-20 grid place-content-center">
-              <div className="flex gap-2">
-                <Image src={history} alt="icon" />
-                Historial de consultas
-              </div>
-            </li>
+          <Link
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800 "
+            href="/dashboard/historial/consultas"
+          >
+            <Image className="col-span-2" src={history} alt="icon" />
+            <li className="col-span-10">Historial de consultas</li>
           </Link>
 
-          <Link className="col-span-12" href="/dashboard/compras">
-            <li className="  hover:bg-stone-800 h-20 grid place-content-center">
-              <div className="flex gap-2">
-                <Image src={history} alt="icon" />
-                Historial compras
-              </div>
-            </li>
+          <Link
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
+            href="/dashboard/compras"
+          >
+            <Image className="col-span-2" src={history} alt="icon" />
+            <li className="col-span-10">Historial compras</li>
           </Link>
 
-          <Link className="col-span-12" href="/dashboard/perfil">
-            <li className="   hover:bg-stone-800 h-20 grid place-content-center">
-              <div className="flex gap-2">
-                <Image src={perfil} alt="icon" />
-                Perfil
-              </div>
-            </li>
+          <Link
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
+            href="/dashboard/perfil"
+          >
+            <Image className="col-span-2" src={perfil} alt="icon" />
+            <li className="col-span-10">Perfil</li>
           </Link>
 
           <button
-            className="col-span-12"
- 
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
             onClick={(e) => {
               signOut();
               router.push("/login");
             }}
           >
-            <li className="   hover:bg-stone-800 h-20 grid place-content-center">
-              <div className="flex gap-2">
-                <Image src={logout} alt="icon" />
-                Cerrar Sesion
-              </div>
-            </li>
+            <Image className="col-span-2" src={logout} alt="icon" />
+            <li className="col-span-10">Cerrar Sesion</li>
           </button>
         </ul>
       </nav>

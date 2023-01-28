@@ -41,9 +41,9 @@ export default function Remote() {
                   problemas en su negocio. Podrá agendar servicios, llevar un
                   historial de consultas y realizar adquisiciones de manera más
                   fácil y rápida.{" "}
-                  <Link className="text-slate-800" href="#header">
+                  <Link className="text-green-800 font-bold my-3" href="/registro">
                     {" "}
-                    Registro
+                    Registrarse aqui.
                   </Link>
                 </p>
               </div>

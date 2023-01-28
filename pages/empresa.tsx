@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function empresa() {
   return (
     <Layout>
-      <section className="text-white body-font">
+      <section className="text-white bg-black/50">
         <div className="container px-5 py-36 mx-auto">
           <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center ">
             <Link href="/">

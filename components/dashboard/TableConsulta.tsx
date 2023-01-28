@@ -35,17 +35,16 @@ export default function TableConsulta() {
         </div>
       ) : (
         <table className="w-full text-xs">
-          <thead className="rounded-t-lg bg-stone-700 ">
+          <thead className="rounded-t-lg bg-stone-600 ">
             <tr className="text-center text-white">
               <th title="ID" className="p-3 border ">
                 #
               </th>
-              <th title="Motivo" className="p-3 border"></th>
               <th title="Motivo Consulta" className="p-3 border">
                 Motivo Consulta
               </th>
               <th title="fecha Cita" className="p-3 border">
-                fecha Cita
+                Fecha Cita
               </th>
               <th title="Costo Consulta" className="p-3 border">
                 Costo Consulta
@@ -63,9 +62,11 @@ export default function TableConsulta() {
                 className="border-b border-opacity-20 border-gray-300 bg-gray-100 text-center"
               >
                 <td className="px-3 py-2 ">{index + 1} </td>
-                <td className="px-3 py-2 ">{consulta.equipo} </td>
+                     
                 <td className="px-3 py-2 ">{consulta.motivo}</td>
-                <td className="px-3 py-2">{consulta.fechaAgendamiento}</td>
+                <td className="px-3 py-2">{consulta.fechaAgendamiento.length > 0 ? consulta.fechaAgendamiento
+                : <span className="text-red-500">Consulta de Emergencia</span>
+                }</td>
                 <td className="px-3 py-2 text-green-800">
                   {consulta.costoConsulta.length > 1 && "$"}{" "}
                   {consulta.costoConsulta}

@@ -58,7 +58,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
     <>
       <select
         required
-        className="w-full text-md h-8 mb-5"
+        className="w-full text-md h-8 mb-5 border-b"
         value={dataForm.motivoConsulta}
         onChange={(e) =>
           setDataForm({
@@ -82,7 +82,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
             type="number"
             placeholder="Ingrese cantidad de equipos"
             value={dataForm.cantidad}
-            className="w-full h-8 border outline-slate-400  mb-5 p-2"
+            className="w-full h-8 border-b outline-slate-400  mb-5 p-2"
             onChange={(e) =>
               setDataForm({
                 ...dataForm,
@@ -99,7 +99,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
         <select
           required
           value={dataForm.problem}
-          className="w-full h-8  mb-5"
+          className="w-full h-8  mb-5 border-b"
           onChange={(e) =>
             setDataForm({
               ...dataForm,
@@ -119,7 +119,7 @@ export default function SelectsForm({ dataForm, setDataForm }: any) {
       )}
       <select
         required
-        className="w-full text-md h-8 mb-5"
+        className="w-full text-md h-8 mb-5 border-b"
         value={dataForm.tipoAgendamiento}
         onChange={(e) =>
           setDataForm({

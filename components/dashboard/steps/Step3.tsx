@@ -30,7 +30,7 @@ export default function Step3() {
                 metodo: e.target.value,
               })
             }
-            className="p-2"
+            className="p-2 border-b"
           >
             <option value="nequi">Nequi</option>
             <option value="bancolombia">Bancolombia</option>

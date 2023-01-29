@@ -5,9 +5,8 @@ import menu from "public/Menu.png";
 import logo from "public/Logo.png";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import profile from 'public/profile.jpg'
+import profile from "public/profile.jpg";
 import { signOut } from "next-auth/react";
-
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
@@ -23,11 +22,12 @@ export default function NavBar() {
   };
 
   return (
-    
     <nav className=" z-50 fixed w-full top-0 flex text-stone-800 bg-white justify-between bg-trnsparent shadow-sm md:text-md">
       <div className="grid place-content-center ml-6 text-lg">
         <Link href="/">
-          <h1  className=" uppercase font-bold text-2xl transition duration-700 hover:text-green-800 ">Scopes</h1>
+          <h1 className=" uppercase font-bold text-2xl transition duration-700 hover:text-green-800 ">
+            Scopes
+          </h1>
         </Link>
       </div>
       <div className="hidden md:block">
@@ -52,26 +52,38 @@ export default function NavBar() {
             <Link
               onClick={activeDropdown}
               className=" text-slate-800"
-              href={ session?.user ? "#!" : "/login"}
-            >     
-              {session?.user ? <Image className="rounded-full" src={ session?.user?.image! || profile } width={32} height={32} alt='foto'/> : "Iniciar Sesión"}
+              href={session?.user ? "#!" : "/login"}
+            >
+              {session?.user ? (
+                <Image
+                  className="rounded-full"
+                  src={session?.user?.image! || profile}
+                  width={32}
+                  height={32}
+                  alt="foto"
+                />
+              ) : (
+                "Iniciar Sesión"
+              )}
             </Link>
-            {session?.user && dropdown===true && (
-              <ul  className="fixed bg-white rounded-md p-5 mt- right-10 shadow-xl">
+            {session?.user && dropdown === true && (
+              <ul className="fixed bg-white rounded-md p-5 mt- right-10 shadow-xl">
                 <li className="py-2">
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                  <button onClick={(e)=>{
-                    signOut()
-                    router.push('/login')
-                  }}>Cerrar Sesión</button>
+                  <button
+                    onClick={(e) => {
+                      signOut();
+                      router.push("/login");
+                    }}
+                  >
+                    Cerrar Sesión
+                  </button>
                 </li>
-   
               </ul>
             )}
           </li>
-   
         </ul>
       </div>
       <div className="block w-14 md:hidden p-3">
@@ -103,18 +115,34 @@ export default function NavBar() {
               className=" text-slate-800"
               href={session?.user ? "#!" : "/login"}
             >
-              {session?.user ? <div className="flex justify-center"><Image className="rounded-full" src={session?.user?.image! || profile} width={32} height={32} alt='foto'/></div>: "Iniciar Sesión"}
+              {session?.user ? (
+                <div className="flex justify-center">
+                  <Image
+                    className="rounded-full"
+                    src={session?.user?.image! || profile}
+                    width={32}
+                    height={32}
+                    alt="foto"
+                  />
+                </div>
+              ) : (
+                "Iniciar Sesión"
+              )}
             </Link>
-            {session?.user && dropdown===true && (
+            {session?.user && dropdown === true && (
               <ul className="fixed bg-white rounded-md p-5 shadow-xl  ">
                 <li>
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li className="text-red-500">
-                <button onClick={(e)=>{
-                    signOut()
-                    router.push('/login')
-                  }}>Cerrar Sesión</button>
+                  <button
+                    onClick={(e) => {
+                      signOut();
+                      router.push("/login");
+                    }}
+                  >
+                    Cerrar Sesión
+                  </button>
                 </li>
                 <li>
                   <Link href="/dashboard"></Link>
@@ -127,4 +155,3 @@ export default function NavBar() {
     </nav>
   );
 }
-

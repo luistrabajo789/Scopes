@@ -15,7 +15,7 @@ export default function Step3() {
 
   return (
     <div className="grid grid-cols-12 bg-white text-gray-700 text-sm">
-      <div className="col-span-5 p-3 border-r">
+      <div className="col-span-12 lg:col-span-5 p-3 border-r">
         <h1 className=" text-lg text-center font-semibold my-5">Validar solicitud</h1>
         <p className="">
           Para validar su solicitud o agendamiento realicé la cancelación total de la
@@ -43,7 +43,7 @@ export default function Step3() {
           descartada.
         </p>
       </div>
-      <div className="col-span-7 py-5 flex flex-wrap items-center  justify-center">
+      <div className="col-span-12 lg:col-span-7 py-5 flex flex-wrap items-center  justify-center">
         {valueSelect.metodo === "bancolombia" ? (
           <>
             <div className="relative p-3">

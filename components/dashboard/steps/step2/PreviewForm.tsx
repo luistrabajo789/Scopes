@@ -148,7 +148,7 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
                 )}
             </p>
           </div>
-          <div className="col-span-5 border-b flex gap-3 mb-3">
+          <div className="col-span-12 md:col-span-5 border-b flex gap-3 mb-3">
             <span className="font-semibold">Estimado: </span>
             <p className=" ">{tiempoEstimado}</p>
           </div>

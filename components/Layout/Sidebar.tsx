@@ -13,13 +13,16 @@ export default function Sidebar({ children }: LayoutProps) {
   const router = useRouter();
   function openNav() {
     const mySidebar = document.getElementById("mySidebar");
+    const btnSideBar = document.getElementById("btnSideBar");
     mySidebar?.classList.toggle("hidden");
     mySidebar?.classList.toggle("block");
+    btnSideBar?.classList.toggle("hidden");
+    btnSideBar?.classList.toggle("block");
   }
 
   return (
-    <aside className="flex ">
-      <nav id="mySidebar" className="h-screen text-white w-72 pt-12  block">
+    <aside className="flex">
+      <nav id="mySidebar" className="h-screen text-white w-72 pt-12 hidden">
         <ul
           id="ulSidenav"
           className="grid grid-cols-12 place-content-center py-20  text-center "
@@ -72,9 +75,9 @@ export default function Sidebar({ children }: LayoutProps) {
       <div
         id="btnSideBar"
         onClick={openNav}
-        className="w-7 text-white right-0 h-screen grid place-content-center border-l border-stone-500"
+        className="w-7 text-white right-0 h-screen grid place-content-center border-l border-stone-500 hidden lg:block"
       >
-        ||
+        <p className="text-white">||</p>
       </div>
 
       <div

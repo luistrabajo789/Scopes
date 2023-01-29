@@ -51,11 +51,11 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
   }, [dataForm.problem]);
 
   return (
-    <div className="px-10 pt-5 flex flex-col gap-2 bg-white">
+    <div className="px-3 pt-5 flex flex-col gap-2 bg-white">
       {/*Row Name and phone*/}
       <div className="grid grid-cols-12 border-b mb-3 border-gray-300  ">
         <div className="col-span-12 md:col-span-7   flex gap-2">
-          <span className="font-semibold ">Cliente: </span>
+          <span className="font-semibold mb-3">Cliente: </span>
           <p className="text-green-800">{dataForm.nombre}</p>
         </div>
         <div className="col-span-12 md:col-span-5   flex gap-2">
@@ -70,12 +70,12 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
           className={
             dataForm.motivoConsulta === "Soporte remoto para un solo equipo" ||
             dataForm.motivoConsulta === "Soporte remoto para varios equipos"
-              ? "col-span-12 md:col-span-8 flex gap-2"
-              : "col-span-12 md:col-span-12  flex gap-2"
+              ? "col-span-12 md:col-span-8 flex flex-wrap gap-2"
+              : "col-span-12 md:col-span-12  flex flex-wrap gap-2"
           }
         >
           <span className="font-semibold">Motivo de Consulta: </span>
-          <p className=" ">{dataForm.motivoConsulta}</p>
+          <p className="mb-4">{dataForm.motivoConsulta}</p>
         </div>
         {dataForm.motivoConsulta === "Soporte remoto para un solo equipo" ? (
           <div className="col-span-12 md:col-span-4  flex gap-2">
@@ -101,7 +101,7 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
       {/*Row Problem*/}
       {dataForm.motivoConsulta === "Soporte remoto para un solo equipo" ||
       dataForm.motivoConsulta === "Soporte remoto para varios equipos" ? (
-        <div className="col-span-12 border-b flex gap-3 mb-3 ">
+        <div className="col-span-12 border-b flex flex-wrap gap-3 mb-3 ">
           <span className="font-semibold">Posible Problema: </span>
           <p className=" ">{dataForm.problem}</p>
         </div>
@@ -111,7 +111,7 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
 
       {/*TRow tiempo de Agedamiento*/}
       <div className="grid grid-cols-12 border-b gap-3 mb-3">
-        <div className="col-span-12  lg:col-span-8 flex gap-1">
+        <div className="col-span-12  lg:col-span-8 flex flex-wrap  gap-1">
           {" "}
           <p className="font-semibold">Tipo de Agedamiento: </p>
           <p
@@ -138,7 +138,7 @@ export default function PreviewForm({ dataForm, setDataForm }: any) {
       {dataForm.motivoConsulta === "Soporte remoto para un solo equipo" ||
       dataForm.motivoConsulta === "Soporte remoto para varios equipos" ? (
         <div className="grid grid-cols-12 ">
-          <div className="col-span-7 border-b flex gap-3 mb-3">
+          <div className="col-span-7 border-b flex flex-wrap  gap-3 mb-3">
             <span className="font-semibold">Costo estimado:</span>
             <p className=" text-green-800">
               ${dataForm.costoConsulta}  

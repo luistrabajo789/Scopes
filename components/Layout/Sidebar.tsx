@@ -75,9 +75,9 @@ export default function Sidebar({ children }: LayoutProps) {
       <div
         id="btnSideBar"
         onClick={openNav}
-        className="w-7 text-white right-0 h-screen grid place-content-center border-l border-stone-500 hidden lg:block"
+        className="w-7 text-white text-center right-0 h-screen  border-l border-stone-500 hidden lg:block"
       >
-        <p className="text-white">||</p>
+        <p className="text-white" style={{ lineHeight: "calc(100vh - px)" }}>||</p>
       </div>
 
       <div

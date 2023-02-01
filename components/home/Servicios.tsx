@@ -50,9 +50,9 @@ const services = [
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="py-32 bg-black/10 text-white text-sm">
+    <section id="servicios" className="py-32 bg-black/10 text-gray-700 text-sm">
       <div className="container px-5 mx-auto">
-        <div className="text-center">
+        <div className="text-center text-white">
           <h1 className="text-3xl  font-bold mb-2   ">
             Nuestros Servicios
           </h1>
@@ -64,7 +64,7 @@ export default function Servicios() {
           {services.map((service, index) => (
       
             <Link href='/registro' key={index} className="col-span-12 md:col-span-6 lg:col-span-4">
-              <div className=" bg-black/50 h-80 flex flex-col justify-center text-center px-5 shadow-md ">
+              <div className=" bg-white/90 h-80 flex flex-col justify-center text-center px-5 shadow-lg shadow-stone-600">
                <div className="grid place-content-center"> <Image className="object-cover"  src={service.icon} alt={service.title} /></div>
                 <h2 className="text-lg    font-bold title-font my-4">
                   {service.title}

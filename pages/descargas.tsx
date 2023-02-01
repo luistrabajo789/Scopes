@@ -1,7 +1,4 @@
-
 import Layout from "components/Layout/Layout";
-
- 
 
 export type ObjectCardDownload = {
   id: any;
@@ -65,21 +62,18 @@ const dataPageDownload: ObjectCardDownload[] = [
 ];
 
 export default function Descargas() {
-
-  
-
   return (
     <Layout>
-      <section className="text-gray-600 body-font">
+      <section className="text-gray-700 body-font">
         <div className="container px-5 py-32 mx-auto">
           <div className="grid grid-cols-12 gap-3">
             {dataPageDownload.map((e) => (
               <div
-                className="col-span-12 sm:col-span-6 lg:col-span-3 bg-white h-60 text-center gap-5 "
+                className="col-span-12 sm:col-span-6 lg:col-span-3 shadow-lg shadow-stone-600 h-60 text-center gap-5 grid place-content-center"
                 key={e.id}
                 style={{ background: `url(${e.logo})` }}
               >
-                <div className="bg-black/50 h-full flex flex-col justify-items-center justify-center text-white">
+                <div className="">
                   <h1 className="font-bold text-xl">{e.titleCard}</h1>
                   <p>{e.descriptionCard}</p>
                 </div>
@@ -87,7 +81,6 @@ export default function Descargas() {
             ))}
           </div>
         </div>
-
       </section>
     </Layout>
   );

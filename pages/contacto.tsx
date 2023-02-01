@@ -69,7 +69,7 @@ export default function Contacto() {
           </div>
           <form
             onSubmit={handleSubmit}
-            className="col-span-12 lg:col-span-4 text-gray-700 bg-white p-5 rounded-md"
+            className="col-span-12 lg:col-span-4 shadow-lg shadow-stone-600 text-gray-700 bg-white p-5 rounded-md"
           >
             <h2 className=" text-lg text-center mb-1 font-medium title-font">
               ¿Tienes alguna pregunta?
@@ -115,11 +115,13 @@ export default function Contacto() {
                 className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none  py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
-            <button className="btn-primary">Enviar</button>
-            <p className="text-xs text-gray-500 mt-3">
+<div className="grid place-content-center">
+<button className="btn-primary">Enviar</button>
+            <p className="text-xs text-center text-gray-500 mt-3">
               Chicharrones blog helvetica normcore iceland tousled brook viral
               artisan.
             </p>
+</div>
           </form>
      
       </section>

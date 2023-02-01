@@ -4,9 +4,11 @@ import nequi from "public/logos/nequi.png";
 import bancolombia from "public/logos/bancolombia.png";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Step3() {
-  const [valueSelect, setValueSelect] = useState({ metodo: "" });
+  const [valueSelect, setValueSelect] = useState({ metodo: "" })
+  const {push}=useRouter()
 
 
   useEffect(() => {
@@ -109,12 +111,12 @@ export default function Step3() {
         )}
       </div>
       <div className="bg-white col-span-12 p-5 flex justify-end ">
-        <Link
-          href="/dashboard/historial/consultas"
+        <button
+          onClick={()=>push('/dashboard/historial/consultas')}
           className="btn-primary  px-7 py-3"
         >
           Ver historial de solicitudes
-        </Link>
+        </button>
       </div>
     </div>
   );

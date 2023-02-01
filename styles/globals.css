@@ -7,24 +7,38 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1 rem;
-  background-image: url('../public/bg2.jpg');
-
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.616) 0%, rgba(255, 255, 255, 0) 72%, rgba(254,254,254,0) 100%),url('../public/Bg1.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
+
+.text-primary{
+@apply text-zinc-700
+}
+.text-secondary{
+ @apply text-zinc-500
+}
+.text-tertiary{
+  @apply text-zinc-600
+}
+
+
+
+
 .x-responsive{
   @apply  px-7 lg:px-10 xl:px-14
 }
 
 .btn-primary {
-  @apply inline-flex items-center bg-stone-800 justify-center max-w-md h-12 px-6 font-medium tracking-wide text-white transition duration-700 rounded-md shadow-md  hover:bg-green-900 focus:outline-none;
+  @apply inline-flex items-center bg-zinc-700 justify-center max-w-md h-12 px-6 font-medium tracking-wide text-white transition duration-700 rounded-md shadow-md  hover:bg-green-900 focus:outline-none;
 }
 a{
-  @apply transition duration-700 hover:text-stone-300
+  @apply transition duration-700 hover:text-gray-800
 }
 nav a{
-  @apply transition duration-300 hover:text-green-700
+  @apply transition duration-300 hover:text-gray-900
 }
+
 
 .inDown{
   animation: fadeInDown;

@@ -46,7 +46,7 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-white rounded-md shadow-lg shadow-stone-600 p-5 lg:p-7 text-stone-800">
+    <div className="bg-white shadow-lg shadow-stone-600 p-5 lg:p-7 text-stone-800">
       <h3 className="mb-4 text-lg  sm:text-center sm:mb-6 sm:text-2xl">
         Registrarse
       </h3>
@@ -115,7 +115,7 @@ export default function Register() {
             <span className="text-red-500 text-xs">Campo Obligatorio</span>
           )}
         </div>
-        <div className="mt-7 grid place-content-center">
+        <div className="mt-7 grid ">
           <button type="submit" className="btn-primary">
             {loading === true ? "Registrando..." : "Registrarse"}
           </button>

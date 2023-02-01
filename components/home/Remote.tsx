@@ -3,8 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import bg3 from "public/bgHeader.jpeg";
+import { useRouter } from "next/router";
 
 export default function Remote() {
+  const { push } = useRouter();
   return (
     <section className="text-gray-700 body-font text-sm bg-white ">
       <h1 className="sm:text-3xl text-2xl text-stone-800 font-semibold Link  text-center">
@@ -41,7 +43,10 @@ export default function Remote() {
                   problemas en su negocio. Podrá agendar servicios, llevar un
                   historial de consultas y realizar adquisiciones de manera más
                   fácil y rápida.{" "}
-                  <Link className="text-green-800 font-bold my-3" href="/registro">
+                  <Link
+                    className="text-green-800 font-bold my-3"
+                    href="/registro"
+                  >
                     {" "}
                     Registrarse aqui.
                   </Link>
@@ -71,8 +76,8 @@ export default function Remote() {
                 </h2>
                 <p className="leading-relaxed">
                   Una vez registrado, se te llevará a un formulario donde se
-                  presentan los problemas y solicitudes más comunes,
-                  con la opción de seleccionar aquel que sea relevante para usted.
+                  presentan los problemas y solicitudes más comunes, con la
+                  opción de seleccionar aquel que sea relevante para usted.
                 </p>
               </div>
             </div>
@@ -135,9 +140,10 @@ export default function Remote() {
                   PASO 4: CONTACTO
                 </h2>
                 <p className="leading-relaxed">
-                  Una vez validada su solicitud, el dia de la cita uno de nuestros técnicos o
-                  asesores se pondrá en contacto y para indentificar el
-                  problema para brindarle la mejor solucion posible.
+                  Una vez validada su solicitud, el dia de la cita uno de
+                  nuestros técnicos o asesores se pondrá en contacto y para
+                  indentificar el problema para brindarle la mejor solucion
+                  posible.
                 </p>
               </div>
             </div>
@@ -161,11 +167,16 @@ export default function Remote() {
                   PASO 5: SEGUIMIENTO Y REGISTRO
                 </h2>
                 <p className="leading-relaxed">
-                Llevaremos un registro detallado de la resolución del problema y seguiremos trabajando contigo para asegurarnos de que tu negocio está funcionando al máximo y cumpliendo tus necesidades y requerimientos. Esta bitácora estará disponible en tu cuenta para que puedas acceder a ella en cualquier momento.
+                  Llevaremos un registro detallado de la resolución del problema
+                  y seguiremos trabajando contigo para asegurarnos de que tu
+                  negocio está funcionando al máximo y cumpliendo tus
+                  necesidades y requerimientos. Esta bitácora estará disponible
+                  en tu cuenta para que puedas acceder a ella en cualquier
+                  momento.
                 </p>
-                <Link  className="btn-primary my-4" href="#header">
+                <button onClick={()=>push('#header')} className="btn-primary my-4" >
                   Registrarse ahora
-                </Link>
+                </button>
               </div>
             </div>
           </div>

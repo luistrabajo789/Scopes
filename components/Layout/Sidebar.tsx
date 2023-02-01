@@ -22,13 +22,13 @@ export default function Sidebar({ children }: LayoutProps) {
 
   return (
     <aside className="flex">
-      <nav id="mySidebar" className="h-screen text-white w-72 pt-12 hidden">
+      <nav id="mySidebar" className="h-screen text-gray-700 bg-white w-72 pt-12 hidden">
         <ul
           id="ulSidenav"
           className="grid grid-cols-12 place-content-center py-20  text-center "
         >
           <Link
-            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-gray-200"
             href="/dashboard/agendar/datos"
           >
             <Image className="col-span-2" src={calendar} alt="icon" />
@@ -36,15 +36,15 @@ export default function Sidebar({ children }: LayoutProps) {
           </Link>
 
           <Link
-            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800 "
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-gray-200 "
             href="/dashboard/historial/consultas"
           >
             <Image className="col-span-2" src={history} alt="icon" />
-            <li className="col-span-10">Historial de consultas</li>
+            <li className="col-span-10">Historial consultas</li>
           </Link>
 
           <Link
-            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-gray-200"
             href="/dashboard/compras"
           >
             <Image className="col-span-2" src={history} alt="icon" />
@@ -52,7 +52,7 @@ export default function Sidebar({ children }: LayoutProps) {
           </Link>
 
           <Link
-            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-gray-200"
             href="/dashboard/perfil"
           >
             <Image className="col-span-2" src={perfil} alt="icon" />
@@ -60,14 +60,14 @@ export default function Sidebar({ children }: LayoutProps) {
           </Link>
 
           <button
-            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-stone-800"
+            className="col-span-12 h-20 grid grid-cols-12 px-5 place-content-center hover:bg-gray-200"
             onClick={(e) => {
               signOut();
               router.push("/login");
             }}
           >
             <Image className="col-span-2" src={logout} alt="icon" />
-            <li className="col-span-10">Cerrar Sesion</li>
+            <li className="col-span-10 hover:text-red-500">Cerrar Sesion</li>
           </button>
         </ul>
       </nav>
@@ -75,14 +75,14 @@ export default function Sidebar({ children }: LayoutProps) {
       <div
         id="btnSideBar"
         onClick={openNav}
-        className="w-7 text-white text-center  right-0 h-screen  border-l border-stone-500 hidden lg:block"
+        className="w-7 text-gray-700 text-center bg-white right-0 h-screen  border-l border-gray-200 hidden lg:block"
       >
-        <p className="text-white" style={{ lineHeight: "calc(100vh - 0px)" }}>||</p>
+        <p className="" style={{ lineHeight: "calc(100vh - 0px)" }}>||</p>
       </div>
 
       <div
         id="main"
-        className="h-screen w-full pt-20  lg:px-7 bg-white/90 overflow-y-auto"
+        className="h-screen w-full pt-20  lg:px-7 bg-white/10 overflow-y-auto"
       >
         <div className="w-full  flex justify-center p-2  sm:p-5 md:p-6">
           {children}

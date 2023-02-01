@@ -67,11 +67,11 @@ export default function NavBar() {
               )}
             </Link>
             {session?.user && dropdown === true && (
-              <ul className="fixed bg-white rounded-md p-5 mt- right-10 shadow-xl">
-                <li className="py-2">
+              <ul className="fixed bg-white rounded-md grid place-content-center p-7 gap-3 right-5 shadow-xl">
+                <li className="transition duration-300  hover:border-b">
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
-                <li className="text-red-500">
+                <li className="text-red-500 transition duration-300  hover:border-b">
                   <button
                     onClick={(e) => {
                       signOut();

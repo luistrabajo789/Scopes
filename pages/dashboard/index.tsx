@@ -43,9 +43,9 @@ export default function Index({ session }: any) {
       <Sidebar>
         <div className="mx-auto">
           <div className="flex flex-wrap w-full mb-10 flex-col items-center text-center">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-700">
+            <h1 className="sm:text-3xl text-2xl font-semibold  title-font mb-2 text-gray-700">
               Bienvenido{" "}
-              <span className="first-letter:uppercase text-green-800 font-semibold">{session?.user?.name}</span>
+              <span className="first-letter:uppercase font-semibold">{session?.user?.name}</span>
             </h1>
             <p className="lg:w-1/2 w-full leading-relaxed ">
             ¿Que deseas hacer hoy?

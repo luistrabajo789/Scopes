@@ -9,7 +9,7 @@ export default function Header() {
   const { data: session, status } = useSession();
 
   return (
-    <section id="header" className="text-white bg-black/10">
+    <section id="header" className="text-white">
       <div className="relative h-screen ">
         <svg
           className="absolute inset-x-0 bottom-0 text-white"
@@ -21,26 +21,22 @@ export default function Header() {
           />
         </svg>
 
-        <div className="x-responsive relative grid grid-cols-12 m-auto pt-36 bg-black/15 sm:bg-transparent    ">
+        <div className="x-responsive relative grid grid-cols-12 m-auto pt-32 bg-black/15 sm:bg-transparent    ">
           {/* Titles */}
           <div className="lg:col-span-8 col-span-12 inLeft text-center lg:text-left  w-full lg:mt-14">
-            <h1 className="text-white uppercase font-bold mb-4 text-xl">
+            <h1 className="text-secondary  uppercase font-bold mb-4 text-xl">
               Scopes
             </h1>
-            <h2 className="mb-6 font-sans text-white text-2xl md:text-4xl font-bold tracking-tight">
+            <h2 className="mb-6 font-sans text-primary text-2xl md:text-4xl font-bold tracking-tight">
               Soluciones Tecnológicas
             </h2>
-            <p className=" mb-4  md:text-xl lg:pr-20">
-              Llevamos tu negocio al siguiente nivel con nuestras soluciones
-              tecnológicas innovadoras. Desde la creación de sitios web hasta la
-              reparación de equipos de computo, brindamos servicios
-              personalizados para mejorar la eficiencia y el rendimiento de tu
-              negocio.
+            <p className=" mb-4 text-primary md:text-xl lg:pr-20">
+            Llevamos tu negocio al siguiente nivel con soluciones tecnológicas innovadoras y servicios personalizados. Mejoramos la eficiencia y rendimiento de tu empresa desde el diseño de sitios web hasta la adquisición de hardware.
             </p>
             <Link
               href="#servicios"
               aria-label=""
-              className="inline-flex text-xl text-white py-5  items-center font-semibold tracking-wider transition-colors duration-200 "
+              className="inline-flex text-xl text-tertiary py-5  items-center font-semibold tracking-wider transition-colors duration-200 "
             >
               Conocer más
               <svg

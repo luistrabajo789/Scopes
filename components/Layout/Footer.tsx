@@ -13,7 +13,7 @@ export default function Footer() {
       {asPath.includes(`/dashboard`) ? (
         <div></div>
       ) : (
-        <footer className="text-white body-font bg-black/50 ">
+        <footer className="text-gray-700 body-font bg-white ">
           <div className="container px-5 py-5 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
             <div className="grid place-content-center text-center">
               <Link href="#header" className="text-2xl font-bold">

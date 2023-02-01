@@ -10,11 +10,11 @@ import { unstable_getServerSession } from "next-auth";
 export default function registro() {
   return (
     <Layout>
-      <section id="registro" className="  px-7 sm:px-14 md:px-20 py-32 text-white  ">
-        <div className="grid grid-cols-12  bg-black/50">
+      <section id="registro" className="px-7 sm:px-14 md:px-20 py-28 text-white  ">
+        <div className="grid grid-cols-12 shadow-lg shadow-stone-600 bg-gray-700/75">
           {/* Titles */}
           <div className="grid place-content-center p-7 lg:px-10 col-span-12  lg:col-span-7">
-            <h1 className="text-center  font-medium text-2xl mb-4 lg:mb-10 text-white">
+            <h1 className="text-center  font-medium text-2xl mb-4 lg:mb-10">
               ¿Que beneficios tiene el registro?
             </h1>
             <li className="leading-relaxed mb-4 ">

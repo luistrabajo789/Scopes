@@ -28,7 +28,7 @@ export default function Contacto() {
 
   return (
     <Layout>
-      <section className=" px-5 py-32 grid grid-cols-12 gap-5">
+      <section className=" px-5 py-28 grid grid-cols-12 gap-5">
        
           <div className="col-span-12 lg:col-span-8 h-full">
             <div className="grid">

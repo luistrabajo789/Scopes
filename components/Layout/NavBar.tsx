@@ -67,7 +67,7 @@ export default function NavBar() {
               )}
             </Link>
             {session?.user && dropdown === true && (
-              <ul className="fixed bg-white rounded-md grid place-content-center p-7 gap-3 right-5 shadow-xl">
+              <ul className="fixed bg-white rounded-md grid place-content-center px-10 py-5 gap-3 right-5 shadow-xl">
                 <li className="transition duration-300  hover:border-b">
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
@@ -93,6 +93,15 @@ export default function NavBar() {
       </div>
       {isActive === true && (
         <ul className="transition duration-700 fixed bg-white font-medium z-10 flex flex-col justify-between top-14 md:hidden shadow-lg w-full h-96  text-center gap-3 py-10">
+          <li>
+            <Link href="/dashboard/agendar/datos">Agendar</Link>
+          </li>
+          <li>
+            <Link href="/dashboard/historial/consultas">Consultas</Link>
+          </li>
+          <li>
+            <Link href="/dashboard/historial/perfil">Perfil</Link>
+          </li>
           <li className="">
             <Link href="/descargas">Descargas</Link>
           </li>
@@ -109,6 +118,7 @@ export default function NavBar() {
           <li>
             <Link href="/contacto">Contacto</Link>
           </li>
+
           <li>
             <Link
               onClick={activeDropdown}
@@ -120,8 +130,8 @@ export default function NavBar() {
                   <Image
                     className="rounded-full"
                     src={session?.user?.image! || profile}
-                    width={32}
-                    height={32}
+                    width={42}
+                    height={42}
                     alt="foto"
                   />
                 </div>

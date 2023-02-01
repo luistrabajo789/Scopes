@@ -50,7 +50,7 @@ const services = [
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="py-32 bg-black/10 text-gray-700 text-sm">
+    <section id="servicios" className="py-28 bg-black/10 text-gray-700 text-sm">
       <div className="container px-5 mx-auto">
         <div className="text-center text-white">
           <h1 className="text-3xl  font-bold mb-2   ">

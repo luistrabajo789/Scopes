@@ -65,7 +65,7 @@ export default function Descargas() {
   return (
     <Layout>
       <section className="text-gray-700 body-font">
-        <div className="container px-5 py-32 mx-auto">
+        <div className="container px-5 py-28 mx-auto">
           <div className="grid grid-cols-12 gap-3">
             {dataPageDownload.map((e) => (
               <div

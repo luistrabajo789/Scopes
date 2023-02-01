@@ -35,7 +35,7 @@ export default function Login() {
   return (
     <Layout>
       <section className="text-gray-700 relative">
-        <div className="container px-5 py-36 md:w-1/2 lg:w-1/3 m-auto ">
+        <div className="container px-5 py-28 md:w-1/2 lg:w-1/3 m-auto ">
           <div className="bg-white  rounded-md shadow-lg shadow-stone-600 p-5 sm:px-8 sm:py-12">
             <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
               Iniciar Sesion
@@ -103,7 +103,8 @@ export default function Login() {
                   </span>
                 </div> */}
               </div>
-              <div className="mt-7 flex justify-center gap-3">¿Aun no tienes cuenta?
+              <div className="mt-7 grid place-content-center gap-3">
+                <p>¿Aun no tienes cuenta?</p>
                 <Link href='/registro' className="text-green-500 text-center">Registrate aqui</Link>
               </div>
               <div>
